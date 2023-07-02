@@ -1,10 +1,16 @@
 import React, { createContext } from 'react'
-import second from 'fire'
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-const AuthProvider = () => {
+const AuthProvider = ({children}) => {
+
+  const userInfo ={
+
+  }
+
   return (
-    <div>AuthProvider</div>
+    <AuthContext.Provider value={userInfo}  >
+        {children}
+    </AuthContext.Provider>
   )
 }
 
