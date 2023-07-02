@@ -12,9 +12,6 @@ const Login = () => {
         console.log(data)
     };
   
-
-
-
   return (
     <div>
         <div className="hero min-h-screen" style={{ backgroundImage: `url(${bgImage})`}}>
