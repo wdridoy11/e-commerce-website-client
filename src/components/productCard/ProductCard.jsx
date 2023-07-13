@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import { Rating } from '@smastrom/react-rating'
-import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom'
+import '@smastrom/react-rating/style.css'
+import { Rating } from '@smastrom/react-rating'
 
 const ProductCard = ({product}) => {
-    const [rating, setRating] = useState(4) // Initial value
-    const {image, phone_name, slug } = product;
-
+    // react reating
+    const [rating, setRating] = useState(4)
+    // product data destructuring
+    const {image, phone_name } = product;
   return (
-    <Link className='hover:shadow-md duration-150'>
+    <Link to={`productDetails`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-sm'>
             <div className='w-full h-48 overflow-hidden'>
                 <img className='w-1/2 mx-auto' src={image} alt={phone_name} />
