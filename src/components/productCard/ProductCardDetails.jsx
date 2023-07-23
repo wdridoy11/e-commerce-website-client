@@ -17,7 +17,7 @@ const ProductCardDetails = () => {
         console.log("Hello Down")
     }
   return (
-    <div className='mt-10 py-20'>
+    <div className='pt-10 pb-20'>
         <div className='container mx-auto px-5'>
             {/* product details page gird start*/}
             <div className='grid grid-cols-5 gap-5'>

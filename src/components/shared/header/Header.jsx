@@ -58,7 +58,8 @@ const Header = () => {
     
   // )
   return(
-    <div className='bg-neutral-100'>
+    <div className='bg-white'>
+    {/* <div className='bg-neutral-100'> */}
       <Container>
         {/* Top header start */}
           <div className='flex items-center justify-between py-3'>
@@ -81,6 +82,7 @@ const Header = () => {
             </div>
           </div>
         {/* Top header end */}
+
         {/* Middle header logo search bar start*/}
         <div>
           <div className='flex items-center justify-between pb-5'>
@@ -96,7 +98,7 @@ const Header = () => {
                   name="search" 
                   id="search"
                   placeholder='Search...'
-                  className='input-bordered w-full lg:w-[500px] outline-none py-2 px-3 m-0'
+                  className='input-bordered w-full lg:w-[500px] outline-none py-2 px-3 m-0 bg-neutral-100'
                   />
                   <button className='bg-[#FF5039] py-3 px-3 text-white'><FaSearch /></button>
               </form>
@@ -112,7 +114,7 @@ const Header = () => {
                 <Link><FaExchangeAlt className='text-xl text-black' /></Link>
               </li>
               <li title='account'>
-                <Link><FaUserCircle className='text-xl text-black' /></Link>
+                <Link to={'/login'}><FaUserCircle className='text-xl text-black' /></Link>
               </li>
             </div>
           </div>

@@ -31,11 +31,7 @@ const routes = createBrowserRouter([
       {
         path:"sign_up",
         element:<Registration></Registration>
-      },
-      {
-        path:"sign_up",
-        element:<Registration></Registration>
-      },
+      }
     ]
   }
 ])

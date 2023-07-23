@@ -53,7 +53,6 @@ const Registration = () => {
                             <p className='text-base font-medium text-white text-center mt-4'>
                                 Already registered? <Link className='text-slate-800' to={`/login`}>Login</Link>
                             </p>
-                            <div className="divider before:bg-white after:bg-white text-white">OR</div>
                             <SocialLogin></SocialLogin>
                         </div>
                         <div>
