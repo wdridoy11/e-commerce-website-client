@@ -7,6 +7,7 @@ import About from '../../pages/about/About';
 import Home from '../../pages/home/home/Home';
 import Registration from '../../pages/registration/Registration';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
+import Order from '../../components/order/Order';
 const routes = createBrowserRouter([
   {
     path:"/",
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
       {
         path:"sign_up",
         element:<Registration></Registration>
+      },
+      {
+        path:"order",
+        element:<Order></Order>
       }
     ]
   }
