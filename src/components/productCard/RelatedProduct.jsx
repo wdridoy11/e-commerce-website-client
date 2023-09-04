@@ -11,9 +11,9 @@ const RelatedProduct = () => {
     // const {image, phone_name } = product;
   return (
     <Link to={`productDetails`} className='hover:shadow-md duration-150'>
-        <div className='bg-white rounded-sm'>
+        <div className='bg-white rounded-sm border rounded-b-md'>
             <div className='w-full h-48 overflow-hidden'>
-                <img className='w-full mx-auto' src={image} alt={phone_name} />
+                <img className='w-full mx-auto rounded-t-md' src={image} alt={phone_name} />
             </div>
             <div className='p-2'>
                 <h4 className='text-sm text-[#212121] font-medium'>{phone_name.length>20? <>{phone_name.slice(0,20)}...</>:phone_name}</h4>

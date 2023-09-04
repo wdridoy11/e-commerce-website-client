@@ -19,11 +19,11 @@ const Header = () => {
           <div className='flex items-center justify-between py-3'>
             <div className='flex'>
               <li className='flex items-center gap-2 text-black font-normal text-base'>
-                <FaPhoneAlt /> <Link to={'tel:017228241640'}>01722824160</Link>
+                <FaPhoneAlt /> <Link to={'tel:017228241640'} className='text-base font-medium'>01722824160</Link>
               </li>
               <div className="divider lg:divider-horizontal"></div> 
               <li className='flex items-center gap-2 text-black font-normal text-base'>
-                <FaEnvelope /><Link to={'tel:017228241640'}>ridoysharif30@gmail.com</Link>
+                <FaEnvelope /><Link to={''} className='text-base font-medium'>ridoysharif30@gmail.com</Link>
               </li>
             </div>
             <div>
