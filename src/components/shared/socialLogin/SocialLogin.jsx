@@ -6,10 +6,22 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const SocialLogin = () => {
 
-  const {createUserUsingGoogle} = useContext(AuthContext)
+  const {createUserUsingGoogle, createUserUsingGithub} = useContext(AuthContext)
   // handle login using google account
   const handleGoogleLogin=()=>{
     createUserUsingGoogle()
+    .then((res)=>{
+      const user = res.user;
+      console.log(user)
+    })
+  .then((err)=>{
+    console.log(err.message)
+  })
+  }
+
+  // handle login using github account
+  const handleGithubLogin=()=>{
+    createUserUsingGithub()
     .then((res)=>{
       const user = res.user;
       console.log(user)
@@ -26,7 +38,7 @@ const SocialLogin = () => {
         </div>
         <div className='text-center'>
             <Link onClick={handleGoogleLogin} className='btn btn-circle text-2xl mr-2'><FaGoogle></FaGoogle></Link>
-            <Link className='btn btn-circle text-2xl'><FaGithub></FaGithub></Link>
+            <Link onClick={handleGithubLogin} className='btn btn-circle text-2xl'><FaGithub></FaGithub></Link>
         </div>
     </div>
   )

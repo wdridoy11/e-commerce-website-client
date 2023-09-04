@@ -1,23 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 import { FaMinus } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import RelatedProduct from './RelatedProduct';
+import { AuthContext } from '../../context/AuthProvider';
 const img =`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`
 const text=`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
+
 const ProductCardDetails = () => {
-    // react reating
+    const {}= useContext(AuthContext)
     const [rating, setRating] = useState(4);
     const [quantity,setQuantity]= useState(1);
 
-    // handleQuantityUp
+    // handle Quantity Up
     const handleQuantityUp=()=>{
-        // console.log(quantity+1)
         setQuantity(quantity+1)
     }
 
-    // handleQuantityUp
+    // handle Quentity Down
     const handleQuentityDown=()=>{
         if(quantity<=1){
             
@@ -69,7 +70,9 @@ const ProductCardDetails = () => {
                             <div className='flex items-center gap-5 mb-5'>
                                 <p className='text-base text-black font-medium'>Quantity</p>
                                 <div className='flex items-center gap-2'>
-                                    <button onClick={handleQuentityDown} className={`${quantity===1 || quantity<1 ? "disabled bg-[#ceced2] cursor-not-allowed":""} bg-[#eff0f5] p-2 rounded-sm`}>
+                                    <button onClick={handleQuentityDown} 
+                                        className={`${quantity === 1 || quantity<1 ? "disabled bg-[#ceced2] cursor-not-allowed":""}
+                                         bg-[#eff0f5] p-2 rounded-sm hover:bg-[#dddee3]`}>
                                         <FaMinus className='text-lg text-black' />
                                     </button>
                                     <input 
@@ -80,7 +83,7 @@ const ProductCardDetails = () => {
                                         min="1" 
                                         className='p-2' 
                                     />
-                                    <button onClick={handleQuantityUp} className='bg-[#eff0f5] p-2 rounded-md'>
+                                    <button onClick={handleQuantityUp} className='bg-[#eff0f5] p-2 rounded-md hover:bg-[#dddee3]'>
                                         <MdAdd className='text-lg text-black' />
                                     </button>
                                 </div>
