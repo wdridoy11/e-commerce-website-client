@@ -9,13 +9,33 @@ const text=`Lorem Ipsum is simply dummy text of the printing and typesetting ind
 const ProductCardDetails = () => {
     // react reating
     const [rating, setRating] = useState(4);
-    // const {} = ;
+    const [quantity,setQuantity]= useState(1);
+
+    // handleQuantityUp
     const handleQuantityUp=()=>{
-        console.log("Hello Incress")
+        // console.log(quantity+1)
+        setQuantity(quantity+1)
     }
+
+    // handleQuantityUp
     const handleQuentityDown=()=>{
-        console.log("Hello Down")
+        if(quantity<=1){
+            
+        }else{
+            setQuantity(quantity-1)
+        }
     }
+
+    // handleAddToCard button
+    const handleAddToCard=()=>{
+        console.log('Hello Add to card')
+    }
+
+    // handleBuyNow button
+    const handleBuyNow=()=>{
+        console.log("Hello HandleBuyNow")
+    }
+
   return (
     <div className='pt-10 pb-20'>
         <div className='container mx-auto px-5'>
@@ -49,12 +69,12 @@ const ProductCardDetails = () => {
                             <div className='flex items-center gap-5 mb-5'>
                                 <p className='text-base text-black font-medium'>Quantity</p>
                                 <div className='flex items-center gap-2'>
-                                    <button onClick={handleQuentityDown} className='bg-[#eff0f5] p-2 rounded-sm'>
+                                    <button onClick={handleQuentityDown} className={`${quantity===1 || quantity<1 ? "disabled bg-[#ceced2] cursor-not-allowed":""} bg-[#eff0f5] p-2 rounded-sm`}>
                                         <FaMinus className='text-lg text-black' />
                                     </button>
                                     <input 
                                         type="number" 
-                                        defaultValue={`1`} 
+                                        value={quantity}
                                         name="quantity" 
                                         id="quantity" 
                                         min="1" 
@@ -67,8 +87,8 @@ const ProductCardDetails = () => {
                             </div>
                             {/* quentity area end */}
                             <div className='w-1/2 grid md:grid-cols-2 gap-2'>
-                                <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm hover:bg-black duration-500'>Buy Now</button>
-                                <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm hover:bg-black duration-500'>Add To Card</button>
+                                <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button>
+                                <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm hover:bg-black duration-500' onClick={handleAddToCard}>Add To Card</button>
                             </div>
                         </div>
                     </div>
