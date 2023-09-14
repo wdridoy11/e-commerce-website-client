@@ -2,6 +2,7 @@ import React from 'react'
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom'
 const image = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`;
+
 const Order = () => {
   return (
     <div>
@@ -20,7 +21,7 @@ const Order = () => {
                             </div>
                             <div className='col-span-2 flex justify-between'>
                                 <p className='text-base font-medium text-black'>Quantity: <span>3</span></p>
-                                <p className='text-2xl font-medium text-black'>$:<span>500</span></p>
+                                <p className='text-2xl font-medium text-black'>$<span>500</span></p>
                             </div>
                             <div className='mx-auto'>
                                 <div className='border p-2 rounded-full cursor-pointer'>

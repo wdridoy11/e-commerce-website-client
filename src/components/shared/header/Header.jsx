@@ -66,7 +66,7 @@ const Header = () => {
                 </div>
               </li>
               <li title='Favorite'>
-                <Link><FaHeart className='text-xl text-black' /></Link>
+                <Link to={`/dashboard/allusers`}><FaHeart className='text-xl text-black' /></Link>
               </li>
               <li title='Compare'>
                 <Link><FaExchangeAlt className='text-xl text-black' /></Link>

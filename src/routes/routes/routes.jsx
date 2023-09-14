@@ -8,6 +8,8 @@ import Home from '../../pages/home/home/Home';
 import Registration from '../../pages/registration/Registration';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import Order from '../../components/order/Order';
+import Dashboard from '../../layout/Dashboard';
+import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 const routes = createBrowserRouter([
   {
     path:"/",
@@ -36,6 +38,16 @@ const routes = createBrowserRouter([
       {
         path:"order",
         element:<Order></Order>
+      }
+    ]
+  },
+  {
+    path:"dashboard",
+    element:<Dashboard />,
+    children:[
+      {
+        path:"allusers",
+        element:<AllUsers />
       }
     ]
   }
