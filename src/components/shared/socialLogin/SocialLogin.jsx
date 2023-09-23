@@ -11,8 +11,19 @@ const SocialLogin = () => {
   const handleGoogleLogin=()=>{
     createUserUsingGoogle()
     .then((res)=>{
-      const user = res.user;
-      console.log(user)
+      const loginUser = res.user;
+      const saveUser = {name:loginUser.displayName, email: loginUser.email }
+      fetch(`http://localhost:5000/users`,{
+        method:"POST",
+        headers:{
+          "content-type":"application/json"
+        },
+        body: JSON.stringify(saveUser)
+      })
+      .then((res)=>res.json())
+      .then((data)=>{
+        console.log(data)
+      })
     })
   .then((err)=>{
     console.log(err.message)
