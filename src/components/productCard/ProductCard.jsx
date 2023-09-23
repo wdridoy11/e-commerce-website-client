@@ -12,7 +12,7 @@ const ProductCard = ({product}) => {
     <Link to={`productDetails`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-sm'>
             <div className='w-full h-48 overflow-hidden'>
-                <img className='w-1/2 mx-auto' src={image} alt={phone_name} />
+                <img className='w-1/2 mx-auto py-5' src={image} alt={phone_name} />
             </div>
             <div className='p-2'>
                 <h4 className='text-sm text-[#212121] font-medium'>{phone_name.length>20? <>{phone_name.slice(0,20)}...</>:phone_name}</h4>
