@@ -4,9 +4,11 @@ import Container from '../container/Container'
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaSearch, FaExchangeAlt,FaCartArrowDown, FaHeart, FaUserCircle } from 'react-icons/fa';
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider';
+import Account from '../account/Account';
 const Header = () => {
     const {user} = useContext(AuthContext);
-    console.log(user)
+
+
   const navMenu=<>
     <li><Link to={``}>Home</Link></li>
     <li><Link to={``}></Link></li>
@@ -73,12 +75,9 @@ const Header = () => {
               <li title='Compare'>
                 <Link><FaExchangeAlt className='text-xl text-black' /></Link>
               </li>
-              <li title='account'>
-                {
-                  user ? <Link><img className='w-8 h-8 object-cover rounded-full' src={user?.photoURL} alt="" /></Link>:
-                  <Link to={'/login'}><FaUserCircle className='text-xl text-black' /></Link>
-                }
-              </li>
+              <div>
+                <Account></Account>
+              </div>
             </div>
           </div>
         </div>
