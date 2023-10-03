@@ -1,25 +1,27 @@
-import React, { useContext, useState } from 'react'
-import '@smastrom/react-rating/style.css'
-import { Rating } from '@smastrom/react-rating'
-import { FaMinus } from 'react-icons/fa';
-import { MdAdd } from 'react-icons/md';
-import RelatedProduct from './RelatedProduct';
-import { AuthContext } from '../../context/AuthProvider';
-import AccountModal from '../Modal/AccountModal';
+import React, {useContext, useState, } from 'react'
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
-
+import { MdAdd } from 'react-icons/md';
+import { FaMinus } from 'react-icons/fa';
+import '@smastrom/react-rating/style.css'
+import RelatedProduct from './RelatedProduct';
+import { Rating } from '@smastrom/react-rating'
+import AddToCardLogin from '../Modal/AddToCardLogin';
+import { AuthContext } from '../../context/AuthProvider';
 
 const img =`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`
 const text=`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
 
 
-
-
 const ProductCardDetails = () => {
+
     const {user}= useContext(AuthContext)
     const [rating, setRating] = useState(4);
     const [quantity,setQuantity]= useState(1);
+
+    // headless ui modal
+    let [isOpen, setIsOpen] = useState(false)
+    const closeModal=()=>setIsOpen(false);
+    const openModal=()=>setIsOpen(true)
 
     // handle Quantity Up
     const handleQuantityUp=()=>{
@@ -46,7 +48,7 @@ const ProductCardDetails = () => {
               timer: 1500
             })
         }else{
-            
+            openModal();
         }
 
     }
@@ -131,6 +133,10 @@ const ProductCardDetails = () => {
             </div>
             {/* product details page gird end*/}
         </div>
+        <AddToCardLogin
+            isOpen={isOpen}
+            closeModal={closeModal}
+        ></AddToCardLogin>
     </div>
   )
 }
