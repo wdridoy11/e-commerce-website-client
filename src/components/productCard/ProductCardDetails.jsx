@@ -1,14 +1,14 @@
-import React, {useContext, useEffect, useState, } from 'react'
+import React, {useContext, useState, } from 'react'
 import Swal from 'sweetalert2';
-import { MdAdd, MdCallMerge } from 'react-icons/md';
+import { MdAdd } from 'react-icons/md';
 import { FaMinus } from 'react-icons/fa';
 import '@smastrom/react-rating/style.css';
 import useCard from '../../hooks/useCard';
 import RelatedProduct from './RelatedProduct';
 import { Rating } from '@smastrom/react-rating'
+import { useLoaderData } from 'react-router-dom';
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
 
 const ProductCardDetails = () => {
 
@@ -17,6 +17,7 @@ const ProductCardDetails = () => {
     const [quantity,setQuantity]= useState(1);
     const [isOpen, setIsOpen] = useState(false);
     const [card,refetch] = useCard();
+
     // data loading form routes
     const productsData = useLoaderData();
     const {brand, category, description, image, imageGallery, phone_name,price ,_id} = productsData;
@@ -27,7 +28,6 @@ const ProductCardDetails = () => {
 
     // handle Quantity Up
     const handleQuantityUp=()=>setQuantity(quantity+1);
-
     // handle Quentity Down
     const handleQuentityDown=()=>{
         if(quantity<=1){
@@ -39,19 +39,19 @@ const ProductCardDetails = () => {
 
     // handleAddToCard button
     const handleAddToCard=()=>{
-
-        const cardMatch = card.find((item)=> item._id == _id);
-        if(cardMatch){
+        // check privous card data id and new data id
+        const cardIdMatch = card.find((item)=> item._id == _id);
+        if(cardIdMatch){
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
                 title: 'Your already added',
                 showConfirmButton: false,
                 timer: 1500
-              })
+            })
         }else{
             if(user && user?.email){
-                const productItem ={productId: _id,email:user?.email, brand, category, description, image, imageGallery, phone_name,price, _id}
+                const productItem ={productId: _id,email:user?.email, quantity, brand, category, description, image, imageGallery, phone_name,price, _id}
                 fetch(`http://localhost:5000/carts`,{
                     method:"POST",
                     headers:{
@@ -77,7 +77,7 @@ const ProductCardDetails = () => {
             }            
         }
     }
-    
+
     // handleBuyNow button
     const handleBuyNow=()=>{
         console.log("Hello HandleBuyNow")

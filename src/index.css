@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* blue button */
+.blue-btn{
+    @apply w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
+    hover:bg-black duration-500
+}

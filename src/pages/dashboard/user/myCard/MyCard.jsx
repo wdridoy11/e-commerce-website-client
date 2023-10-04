@@ -1,14 +1,15 @@
 import React from 'react'
 import Swal from 'sweetalert2';
-import { FaTrash } from 'react-icons/fa';
 import useCard from '../../../../hooks/useCard'
+import { FaTrash, FaUser} from 'react-icons/fa';
+import { BsArrowRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const MyCard = () => {
 
 const [card, refetch] = useCard();
 
 const handleDelete=(item)=>{
-
   Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -45,7 +46,7 @@ const handleDelete=(item)=>{
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
-            <div className="overflow-x-auto">
+            <div className="bg-white pb-5">
               <table className="table w-full">
                 {/* head */}
                 <thead>
@@ -53,8 +54,9 @@ const handleDelete=(item)=>{
                     <th className='capitalize text-base font-medium'>No</th>
                     <th className='capitalize text-base font-medium'>Image</th>
                     <th className='capitalize text-base font-medium'>Info</th>
-                    <th className='capitalize text-base font-medium'>Price</th>
                     <th className='capitalize text-base font-medium'>Quantity</th>
+                    <th className='capitalize text-base font-medium'>Price</th>
+                    <th className='capitalize text-base font-medium'>Total</th>
                     <th className='capitalize text-base font-medium'>Activon</th>
                   </tr>
                 </thead>
@@ -68,10 +70,9 @@ const handleDelete=(item)=>{
                           <p>{product?.phone_name}</p>
                           <p>{product?.brand}</p>
                         </td>
-                        <td>{product?.price}</td>
-                        <td>
-                          
-                        </td>
+                        <td>{product?.quantity}</td>
+                        <td>${product?.price}</td>
+                        <td>${product?.price * product?.quantity}</td>
                         <th>
                             <div>
                                 <button onClick={()=>handleDelete(product)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
@@ -80,6 +81,12 @@ const handleDelete=(item)=>{
                     </tr>)}
                 </tbody>
               </table>
+              <div className='divider'></div>
+              <div className='text-end w-40'>
+                  <Link to={'/dashboard/shopping'} className='blue-btn px-5 mr-10 flex items-center gap-2'>
+                      Place Order<BsArrowRight className='text-xl'></BsArrowRight>
+                  </Link>
+              </div>
             </div>
         </div>
     </>

@@ -13,6 +13,7 @@ import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
+import Shopping from '../../components/shopping/Shopping';
 
 const routes = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const routes = createBrowserRouter([
       {
         path:"my_cart",
         element:<MyCard></MyCard>
+      },
+      {
+        path:"shopping",
+        element:<Shopping></Shopping>
       }
     ]
   }
