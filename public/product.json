@@ -7,8 +7,43 @@
         "description":"",
         "slug": "apple_iphone_13_mini-11104",
         "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+        "imageGallery":[
+
+        ],
         "rating": {
             "rating": 3.9,
+            "count": 120
+        }
+    },
+    {
+        "brand": "Apple ",
+        "category":"Mobile",
+        "price":1400,
+        "phone_name": "iPhone 13 Pro Max",
+        "description":"",
+        "slug": "apple_iphone_13_pro_max-11089",
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",
+        "imageGallery":[
+
+        ],
+        "rating": {
+            "rating": 4.9,
+            "count": 120
+        }
+    },
+    {
+        "brand": "Apple ",
+        "category":"Mobile",
+        "price":1400,
+        "phone_name": "iPhone SE (2020)",
+        "description":"",
+        "slug": "apple_iphone_se_(2020)-10170",
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2020.jpg",
+        "imageGallery":[
+
+        ],
+        "rating": {
+            "rating": 4.9,
             "count": 120
         }
     }

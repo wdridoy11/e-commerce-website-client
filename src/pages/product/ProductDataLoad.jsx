@@ -2,14 +2,22 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 
 const ProductDataLoad = () => {
+    
     const [products,setProducts] = useState([]);
+    // useEffect(()=>{
+    //     fetch(`https://openapi.programming-hero.com/api/phones?search=iphone`)
+    //     .then((res)=>res.json())
+    //     .then((data)=>setProducts(data.data))
+    //     .catch((err)=>console.log(err.message))
+    // },[])
+
     useEffect(()=>{
-        fetch(`https://openapi.programming-hero.com/api/phones?search=iphone`)
+        fetch(`http://localhost:5000/products`)
         .then((res)=>res.json())
-        .then((data)=>setProducts(data.data))
+        .then((data)=>setProducts(data))
         .catch((err)=>console.log(err.message))
     },[])
-    console.log(products)
+
   return (
     <div className='py-20'>
         <div className='container mx-auto px-5'>

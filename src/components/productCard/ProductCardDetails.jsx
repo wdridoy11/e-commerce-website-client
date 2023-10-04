@@ -35,7 +35,9 @@ const ProductCardDetails = () => {
 
     // handleAddToCard button
     const handleAddToCard=()=>{
-        if(user){
+        const cartItem = 
+        console.log(cartItem)
+        if(user && user?.email){
             Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -44,6 +46,7 @@ const ProductCardDetails = () => {
               timer: 1500
             })
             
+        
 
 
 
@@ -114,7 +117,7 @@ const ProductCardDetails = () => {
                                 <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
                                    hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button>
                                 <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm
-                                 hover:bg-black duration-500' onClick={handleAddToCard}>Add To Card</button>
+                                 hover:bg-black duration-500' onClick={()=>handleAddToCard()}>Add To Card</button>
                             </div>
                             {/* <Link to={`/order`}>GO</Link> */}
                         </div>
