@@ -17,17 +17,13 @@ const ProductCardDetails = () => {
     const {user}= useContext(AuthContext)
     const [rating, setRating] = useState(4);
     const [quantity,setQuantity]= useState(1);
-
     // headless ui modal
     let [isOpen, setIsOpen] = useState(false)
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true)
 
     // handle Quantity Up
-    const handleQuantityUp=()=>{
-        setQuantity(quantity+1)
-    }
-
+    const handleQuantityUp=()=>setQuantity(quantity+1);
     // handle Quentity Down
     const handleQuentityDown=()=>{
         if(quantity<=1){
@@ -40,7 +36,6 @@ const ProductCardDetails = () => {
     // handleAddToCard button
     const handleAddToCard=()=>{
         if(user){
-
             Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -49,7 +44,7 @@ const ProductCardDetails = () => {
               timer: 1500
             })
             
-            
+
 
 
         }else{
