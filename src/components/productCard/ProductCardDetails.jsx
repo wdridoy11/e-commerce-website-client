@@ -8,25 +8,32 @@ import { Rating } from '@smastrom/react-rating'
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
+import useCard from '../../hooks/useCard';
 
 const img =`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`
 const text=`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
 
 
 const ProductCardDetails = () => {
-    const productsData = useLoaderData();
-    const {brand, category, description, image, imageGallery, phone_name,price} = productsData;
 
     const {user}= useContext(AuthContext)
     const [rating, setRating] = useState(4);
     const [quantity,setQuantity]= useState(1);
+    const [isOpen, setIsOpen] = useState(false);
+    const [,refetch] = useCard();
+
+
+    // data loading form routes
+    const productsData = useLoaderData();
+    const {brand, category, description, image, imageGallery, phone_name,price ,_id} = productsData;
+        
     // headless ui modal
-    let [isOpen, setIsOpen] = useState(false)
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true)
 
     // handle Quantity Up
     const handleQuantityUp=()=>setQuantity(quantity+1);
+
     // handle Quentity Down
     const handleQuentityDown=()=>{
         if(quantity<=1){
@@ -37,22 +44,31 @@ const ProductCardDetails = () => {
     }
 
     // handleAddToCard button
-    const handleAddToCard=()=>{
-        const cartItem = 
-        console.log(cartItem)
+    const handleAddToCard=(products)=>{
+
+        const productItem ={productId: _id,userEmail:user?.email, brand, category, description, image, imageGallery, phone_name,price, _id}
+
         if(user && user?.email){
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'New item added success',
-              showConfirmButton: false,
-              timer: 1500
+            fetch(`http://localhost:5000/carts`,{
+                method:"POST",
+                headers:{
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(productItem)
             })
-            
-        
-
-
-
+            .then((res)=>res.json())
+            .then((data)=>{
+                if(data.insertedId){
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'New item added success',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
         }else{
             openModal();
         }
@@ -74,7 +90,7 @@ const ProductCardDetails = () => {
                     <div className='grid grid-cols-3 bg-white gap-5 p-5'>
                         <div className='col-span-1'>
                             <div className='w-full h-96 overflow-hidden'>
-                                <img className='w-full mx-auto' src={image} alt="" />
+                                <img className='w-1/2  mx-auto' src={image} alt="" />
                             </div>
                         </div>
                         <div className='col-span-2'>
@@ -118,7 +134,7 @@ const ProductCardDetails = () => {
                                 <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
                                    hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button>
                                 <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm
-                                 hover:bg-black duration-500' onClick={()=>handleAddToCard()}>Add To Card</button>
+                                 hover:bg-black duration-500' onClick={()=>handleAddToCard(productsData)}>Add To Card</button>
                             </div>
                             {/* <Link to={`/order`}>GO</Link> */}
                         </div>
