@@ -4,6 +4,7 @@ import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 const image =`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`
 const phone_name=`Apple`
+
 const RelatedProduct = () => {
     // react reating
     const [rating, setRating] = useState(4)

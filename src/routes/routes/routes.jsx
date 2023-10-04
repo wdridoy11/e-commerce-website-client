@@ -1,15 +1,18 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
+
 // page import
 import Main from '../../layout/Main';
 import Login from '../../pages/login/Login';
 import About from '../../pages/about/About';
 import Home from '../../pages/home/home/Home';
-import Registration from '../../pages/registration/Registration';
-import ProductCardDetails from '../../components/productCard/ProductCardDetails';
-import Order from '../../components/order/Order';
 import Dashboard from '../../layout/Dashboard';
+import Order from '../../components/order/Order';
+import PrivetRoute from '../privetRoute/PrivetRoute';
+import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
+import ProductCardDetails from '../../components/productCard/ProductCardDetails';
+
 const routes = createBrowserRouter([
   {
     path:"/",
@@ -37,7 +40,7 @@ const routes = createBrowserRouter([
       },
       {
         path:"order",
-        element:<Order></Order>
+        element:<PrivetRoute><Order></Order></PrivetRoute>
       }
     ]
   },

@@ -5,6 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider';
 import Account from '../account/Account';
+import ProductSearch from './ProductSearch';
 const Header = () => {
     const {user} = useContext(AuthContext);
 
@@ -50,16 +51,7 @@ const Header = () => {
               </Link>
             </div>
             <div>
-              <form className='flex items-center'>
-                <input 
-                  type="search" 
-                  name="search" 
-                  id="search"
-                  placeholder='Search...'
-                  className='input-bordered w-full lg:w-[500px] outline-none py-2 px-3 m-0 bg-neutral-100'
-                  />
-                  <button className='bg-[#FF5039] py-3 px-3 text-white'><FaSearch /></button>
-              </form>
+                <ProductSearch></ProductSearch>
             </div>
             <div className='flex items-center list-none gap-3'>
               <li title='Shopping Cart'>

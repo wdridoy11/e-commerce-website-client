@@ -26,34 +26,34 @@ const AuthProvider = ({children}) => {
 
   // create accout using google
   const createUserUsingGoogle=()=>{
-    setLoading(true)
+    setLoading(true);
     const googleProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth,googleProvider)
+    return signInWithPopup(auth,googleProvider);
   }
 
   // create accout using Github
   const createUserUsingGithub=()=>{
-    setLoading(true)
+    setLoading(true);
     const githubProvider = new GithubAuthProvider();
-    return signInWithPopup(auth,githubProvider)
+    return signInWithPopup(auth,githubProvider);
   }
 
   // user login
   const userLogin=(email,passages)=>{
-    setLoading(true)
-    return signInWithEmailAndPassword(auth,email,passages)
+    setLoading(true);
+    return signInWithEmailAndPassword(auth,email,passages);
   }
 
   // user logout
   const logOut=()=>{
-    setLoading(true)
-    return signOut(auth)
+    setLoading(true);
+    return signOut(auth);
   } 
 
   useEffect(()=>{
     const unSubscribe = onAuthStateChanged(auth,currentUser=>{
-      setUser(currentUser)
-      setLoading(true)
+      setUser(currentUser);
+      setLoading(true);
     })
     return ()=>{
       return unSubscribe();
