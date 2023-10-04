@@ -40,6 +40,7 @@ const ProductCardDetails = () => {
     // handleAddToCard button
     const handleAddToCard=()=>{
         if(user){
+
             Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -47,6 +48,10 @@ const ProductCardDetails = () => {
               showConfirmButton: false,
               timer: 1500
             })
+            
+            
+
+
         }else{
             openModal();
         }
@@ -114,7 +119,7 @@ const ProductCardDetails = () => {
                                 <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
                                    hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button>
                                 <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm
-                                    hover:bg-black duration-500' onClick={handleAddToCard}>Add To Card</button>
+                                 hover:bg-black duration-500' onClick={handleAddToCard}>Add To Card</button>
                             </div>
                             {/* <Link to={`/order`}>GO</Link> */}
                         </div>
@@ -125,6 +130,7 @@ const ProductCardDetails = () => {
                     </div>
                 </div>
                 {/* product details end */}
+
                 {/* Related product start */}
                 <div className='bg-white p-2'>
                      <RelatedProduct></RelatedProduct>

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Container from '../container/Container'
-import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaSearch, FaExchangeAlt,FaCartArrowDown, FaHeart, FaUserCircle } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaExchangeAlt, FaHeart, FaUserCircle } from 'react-icons/fa';
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider';
 import Account from '../account/Account';
 import ProductSearch from './ProductSearch';
+import AddToCard from './AddToCard';
 const Header = () => {
     const {user} = useContext(AuthContext);
 
@@ -56,10 +57,7 @@ const Header = () => {
             <div className='flex items-center list-none gap-3'>
               <li title='Shopping Cart'>
                 {/* <Link><FaCartArrowDown className='text-xl text-black' /></Link> */}
-                <div className="indicator">
-                  <span className="indicator-item badge badge-secondary -mt-1">0</span> 
-                  <Link><FaCartArrowDown className='text-xl text-black' /></Link>
-                </div>
+                <AddToCard></AddToCard>
               </li>
               <li title='Favorite'>
                 <Link to={`/dashboard/allusers`}><FaHeart className='text-xl text-black' /></Link>
