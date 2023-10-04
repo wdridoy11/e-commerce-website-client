@@ -5,11 +5,11 @@ import { Rating } from '@smastrom/react-rating'
 
 const ProductCard = ({product}) => {
     // react reating
-    const [rating, setRating] = useState(4)
+    const [rating, setRating] = useState(4);
     // product data destructuring
-    const {image, phone_name } = product;
+    const {image, phone_name,_id } = product;
   return (
-    <Link to={`productDetails`} className='hover:shadow-md duration-150'>
+    <Link to={`/productDetails/${_id}`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-sm'>
             <div className='w-full h-48 overflow-hidden'>
                 <img className='w-1/2 mx-auto py-5' src={image} alt={phone_name} />

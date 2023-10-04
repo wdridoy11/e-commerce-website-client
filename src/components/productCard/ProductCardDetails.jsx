@@ -7,12 +7,15 @@ import RelatedProduct from './RelatedProduct';
 import { Rating } from '@smastrom/react-rating'
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
+import { useLoaderData } from 'react-router-dom';
 
 const img =`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsKx_YNcf4Fi_7Tc9Sj-19ZWnxJV6xfte9KQLMn3zZ2G4ffXeNS38-omkB7yw-E4JaBRQ&usqp=CAU`
 const text=`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
 
 
 const ProductCardDetails = () => {
+    const productsData = useLoaderData();
+    const {brand, category, description, image, imageGallery, phone_name,price} = productsData;
 
     const {user}= useContext(AuthContext)
     const [rating, setRating] = useState(4);
@@ -71,25 +74,23 @@ const ProductCardDetails = () => {
                     <div className='grid grid-cols-3 bg-white gap-5 p-5'>
                         <div className='col-span-1'>
                             <div className='w-full h-96 overflow-hidden'>
-                                <img className='w-full mx-auto' src={img} alt="" />
+                                <img className='w-full mx-auto' src={image} alt="" />
                             </div>
                         </div>
                         <div className='col-span-2'>
-                            <h3 className='text-2xl font-semibold text-black mb-3'>New Trendy Look</h3>
+                            <h3 className='text-2xl font-semibold text-black mb-3'>{phone_name}</h3>
                             <div className='flex gap-1 items-center'>
                                 <div>
                                     <Rating style={{ maxWidth: 60 }} value={rating} onChange={setRating} />
                                 </div>
-                                <div className='text-base font-semibold'>
-                                    (10)
-                                </div>
+                                <div className='text-base font-semibold'>(10)</div>
                             </div>
                             <div className='mt-3'>
-                                <p className='text-base text-[#9e9e9e] font-medium'>Brand: <span className='text-black'>Apple</span> </p>
-                                <p className='text-base text-[#9e9e9e] font-medium'>Category: <span className='text-black'>Apple</span></p>
+                                <p className='text-base text-[#9e9e9e] font-medium'>Brand: <span className='text-black'>{brand}</span> </p>
+                                <p className='text-base text-[#9e9e9e] font-medium'>Category: <span className='text-black'>{category}</span></p>
                             </div>
                             <div className="divider"></div> 
-                            <p className='text-4xl font-medium text-[#f85606] mb-5'>$ <span>100</span></p>
+                            <p className='text-4xl font-medium text-[#f85606] mb-5'>$ <span>{price}</span></p>
                             {/* quentity area start */}
                             <div className='flex items-center gap-5 mb-5'>
                                 <p className='text-base text-black font-medium'>Quantity</p>
@@ -124,7 +125,7 @@ const ProductCardDetails = () => {
                     </div>
                     <div className='bg-white mt-3 p-5'>
                         <h3 className='text-2xl font-semibold text-black mb-2'>Product Details:</h3>
-                        <p className='text-base text-black font-medium'>{text}</p>
+                        <p className='text-base text-black font-medium'>{description}</p>
                     </div>
                 </div>
                 {/* product details end */}
