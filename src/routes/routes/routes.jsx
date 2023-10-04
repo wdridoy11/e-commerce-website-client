@@ -12,6 +12,7 @@ import PrivetRoute from '../privetRoute/PrivetRoute';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
+import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 
 const routes = createBrowserRouter([
   {
@@ -48,11 +49,15 @@ const routes = createBrowserRouter([
   },
   {
     path:"dashboard",
-    element:<Dashboard />,
+    element:<Dashboard></Dashboard>,
     children:[
       {
         path:"allusers",
         element:<AllUsers />
+      },
+      {
+        path:"my_cart",
+        element:<MyCard></MyCard>
       }
     ]
   }
