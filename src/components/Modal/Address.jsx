@@ -1,8 +1,39 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { RxCrossCircled } from 'react-icons/rx'
 import { Dialog, Transition } from '@headlessui/react'
+import { AuthContext } from '../../context/AuthProvider'
 
 const Address = ({isOpen,closeModal}) => {
+
+    const {user} = useContext(AuthContext);
+    const [selectProvince, setSelectProvince] = useState();
+    const [selectCity, setselectCity] = useState();
+    const [areaCity, setAreaCity] = useState();
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const address = form.address.value;
+        const allInfo = {useremail:user?.email,name, email, phone, address,selectProvince,selectCity,areaCity};
+        // user address send
+        fetch(`http://localhost:5000/address`,{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(allInfo)
+        })
+        .then((res)=>res.json())
+        .then((data)=>console.log(data))
+    }
+
+    const handleSelectProvince=(e)=>setSelectProvince(e.target.value);
+    const handleSelectCity=(e)=>setselectCity(e.target.value);
+    const handleAreaCity=(e)=>setAreaCity(e.target.value);
+
     return (
         <div>
             <div>
@@ -31,7 +62,7 @@ const Address = ({isOpen,closeModal}) => {
                             <Dialog.Panel className="w-full p-10 md:w-1/2 transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
                               <Dialog.Title as="h3" className="text-2xl font-medium leading-6 text-gray-900 shadow-md py-5 text-center rounded-lg">Shipping Info</Dialog.Title>
                               <div>
-                                <form className='w-full mt-5'>
+                                <form onSubmit={handleSubmit} className='w-full mt-5'>
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 mb-2'>
                                         <div>
                                             <label>Full Name</label>
@@ -61,15 +92,15 @@ const Address = ({isOpen,closeModal}) => {
                                             <label>Mobile Number</label>
                                             <input 
                                                 type="tel" 
-                                                name='mobile'
-                                                id='mobile'
+                                                name='phone'
+                                                id='phone'
                                                 className='w-full border px-3 py-3 mb-2 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                                 placeholder='Enter your mobile number'
                                             />
                                         </div>
                                         <div>
                                             <label className='block'>Province</label>
-                                            <select className="select select-bordered w-full">
+                                            <select onChange={handleSelectProvince} className="select select-bordered w-full">
                                                 <option className='text-base text-slate-600' value={"Barishal"}>Barishal</option>
                                                 <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
                                                 <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
@@ -84,7 +115,7 @@ const Address = ({isOpen,closeModal}) => {
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 mb-3'>
                                         <div>
                                             <label className='block'>City</label>
-                                            <select className="select select-bordered w-full">
+                                            <select onChange={handleSelectCity} className="select select-bordered w-full">
                                             <option className='text-base text-slate-600' value={"Barishal"}>Barishal</option>
                                                 <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
                                                 <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
@@ -96,8 +127,8 @@ const Address = ({isOpen,closeModal}) => {
                                         </div>
                                         <div>
                                             <label className='block'>Area</label>
-                                            <select className="select select-bordered w-full">
-                                            <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
+                                            <select onClick={handleAreaCity} className="select select-bordered w-full">
+                                                <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
                                                 <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
                                                 <option className='text-base text-slate-600' value={"Mymensingh"}>Mymensingh</option>
                                                 <option className='text-base text-slate-600' value={"Rajshahi"}>Rajshahi</option>
@@ -109,8 +140,8 @@ const Address = ({isOpen,closeModal}) => {
                                     <div>
                                         <label>Address</label>
                                         <textarea 
-                                            name="message" 
-                                            id="message" 
+                                            name="address" 
+                                            id="address" 
                                             cols="30" 
                                             rows="5"
                                             className='w-full border px-3 py-3 mb-2 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
