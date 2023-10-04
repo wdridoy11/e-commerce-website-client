@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
+    
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -17,17 +18,21 @@ const Dashboard = () => {
           <div className="drawer-side">
             {/* <label htmlFor="my-drawer-2" className="drawer-overlay"></label>  */}
             <ul className="menu p-4 w-80 bg-slate-200 text-base-content">
-                <div className='text-center mb-5'>
-                    <img className='w-28 rounded-full mx-auto' src={user?.photoURL} alt="Profile image" />
-                    <p className='mt-3 text-lg font-semibold'>{user?.displayName}</p>
-                    <p className=''>{user?.email}</p>
+                <div>
+                    <div className='text-center mb-5'>
+                        <img className='w-28 rounded-full mx-auto' src={user?.photoURL} alt="Profile image" />
+                        <p className='mt-3 text-lg font-semibold'>{user?.displayName}</p>
+                        <p className=''>{user?.email}</p>
+                    </div>
+                    <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink></li>
+                    <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><FaUsers></FaUsers> My Cart</NavLink></li>
                 </div>
-                <li className='mb-2'>
-                    <NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink>
-                </li>
-                <li className='mb-2'>
-                    <NavLink to={`/dashboard/my_cart`}><FaUsers></FaUsers> My Cart</NavLink>
-                </li>
+                <div className="divider"></div> 
+                <div>
+                    <li className='mb-2'>
+                        <NavLink to={`/`}><FaHome></FaHome> Home</NavLink>
+                    </li>
+                </div>
             </ul>
           </div>
         </div>

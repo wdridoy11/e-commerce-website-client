@@ -1,10 +1,48 @@
 import React from 'react'
-import useCard from '../../../../hooks/useCard'
+import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
+import useCard from '../../../../hooks/useCard'
 
 const MyCard = () => {
-    const [card, refetch] = useCard();
-    console.log(card)
+
+const [card, refetch] = useCard();
+
+const handleDelete=(item)=>{
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/carts/${item._id}`,{
+          method:"DELETE",
+          headers:{
+            "content-type":"application/json"
+          }
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+          console.log(data)
+          if(data.deletedCount>0){
+            refetch();
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+      }
+    })
+  }
+
+
+
   return (
     <>
         <div className='w-full px-10'>
@@ -22,8 +60,8 @@ const MyCard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                    {card.map((product)=><tr>
-                        <th>1</th>
+                    {card && card.map((product,index)=><tr key={product._id}>
+                        <th>{index+1}</th>
                         <td>
                             <img className='w-12' src={product?.image} alt="" />
                         </td>
@@ -31,8 +69,8 @@ const MyCard = () => {
                         <td>{product?.brand}</td>
                         <td>{product?.price}</td>
                         <th>
-                            <div className=''>
-                                <button className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
+                            <div>
+                                <button onClick={()=>handleDelete(product)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
                             </div>
                         </th>
                     </tr>)}

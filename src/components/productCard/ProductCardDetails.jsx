@@ -1,14 +1,14 @@
-import React, {useContext, useState, } from 'react'
+import React, {useContext, useEffect, useState, } from 'react'
 import Swal from 'sweetalert2';
 import { MdAdd } from 'react-icons/md';
 import { FaMinus } from 'react-icons/fa';
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
+import useCard from '../../hooks/useCard';
 import RelatedProduct from './RelatedProduct';
 import { Rating } from '@smastrom/react-rating'
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
-import useCard from '../../hooks/useCard';
 
 const ProductCardDetails = () => {
 
@@ -17,7 +17,6 @@ const ProductCardDetails = () => {
     const [quantity,setQuantity]= useState(1);
     const [isOpen, setIsOpen] = useState(false);
     const [,refetch] = useCard();
-
 
     // data loading form routes
     const productsData = useLoaderData();
@@ -41,8 +40,7 @@ const ProductCardDetails = () => {
 
     // handleAddToCard button
     const handleAddToCard=()=>{
-        const productItem ={productId: _id,userEmail:user?.email, brand, category, description, image, imageGallery, phone_name,price, _id}
-
+        const productItem ={productId: _id,email:user?.email, brand, category, description, image, imageGallery, phone_name,price, _id}
         if(user && user?.email){
             fetch(`http://localhost:5000/carts`,{
                 method:"POST",
