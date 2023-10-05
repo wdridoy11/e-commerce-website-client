@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import Address from '../Modal/Address'
+import useCard from '../../hooks/useCard';
 
 const Shopping = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [address, setAddress] = useState([]);
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
+    const [card] = useCard();
+
+    // product total calculate
+    const productPrice = card.reduce((sum,product)=>product.price * product.quantity + sum,0);
+    const subtotalPrice = productPrice.toFixed(2);
+    const shippingChange = 20;
+    const totalPrice = parseFloat(subtotalPrice) + shippingChange;
+    const productTotalPrice = totalPrice.toFixed(2);
+
 
     useEffect(()=>{
         fetch(`http://localhost:5000/address`)
@@ -14,9 +24,6 @@ const Shopping = () => {
         .then((data)=>setAddress(data))
     },[])
     
-    console.log(address)
-
-
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -65,19 +72,19 @@ const Shopping = () => {
                     <div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p>Subtotal</p>
-                            <p>280 USD</p>
+                            <p>${subtotalPrice} USD</p>
                         </div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p>Shipping</p>
-                            <p>280 USD</p>
+                            <p>${shippingChange} USD</p>
                         </div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p>Total</p>
-                            <p>280 USD</p>
+                            <p>${productTotalPrice} USD</p>
                         </div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p><strong>Payable Total</strong></p>
-                            <p><strong>280 USD</strong></p>
+                            <p><strong>${productTotalPrice} USD</strong></p>
                         </div>
                     </div>
                     <div className='divider'></div>
