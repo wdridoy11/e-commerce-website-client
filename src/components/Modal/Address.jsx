@@ -29,7 +29,10 @@ const Address = ({isOpen,closeModal}) => {
             body:JSON.stringify(allInfo)
         })
         .then((res)=>res.json())
-        .then((data)=>console.log(data))
+        .then((data)=>{
+            form.reset();
+        })
+
     }
 
     const handleSelectProvince=(e)=>setSelectProvince(e.target.value);

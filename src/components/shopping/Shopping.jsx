@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Shopping = () => {
 
@@ -13,7 +15,7 @@ const Shopping = () => {
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
     
     // loading add to card data from useCard hook
-    const [card] = useCard();
+    const [card, refetch] = useCard();
 
     // address modal
     const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +53,42 @@ const Shopping = () => {
         .then((res)=>res.json())
         .then((data)=>setAddress(data))
     },[])
+
+
+    // handle address delete
+    const handleAddressDelete=(id)=>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(`http://localhost:5000/address/${id}`,{
+                method:"DELETE",
+                headers:{
+                    "content-type":"application/json"
+                }
+              })
+              .then((res)=>res.json())
+              .then((data)=>{
+                if(data.deletedCount>0){
+                  refetch();
+                  setAddress(address)
+                  Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                  )
+                }
+              })
+            }
+        })
+    }
+
     
   return (
     <>
@@ -65,9 +103,8 @@ const Shopping = () => {
                         <h3 className='text-xl font-medium mb-5'>Shopping Address (Please select only one! shipping address)</h3>
                         <div className='divider'></div>
                         <div>
-                            {address && address.map((address)=><>
-                                <div className='grid grid-cols-5 items-center'>
-                                    <div className=''>
+                            {address && address.map((address)=><div key={address._id} className='grid grid-cols-5 items-center border-b py-3'>
+                                    <div className='col-span-1'>
                                         <p className='text-xl font-medium mb-1'>{address?.area}</p>
                                         <p className='capitalize'>
                                             <input 
@@ -90,8 +127,19 @@ const Shopping = () => {
                                         <li>Address: {address?.address}</li>
                                         </ul>
                                     </div>
-                                </div>
-                            </>)}
+                                    <div className='flex gap-5'>
+                                        <div>
+                                            <button className='flex items-center gap-2 text-md font-normal text-blue-500'>
+                                                <FaEdit></FaEdit> Edit
+                                            </button>
+                                        </div>
+                                        <div>
+                                           <button onClick={()=>handleAddressDelete(address._id)} className='flex items-center gap-2 text-md font-normal text-blue-500'>
+                                                <FaTrash></FaTrash> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                            </div>)}
                         </div>
                     </div>
                 </div>
