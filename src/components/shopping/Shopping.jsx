@@ -4,11 +4,11 @@ import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import AddressUpdate from '../Modal/AddressUpdate';
 
 const Shopping = () => {
 
     const [address, setAddress] = useState([]);
-    
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
     const [errorCoupon, setErrorCoupon] = useState(false);
@@ -21,6 +21,12 @@ const Shopping = () => {
     const [isOpen, setIsOpen] = useState(false);
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
+    
+    // address update 
+    const [isOpenAddress,setIsOpenAddress] = useState(false);
+    const isOpenModalAddress=()=>setIsOpenAddress(true)
+    const closeAddressModal=()=>setIsOpenAddress(false);
+
 
     // product total calculate
     const productPrice = card.reduce((sum,product)=>product.price * product.quantity + sum,0);
@@ -129,7 +135,7 @@ const Shopping = () => {
                                     </div>
                                     <div className='flex gap-5'>
                                         <div>
-                                            <button className='flex items-center gap-2 text-md font-normal text-blue-500'>
+                                            <button onClick={isOpenModalAddress} className='flex items-center gap-2 text-md font-normal text-blue-500'>
                                                 <FaEdit></FaEdit> Edit
                                             </button>
                                         </div>
@@ -197,6 +203,10 @@ const Shopping = () => {
                 isOpen={isOpen}
                 closeModal={closeModal}
             ></Address>
+            <AddressUpdate
+                isOpen={isOpenAddress}
+                closeModal={closeAddressModal}
+            ></AddressUpdate>
         </div>
     </>
   )
