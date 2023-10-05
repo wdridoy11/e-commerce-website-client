@@ -4,11 +4,18 @@ import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
 
 const Shopping = () => {
-    const [isOpen, setIsOpen] = useState(false);
+
+    const [discountPrice, setDiscountPrice] = useState(0);
+    const [errorCoupon, setErrorCoupon] = useState(false);
+    const [successfulCoupon, setSuccessfulCoupon] = useState(false);
     const [address, setAddress] = useState([]);
+    // loading add to card data from useCard hook
+    const [card] = useCard();
+
+    // address modal
+    const [isOpen, setIsOpen] = useState(false);
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
-    const [card] = useCard();
 
     // product total calculate
     const productPrice = card.reduce((sum,product)=>product.price * product.quantity + sum,0);
@@ -17,6 +24,24 @@ const Shopping = () => {
     const totalPrice = parseFloat(subtotalPrice) + shippingChange;
     const productTotalPrice = totalPrice.toFixed(2);
 
+    // Coupon code 10% discount handle
+    const handleCoupon = (event) =>{
+        event.preventDefault();
+        const couponCode = event.target.coupon.value;
+       if(couponCode === "Ridoy30"){
+            const disCountPresent = 10 / 100;
+            const disCountPriceTotal = productTotalPrice - (productTotalPrice * disCountPresent);
+            setDiscountPrice(disCountPriceTotal);
+            setSuccessfulCoupon(true);
+            setErrorCoupon(false);
+       }else if(couponCode === " "){
+            alert("Please enter a Coupon Code");
+       }else{
+            setDiscountPrice(0);
+            setErrorCoupon(true);
+            setSuccessfulCoupon(false);
+       }
+    }
 
     useEffect(()=>{
         fetch(`http://localhost:5000/address`)
@@ -84,23 +109,32 @@ const Shopping = () => {
                         </div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p><strong>Payable Total</strong></p>
-                            <p><strong>${productTotalPrice} USD</strong></p>
+                            <p><strong id='totalPrice'>${discountPrice === 0? productTotalPrice : discountPrice.toFixed(2)} USD</strong></p>
                         </div>
                     </div>
                     <div className='divider'></div>
                     <div>
-                        <form className='flex'>
+                        <form onSubmit={handleCoupon} className='grid grid-cols-5'>
+                            <div className='col-span-4'>
+                                <input 
+                                    type="text" 
+                                    name='coupon'
+                                    id='coupon'
+                                    className='w-full input input-bordered rounded-none'
+                                    placeholder='Enter your coupon code'
+                                    required
+                                />
+                                <label id='errorText' className='text-red-600 mt-1 inline-block pl-2'>
+                                    {errorCoupon === false ? "": "Your Coupon code in not Valid"}
+                                </label>
+                                <label id='successCoupon' className='text-green-400 mt-1 inline-block pl-2'>
+                                    {successfulCoupon === false ? "": "10% discount Successful"}
+                                </label>
+                            </div>
                             <input 
-                                type="text" 
-                                name='coupon'
-                                id='coupon'
-                                className='w-full input input-bordered rounded-none'
-                                placeholder='Enter your coupon code'
-                            />
-                            <input 
-                                type="submit" 
+                                type="submit"
                                 value="Apply" 
-                                className='px-5 bg-blue-500 text-white text-lg font-medium cursor-pointer'
+                                className='px-5 h-[48px] bg-blue-500 text-white text-lg font-medium cursor-pointer'
                             />
                         </form>
                     </div>
