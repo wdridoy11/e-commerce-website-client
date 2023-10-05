@@ -15,7 +15,7 @@ const Shopping = () => {
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
     
     // loading add to card data from useCard hook
-    const [card, refetch] = useCard();
+    const [card] = useCard();
 
     // address modal
     const [isOpen, setIsOpen] = useState(false);
@@ -76,8 +76,8 @@ const Shopping = () => {
               .then((res)=>res.json())
               .then((data)=>{
                 if(data.deletedCount>0){
-                  refetch();
-                  setAddress(address)
+                const remaining = address.filter(address=>address._id !== id);
+                setAddress(remaining);
                   Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
