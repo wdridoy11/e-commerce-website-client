@@ -8,7 +8,7 @@ const Address = ({isOpen,closeModal}) => {
     const {user} = useContext(AuthContext);
     const [selectProvince, setSelectProvince] = useState();
     const [selectCity, setselectCity] = useState();
-    const [areaCity, setAreaCity] = useState();
+    const [area, SetArea] = useState();
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -17,7 +17,9 @@ const Address = ({isOpen,closeModal}) => {
         const email = form.email.value;
         const phone = form.phone.value;
         const address = form.address.value;
-        const allInfo = {useremail:user?.email,name, email, phone, address,selectProvince,selectCity,areaCity};
+        const type = form.type.value;
+        const allInfo = {useremail:user?.email,name, email, phone, address,selectProvince,selectCity,area,type};
+
         // user address send
         fetch(`http://localhost:5000/address`,{
             method:"POST",
@@ -32,7 +34,7 @@ const Address = ({isOpen,closeModal}) => {
 
     const handleSelectProvince=(e)=>setSelectProvince(e.target.value);
     const handleSelectCity=(e)=>setselectCity(e.target.value);
-    const handleAreaCity=(e)=>setAreaCity(e.target.value);
+    const handleAreaCity=(e)=>SetArea(e.target.value);
 
     return (
         <div>
@@ -137,18 +139,25 @@ const Address = ({isOpen,closeModal}) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div>
-                                        <label>Address</label>
-                                        <textarea 
-                                            name="address" 
-                                            id="address" 
-                                            cols="30" 
-                                            rows="5"
-                                            className='w-full border px-3 py-3 mb-2 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
-                                            placeholder='House no. / building / street / area'
-                                            required
-                                        >
-                                        </textarea>
+                                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 mb-3'>
+                                        <div>
+                                            <label>Address</label>
+                                            <textarea 
+                                                name="address" 
+                                                id="address" 
+                                                cols="30" 
+                                                rows="3"
+                                                className='w-full border px-3 py-3 mb-2 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
+                                                placeholder='House no. / building / street / area'
+                                                required
+                                            >
+                                            </textarea>
+                                        </div>
+                                        <div>
+                                            <label>Received From:</label>
+                                            <p><input type="radio" value={"home"} name="type" id="home" /> Home</p>
+                                            <p><input type="radio" value={"office"} name="type" id="office" /> Office</p>
+                                        </div>
                                     </div>
                                     <input 
                                         type="submit" 

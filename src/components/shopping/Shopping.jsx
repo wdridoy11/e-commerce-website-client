@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import Address from '../Modal/Address'
 
 const Shopping = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [address, setAddress] = useState([]);
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/address`)
+        .then((res)=>res.json())
+        .then((data)=>setAddress(data))
+    },[])
     
+    console.log(address)
+
+
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -15,6 +25,39 @@ const Shopping = () => {
                     <div>
                         <button onClick={openModal} className='py-5 px-5 text-2xl flex items-center
                          gap-3'><GrAdd></GrAdd> Add Your Address</button>
+                    </div>
+                    <div className='bg-white p-5 mt-5 rounded-md'>
+                        <h3 className='text-xl font-medium mb-5'>Shopping Address (Please select only one! shipping address)</h3>
+                        <div className='divider'></div>
+                        <div>
+                            {address && address.map((address)=><>
+                                <div className='grid grid-cols-5 items-center'>
+                                    <div className=''>
+                                        <p className='text-xl font-medium mb-1'>{address?.area}</p>
+                                        <p className='capitalize'>
+                                            <input 
+                                                type="radio" 
+                                                name="type" 
+                                                id="type" 
+                                            />  ({address?.type})
+                                        </p>
+                                    </div>
+                                    <div className='col-span-3'>
+                                        <ul className='list-none'>
+                                        <li>Name: {address?.name}</li>
+                                        <li>Email: {address?.email}</li>
+                                        <li>Phone: {address?.phone}</li>
+                                        <div className='flex'>
+                                            <li>{address?.area},</li>
+                                            <li>{address?.selectCity},</li>
+                                            <li>{address?.selectProvince},</li>
+                                        </div>
+                                        <li>Address: {address?.address}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </>)}
+                        </div>
                     </div>
                 </div>
                 <div className='col-span-1 bg-white p-10'>
