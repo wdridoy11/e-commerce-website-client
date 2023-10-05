@@ -36,11 +36,11 @@ const ProductCardDetails = () => {
             setQuantity(quantity-1)
         }
     }
-
+    
     // handleAddToCard button
     const handleAddToCard=()=>{
         // check privous card data id and new data id
-        const cardIdMatch = card.find((item)=> item._id == _id);
+        const cardIdMatch = card.find((item)=> item.productId === _id && item.email === user?.email);
         if(cardIdMatch){
             Swal.fire({
                 position: 'top-end',
@@ -51,7 +51,7 @@ const ProductCardDetails = () => {
             })
         }else{
             if(user && user?.email){
-                const productItem ={productId: _id,email:user?.email, quantity, brand, category, description, image, imageGallery, phone_name,price, _id}
+                const productItem ={productId: _id,email:user?.email, quantity, brand, category, description, image, imageGallery, phone_name,price}
                 fetch(`http://localhost:5000/carts`,{
                     method:"POST",
                     headers:{

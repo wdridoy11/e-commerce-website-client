@@ -5,10 +5,13 @@ import useCard from '../../hooks/useCard';
 
 const Shopping = () => {
 
+    const [address, setAddress] = useState([]);
+    
+    // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
     const [errorCoupon, setErrorCoupon] = useState(false);
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
-    const [address, setAddress] = useState([]);
+    
     // loading add to card data from useCard hook
     const [card] = useCard();
 
