@@ -5,6 +5,7 @@ import useCard from '../../hooks/useCard';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import AddressUpdate from '../Modal/AddressUpdate';
+import Payment from '../../pages/dashboard/payment/Payment';
 
 const Shopping = () => {
 
@@ -146,6 +147,10 @@ const Shopping = () => {
                                         </div>
                                     </div>
                             </div>)}
+                        </div>
+                        <div className='divider'></div>
+                        <div>
+                            <Payment></Payment>
                         </div>
                     </div>
                 </div>

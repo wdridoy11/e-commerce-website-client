@@ -14,6 +14,7 @@ import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Shopping from '../../components/shopping/Shopping';
+import Payment from '../../pages/dashboard/payment/Payment';
 
 const routes = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const routes = createBrowserRouter([
       },
       {
         path:"order",
-        element:<PrivetRoute><Order></Order></PrivetRoute>
+        element:<Order></Order>
       }
     ]
   },
@@ -63,6 +64,10 @@ const routes = createBrowserRouter([
       {
         path:"shopping",
         element:<Shopping></Shopping>
+      },
+      {
+        path:"payment",
+        element:<Payment></Payment>
       }
     ]
   }
