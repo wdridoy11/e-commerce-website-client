@@ -35,6 +35,7 @@ const Shopping = () => {
     const shippingChange = 20;
     const totalPrice = parseFloat(subtotalPrice) + shippingChange;
     const productTotalPrice = totalPrice.toFixed(2);
+    const price = discountPrice === 0? productTotalPrice : discountPrice.toFixed(2);
 
     // Coupon code 10% discount handle
     const handleCoupon = (event) =>{
@@ -150,7 +151,7 @@ const Shopping = () => {
                         </div>
                     </div>
                     <div className='bg-white mt-5 p-5 rounded-md'>
-                        <Payment></Payment>
+                        <Payment price={price} card={card}></Payment>
                     </div>
                 </div>
                 <div className='col-span-1 bg-white p-10'>
@@ -170,7 +171,8 @@ const Shopping = () => {
                         </div>
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p><strong>Payable Total</strong></p>
-                            <p><strong id='totalPrice'>${discountPrice === 0? productTotalPrice : discountPrice.toFixed(2)} USD</strong></p>
+                            <p><strong id='totalPrice'>${price} USD</strong></p>
+                            {/* <p><strong id='totalPrice'>${discountPrice === 0? productTotalPrice : discountPrice.toFixed(2)} USD</strong></p> */}
                         </div>
                     </div>
                     <div className='divider'></div>
