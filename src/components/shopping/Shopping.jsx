@@ -148,10 +148,9 @@ const Shopping = () => {
                                     </div>
                             </div>)}
                         </div>
-                        <div className='divider'></div>
-                        <div>
-                            <Payment></Payment>
-                        </div>
+                    </div>
+                    <div className='bg-white mt-5 p-5 rounded-md'>
+                        <Payment></Payment>
                     </div>
                 </div>
                 <div className='col-span-1 bg-white p-10'>

@@ -1,5 +1,6 @@
 import React from 'react'
 import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js';
+import "./CheckoutForm.css"
 
 const CheckoutForm = () => {
 
@@ -38,8 +39,9 @@ const CheckoutForm = () => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}>
-        Pay
+      <button 
+          type="submit" 
+          disabled={!stripe}>Pay
       </button>
     </form>
   )
