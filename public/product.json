@@ -2,49 +2,34 @@
     {
         "brand": "Apple ",
         "category":"Mobile",
-        "price":1000,
-        "phone_name": "iPhone 13 mini",
-        "description":"",
-        "slug": "apple_iphone_13_mini-11104",
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+        "price":1590,
+        "product_name": "iPhone 14 Pro Max 256GB (USA- LL/A)",
+        "description":"Apple iPhone 14 Pro Max- the latest name of Apple’s Pro Max lineup. Gives you a magical interaction with its groundbreaking features, innovative camera functionality, and outstanding outlook. All these specs are combined and make the iPhone 14 Pro Max one of the best iPhones to date. ",
+        "image": "https://static-01.daraz.com.bd/p/bfc07c626e96e762fb8957734ffd5ccb.jpg_750x750.jpg_.webp",
         "imageGallery":[
-
+            "https://static-01.daraz.com.bd/p/bfc07c626e96e762fb8957734ffd5ccb.jpg_750x750.jpg_.webp",
+            "https://static-01.daraz.com.bd/p/2e84de73a19b06ad0eee634526ab4946.jpg_750x750.jpg_.webp"
         ],
-        "rating": {
-            "rating": 3.9,
-            "count": 120
+        "user_rating": {
+            "rating": 4.9,
+            "count": 10
         }
     },
     {
         "brand": "Apple ",
-        "category":"Mobile",
-        "price":1400,
-        "phone_name": "iPhone 13 Pro Max",
+        "category":"",
+        "price":,
+        "product_name": "",
         "description":"",
-        "slug": "apple_iphone_13_pro_max-11089",
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",
+        "image": "",
         "imageGallery":[
-
+            "",
+            ""
         ],
-        "rating": {
+        "user_rating": {
             "rating": 4.9,
-            "count": 120
+            "count": 10
         }
     },
-    {
-        "brand": "Apple ",
-        "category":"Mobile",
-        "price":1400,
-        "phone_name": "iPhone SE (2020)",
-        "description":"",
-        "slug": "apple_iphone_se_(2020)-10170",
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2020.jpg",
-        "imageGallery":[
 
-        ],
-        "rating": {
-            "rating": 4.9,
-            "count": 120
-        }
-    }
 ]
