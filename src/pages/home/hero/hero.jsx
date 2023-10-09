@@ -1,10 +1,12 @@
 import React from 'react'
+// slider
 import 'swiper/css';
 import "./slider.css"
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom'
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+// image
 import hero1 from '../../../assets/hero-1.png'
 import hero2 from '../../../assets/hero-2.png'
 import hero3 from '../../../assets/hero-3.png'
@@ -38,6 +40,7 @@ const Hero = () => {
     <div className='bg-[#F6F6F6] py-10'>
         <div className='container mx-auto'>
             <div className='grid grid-cols-2 gap-5'>
+                {/* slider area */}
                 <div>
                     <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
                         {heroSlider.map((item,index)=><SwiperSlide key={index}>
@@ -53,6 +56,7 @@ const Hero = () => {
                         </SwiperSlide>)}
                     </Swiper>
                 </div>
+                {/* right side banner */}
                 <div className='flex flex-col gap-5'>
                     <div className='relative'>
                         <div className='absolute top-1/3 left-20'>
