@@ -1,14 +1,15 @@
 import React from 'react'
 import Swal from 'sweetalert2';
-import useCard from '../../../../hooks/useCard'
-import { FaTrash, FaUser} from 'react-icons/fa';
-import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { BsArrowRight } from 'react-icons/bs';
+import { FaTrash, FaUser} from 'react-icons/fa';
+import useCard from '../../../../hooks/useCard'
 
 const MyCard = () => {
 
 const [card, refetch] = useCard();
 
+// handle delete card item
 const handleDelete=(item)=>{
   Swal.fire({
     title: 'Are you sure?',
@@ -42,7 +43,6 @@ const handleDelete=(item)=>{
   })
 }
 
-
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -64,15 +64,15 @@ const handleDelete=(item)=>{
                     {card && card.map((product,index)=><tr key={product._id}>
                         <th>{index+1}</th>
                         <td>
-                            <img className='w-12' src={product?.image} alt="" />
+                            <img className='w-16' src={product?.product_image} alt={product?.product_name} />
                         </td>
                         <td>
-                          <p>{product?.phone_name}</p>
-                          <p>{product?.brand}</p>
+                          <h4 className='text-base font-medium'>{product?.product_name}</h4>
+                          <p className='text-sm font-normal text-[#A5A5A5]'>Brand: {product?.brand}</p>
                         </td>
-                        <td>{product?.quantity}</td>
-                        <td>${product?.price}</td>
-                        <td>${product?.price * product?.quantity}</td>
+                        <td className='text-base font-medium'>{product?.quantity}</td>
+                        <td className='text-base font-medium'>${product?.price}</td>
+                        <td className='text-base font-medium'>${product?.price * product?.quantity}</td>
                         <th>
                             <div>
                                 <button onClick={()=>handleDelete(product)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>

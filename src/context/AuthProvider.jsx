@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import {
   getAuth,
   signOut,
+  updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
@@ -19,9 +20,9 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true)
 
    // create user using email and pasword
-   const createUserUsingEmail=(email, passages)=>{
+   const createUserUsingEmail=(email, password)=>{
     setLoading(true)
-    return createUserWithEmailAndPassword(auth,email,passages)
+    return createUserWithEmailAndPassword(auth,email,password)
    }
 
   // create accout using google
@@ -42,6 +43,13 @@ const AuthProvider = ({children}) => {
   const userLogin=(email,passages)=>{
     setLoading(true);
     return signInWithEmailAndPassword(auth,email,passages);
+  }
+
+  const userProfileUpdate =(name,photo)=>{
+    return updateProfile(auth.currentUser,{
+      displayName:name,
+      photoURL:photo
+    })
   }
 
   // user logout
@@ -65,6 +73,7 @@ const AuthProvider = ({children}) => {
     logOut,
     loading,
     userLogin,
+    userProfileUpdate,
     createUserUsingEmail,
     createUserUsingGoogle,
     createUserUsingGithub,

@@ -3,6 +3,7 @@
         "brand": "Apple ",
         "category":"Mobile",
         "price":1330,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
         "product_name": "iPhone 14 Pro Max 256GB",
         "small_description":"iPhone 14 Pro and iPhone 14 Pro Max feature a beautiful surgical-grade stainless steel and textured matte glass design in four stunning colors. Available in 6.1-inch and 6.7-inch sizes,1 both models include a new Super Retina XDR display with ProMotion that features the Always-On display for the first time ever on iPhone, enabled by a new 1Hz refresh rate and multiple power-efficient technologies.",
         "product_description":"The Dynamic Island enables new ways to interact with iPhone, featuring a design that blends the line between hardware and software, adapting in real time to show important alerts, notifications, and activities. With the introduction of the Dynamic Island, the TrueDepth camera has been redesigned to take up less of the display area. Without impeding content on the screen, the Dynamic Island maintains an active state to allow users easier access to controls with a simple tap-and-hold. Ongoing background activities like Maps, Music, or a timer remain visible and interactive, and third-party apps in iOS 16 that provide information like sports scores and ride-sharing with Live Activities can take advantage of the Dynamic Island. ",
@@ -28,6 +29,7 @@
         "brand": "Apple ",
         "category":"Mobile",
         "price":619,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
         "product_name": "iPhone 13 mini",
         "small_description":"iPhone SE has an old-school outlook but contains some serious level elements inside it. The compact phone holds an A15 Bionic chipset. The powerful chipset can boost its performance to a new height. You can enjoy the flagship experience through this special edition of the iPhone. In a nutshell, iPhone SE 2022 is a compact-size powerhouse that promised to perform best.",
         "product_description":"Apple put A15 Bionic into this special edition. Flagship A15 bionic chipset makes the phone a beast. The chipset puts an impact on every aspect of performance. You will get an extra advantage while playing heavy games. Even if you can never feel any lag and latency while browsing. The chipset can help you to improve the phone’s photography. Additionally, in this edition of the iPhone SE, the RAM has also increased. Together, the A15 chipset and upgraded RAM runs the activity of the phone at the same pace as other flagships run.",
@@ -55,6 +57,7 @@
         "brand": "Apple ",
         "category":"Mobile",
         "price":1500,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
         "product_name": "iPhone 13 Pro",
         "small_description":"The iPhone 13 Pro is a smartphone developed and manufactured by Apple. It was released in September 2021, so my knowledge is based on information available up to that date. Here are some key features and specifications of the iPhone 13 Pro",
         "product_description":"The iPhone 13 Pro is a high-end smartphone from Apple, known for its premium design and impressive performance. It features a Super Retina XDR display with HDR support, powered by the A15 Bionic chip for fast and efficient performance. The device boasts a versatile triple-camera system with enhancements for low-light photography and professional video recording options. With 5G connectivity, it offers faster data speeds when connected to compatible networks. The iPhone 13 Pro runs on Apple's iOS, supports MagSafe accessories, and is available in various storage capacities, making it a top choice for those seeking a powerful and feature-rich smartphone.",
@@ -81,6 +84,7 @@
         "brand": "Apple ",
         "category":"Mobile",
         "price":15400,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
         "product_name": "iPhone 14",
         "small_description":"The iPhone 13 Pro is a smartphone developed and manufactured by Apple. It was released in September 2021, so my knowledge is based on information available up to that date. Here are some key features and specifications of the iPhone 13 Pro",
         "product_description":"The iPhone 13 Pro is a high-end smartphone from Apple, known for its premium design and impressive performance. It features a Super Retina XDR display with HDR support, powered by the A15 Bionic chip for fast and efficient performance. The device boasts a versatile triple-camera system with enhancements for low-light photography and professional video recording options. With 5G connectivity, it offers faster data speeds when connected to compatible networks. The iPhone 13 Pro runs on Apple's iOS, supports MagSafe accessories, and is available in various storage capacities, making it a top choice for those seeking a powerful and feature-rich smartphone.",
@@ -101,56 +105,163 @@
             "Ram 4GB",
             "Storage 256GB"  
         ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Laptop",
+        "price":980,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "MacBook Air M1 8/256GB 13-inch Space Gray",
+        "small_description":"Apple MacBook Air M1 is a perfect blend of sleekness and portability. This cutting-edge 8/256 GB version is packed with the groundbreaking M1 Chip, boasting a powerful integration of CPU and GPU. ",
+        "product_description":"Apple MacBook Air M1 is a perfect blend of sleekness and portability. This cutting-edge 8/256 GB version is packed with the groundbreaking M1 Chip, boasting a powerful integration of CPU and GPU. Experience the remarkable performance of this device, whether you're editing videos or engaging in graphic-intensive tasks. With its long-lasting battery life and the smoothness of its operating system, the MacBook Air M1 is your ultimate companion for productivity and creativity on the go.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2323-66383.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2323-74676.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2323-42032.jpg"
+        ],
+        "user_rating": {
+            "rating":5,
+            "user_review":25
+        },
+        "product_features":[
+            "7 Core GPU",
+            "8 GB RAM",
+            "256 GB storage",
+            "18 hours of battery "  
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Laptop",
+        "price":1980,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "MacBook Pro M1 Pro 8-CPU 14-GPU 14-inch",
+        "small_description":"",
+        "product_description":"",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/3710-54354.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3710-54354.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3710-65820.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3710-88967.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3710-49683.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3710-26078.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":15
+        },
+        "product_features":[
+            "Apple M1",
+            "16 GB RAM",
+            "512 GB storage",
+            "24 hours of battery "  
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Laptop",
+        "price":1420,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "MacBook Air M1 16/256GB 13-inch",
+        "small_description":"The latest MacBook Air M1 16GB RAM price in Bangladesh starts from 142000 BDT. Get this excellent performer with seamless portability from Apple Gadgets.",
+        "product_description":"Apple MacBook Air M1 16/256 GB, the epitome of thin and lightweight computing. Packed with the groundbreaking M1 chip, it seamlessly combines a powerful CPU and GPU, delivering exceptional performance for all your tasks. With its impressive battery life, you can enjoy uninterrupted productivity and entertainment on the go. The MacBook Air M1 with  16 GB memory offers a smooth operating system, ensuring a seamless and efficient user experience. Get ready to experience a new level of portable excellence.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Silver-a-2109.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Silver-a-2109.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Silver-b-8091.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Space-Gray-a-2745.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Space-Gray-b-6002.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":18
+        },
+        "product_features":[
+            "13-inch Retina display",
+            "Apple M1",
+            "16GB Ram",
+            "256GB SSD storage"
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Laptop",
+        "price":1300,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "MacBook Pro M1 8/256GB 13-inch Space Gray",
+        "small_description":"The latest MacBook Air M1 16GB RAM price in Bangladesh starts from 142000 BDT. Get this excellent performer with seamless portability from Apple Gadgets.",
+        "product_description":"Apple MacBook Air M1 16/256 GB, the epitome of thin and lightweight computing. Packed with the groundbreaking M1 chip, it seamlessly combines a powerful CPU and GPU, delivering exceptional performance for all your tasks. With its impressive battery life, you can enjoy uninterrupted productivity and entertainment on the go. The MacBook Air M1 with  16 GB memory offers a smooth operating system, ensuring a seamless and efficient user experience. Get ready to experience a new level of portable excellence.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/2324-41148.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2324-41148.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2324-58451.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2324-29453.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2324-56214.jpg"
+        ],
+        "user_rating": {
+            "rating":5,
+            "user_review":25
+        },
+        "product_features":[
+            "13-inch Retina display",
+            "Apple M1",
+            "8 GB Ram",
+            "256GB SSD storage"
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Laptop",
+        "price":2360,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "MacBook Pro M1 Pro 10-CPU 16-GPU 14-inch",
+        "small_description":"The latest MacBook Air M1 16GB RAM price in Bangladesh starts from 142000 BDT. Get this excellent performer with seamless portability from Apple Gadgets.",
+        "product_description":"Apple MacBook Air M1 16/256 GB, the epitome of thin and lightweight computing. Packed with the groundbreaking M1 chip, it seamlessly combines a powerful CPU and GPU, delivering exceptional performance for all your tasks. With its impressive battery life, you can enjoy uninterrupted productivity and entertainment on the go. The MacBook Air M1 with  16 GB memory offers a smooth operating system, ensuring a seamless and efficient user experience. Get ready to experience a new level of portable excellence.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/3712-39649.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3712-39649.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3712-36195.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3712-56628.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3712-34705.jpg"
+        ],
+        "user_rating": {
+            "rating":4.8,
+            "user_review":8
+        },
+        "product_features":[
+            "13-inch Retina display",
+            "Apple M1",
+            "32 GB Ram",
+            "1TB SSD storage"
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"AirPods Pro",
+        "price":2750,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "AirPods Pro (2nd generation) USB‐C",
+        "small_description":"The latest AirPod Pro 2 USB C price in Bangladesh starts from 29000 BDT. To get this Apple AirPods Pro 2 USB C you have to Order now before stock out.",
+        "product_description":"Introducing the second-generation Apple AirPods Pro, a leap forward in audio technology. Notably, these cutting-edge earbuds now feature a Type C charging port, ensuring faster and more versatile power replenishment. These sleek marvels deliver lossless audio quality, thanks to their robust construction and the inclusion of the advanced H2 chipset. With active noise cancellation, Siri support, and dust resistance, these AirPods Pro promise the ultimate auditory journey. Immerse yourself in a world of pure sound and convenience with the new universal Type C charging capability.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-4694.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-4694.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-a-5806.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-b-3352.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":4
+        },
+        "product_features":[
+            "Universal USB-C charging case",
+            "Constructed with H2",
+            "Non-stop SIRI support ",
+            "Quick switching"
+        ]
     }
 
 ]
-    {
-    "brand": "Apple ",
-    "category":"Laptop",
-    "price":619,
-    "product_name": "",
-    "small_description":"",
-    "product_description":"",
-    "product_image": "",
-    "product_imageGallery":[
-        "",
-        "",
-        "",
-        "",
-    ],
-    "user_rating": {
-        "rating":,
-        "user_review":8
-    },
-    "product_features":[
-        "Camera 12MP",
-        "Display 5.4",
-        "Ram 4GB",
-        "Storage 256GB"  
-    ]
-}
-]
 
-{
-    "brand": "Apple ",
-    "category":"Desktop",
-    "price":1434,
-    "product_name": "Apple 2020 iMac with Retina 5K Display (27-inch, 8GB RAM, 512GB SSD Storage)",
-    "small_description":"3.1GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.5GHz or 3.3GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.8GHz or 3.8GHz 8-core 10th-generation Intel Core i7 processor with Turbo Boost up to 5.0GHz",
-    "product_description":"3.1GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.5GHz or 3.3GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.8GHz or 3.8GHz 8-core 10th-generation Intel Core i7 processor with Turbo Boost up to 5.0GHz",
-    "product_image": "https://m.media-amazon.com/images/I/71KR2i6-WaL._AC_SL1500_.jpg",
-    "product_imageGallery":[
-        "https://m.media-amazon.com/images/I/71KR2i6-WaL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71Y5raKAYML._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71SvcctFTWL._AC_SL1500_.jpg"
-    ],
-    "user_rating": {
-        "rating":4.7,
-        "user_review":8
-    },
-    "product_features":[
-        "Camera 12MP",
-        "Display 5.4",
-        "Ram 4GB",
-        "Storage 256GB"  
-    ]

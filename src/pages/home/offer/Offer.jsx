@@ -1,30 +1,51 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./offer.css"
+
+import offer1 from '../../../assets/hero-5.jpg'
+import offer2 from '../../../assets/offer-02.png'
+import offer3 from '../../../assets/offer-03.png'
+
+const offerItem =[
+    {
+        id:1,
+        image:offer1,
+        title:"Xiaomi MI 11",
+        link:"https://google.com",
+        description:"Discount up to 30%",
+    },
+    {
+        id:2,
+        image:offer2,
+        title:"Iphone",
+        link:"https://google.com",
+        description:"Discount up to 30%",
+    },
+    {
+        id:3,
+        image:offer3,
+        title:"MackBook",
+        link:"https://google.com",
+        description:"Discount up to 30%",
+    }
+]
+
+
+
 const Offer = () => {
   return (
     <div>
         <div className='container mx-auto'>
-            {/* TODO */}
             <div className='grid grid-cols-3 gap-5'>
-                <div className='offer-image1 py-16 px-10 rounded-lg'>
-                    <h3 className='text-lg font-medium text-white'>Xiaomi MI 11</h3>
-                    <p className='text-base text-white font-normal mt-2 mb-3'>Discount up to 30%</p>
-                    <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
-                    inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
-                </div>
-                <div className='offer-image1 py-16 px-10 rounded-lg'>
-                    <h3 className='text-lg font-medium text-white'>Xiaomi MI 11</h3>
-                    <p className='text-base text-white font-normal mt-2 mb-3'>Discount up to 30%</p>
-                    <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
-                    inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
-                </div>
-                <div className='offer-image1 py-16 px-10 rounded-lg'>
-                    <h3 className='text-lg font-medium text-white'>Xiaomi MI 11</h3>
-                    <p className='text-base text-white font-normal mt-2 mb-3'>Discount up to 30%</p>
-                    <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
-                    inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
-                </div>
+                {offerItem.map((offer)=><div key={offer.id} className='relative'>
+                    <div className='absolute top-1/4 left-10'>
+                        <h3 className='text-3xl font-semibold text-white mb-3'>{offer?.title}</h3>
+                        <p className='text-base text-white font-normal mt-2 mb-3'>{offer?.description}</p>
+                        <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
+                        inline-block hover:bg-black hover:text-white duration-500'>Buy Now</Link>
+                    </div>
+                    <img className='rounded-md w-full h-[250px] object-cover' src={offer?.image} alt={offer?.title} />
+                </div>)}
             </div>
         </div>
     </div>

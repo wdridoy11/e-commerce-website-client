@@ -1,18 +1,21 @@
 import React, { useContext } from 'react'
 import {FaGithub, FaGoogle } from 'react-icons/fa'
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider';
 
 const SocialLogin = () => {
 
   const {createUserUsingGoogle, createUserUsingGithub} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from.pathname || "/";
+
   // handle login using google account
   const handleGoogleLogin=()=>{
     createUserUsingGoogle()
     .then((res)=>{
       const loginUser = res.user;
-      const saveUser = {name:loginUser.displayName, email: loginUser.email }
+      const saveUser = {name:loginUser?.displayName, email: loginUser?.email }
       fetch(`http://localhost:5000/users`,{
         method:"POST",
         headers:{
@@ -22,12 +25,15 @@ const SocialLogin = () => {
       })
       .then((res)=>res.json())
       .then((data)=>{
-        console.log(data)
+        if(data.insertedId){
+          navigate("/")
+          console.log(data)
+        }else if(data.message){
+          navigate("/")
+          console.log(data)
+        }
       })
     })
-  .then((err)=>{
-    console.log(err.message)
-  })
   }
 
   // handle login using github account
