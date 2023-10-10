@@ -4,7 +4,7 @@ import "./offer.css"
 const Offer = () => {
   return (
     <div>
-        <div className='container mx-auto px-5'>
+        <div className='container mx-auto'>
             {/* TODO */}
             <div className='grid grid-cols-3 gap-5'>
                 <div className='offer-image1 py-16 px-10 rounded-lg'>

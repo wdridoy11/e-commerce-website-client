@@ -4,6 +4,7 @@ import mobile from '../../assets/categories/mobile.png';
 import iphone from '../../assets/categories/iphone.png';
 import mackbook from '../../assets/categories/mackbook.png';
 import headphone from '../../assets/categories/headphone.png';
+import airpodsPro from '../../assets/categories/airpods_pro.png'; 
 import televisions from '../../assets/categories/televisions.png'; 
 
 export const categoriesData =[
@@ -41,5 +42,10 @@ export const categoriesData =[
         id:7,
         title:"Headphone",
         icon:headphone
+    },
+    {
+        id:8,
+        title:"Airpods Pro",
+        icon:airpodsPro
     },
 ]

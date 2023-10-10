@@ -2,34 +2,155 @@
     {
         "brand": "Apple ",
         "category":"Mobile",
-        "price":1590,
-        "product_name": "iPhone 14 Pro Max 256GB (USA- LL/A)",
-        "description":"Apple iPhone 14 Pro Max- the latest name of Apple’s Pro Max lineup. Gives you a magical interaction with its groundbreaking features, innovative camera functionality, and outstanding outlook. All these specs are combined and make the iPhone 14 Pro Max one of the best iPhones to date. ",
-        "image": "https://static-01.daraz.com.bd/p/bfc07c626e96e762fb8957734ffd5ccb.jpg_750x750.jpg_.webp",
-        "imageGallery":[
-            "https://static-01.daraz.com.bd/p/bfc07c626e96e762fb8957734ffd5ccb.jpg_750x750.jpg_.webp",
-            "https://static-01.daraz.com.bd/p/2e84de73a19b06ad0eee634526ab4946.jpg_750x750.jpg_.webp"
+        "price":1330,
+        "product_name": "iPhone 14 Pro Max 256GB",
+        "small_description":"iPhone 14 Pro and iPhone 14 Pro Max feature a beautiful surgical-grade stainless steel and textured matte glass design in four stunning colors. Available in 6.1-inch and 6.7-inch sizes,1 both models include a new Super Retina XDR display with ProMotion that features the Always-On display for the first time ever on iPhone, enabled by a new 1Hz refresh rate and multiple power-efficient technologies.",
+        "product_description":"The Dynamic Island enables new ways to interact with iPhone, featuring a design that blends the line between hardware and software, adapting in real time to show important alerts, notifications, and activities. With the introduction of the Dynamic Island, the TrueDepth camera has been redesigned to take up less of the display area. Without impeding content on the screen, the Dynamic Island maintains an active state to allow users easier access to controls with a simple tap-and-hold. Ongoing background activities like Maps, Music, or a timer remain visible and interactive, and third-party apps in iOS 16 that provide information like sports scores and ride-sharing with Live Activities can take advantage of the Dynamic Island. ",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Deep-Purple-7300.jpg",
+        "product_imageGallery":[
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-space-black-220907_inline.jpg.large.jpg",
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-silver-220907_inline.jpg.large.jpg",
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-gold-220907_inline.jpg.large.jpg",
+            "https://m.media-amazon.com/images/I/51STBWsePzL._AC_SX679_.jpg"
         ],
         "user_rating": {
             "rating": 4.9,
-            "count": 10
-        }
+            "user_review": 10
+        },
+        "product_features":[
+            "Camera 48MP",
+            "Display 6.7 inches",
+            "Ram 6GB",
+            "Storage 256GB"
+        ]
     },
     {
         "brand": "Apple ",
-        "category":"",
-        "price":,
-        "product_name": "",
-        "description":"",
-        "image": "",
-        "imageGallery":[
-            "",
-            ""
+        "category":"Mobile",
+        "price":619,
+        "product_name": "iPhone 13 mini",
+        "small_description":"iPhone SE has an old-school outlook but contains some serious level elements inside it. The compact phone holds an A15 Bionic chipset. The powerful chipset can boost its performance to a new height. You can enjoy the flagship experience through this special edition of the iPhone. In a nutshell, iPhone SE 2022 is a compact-size powerhouse that promised to perform best.",
+        "product_description":"Apple put A15 Bionic into this special edition. Flagship A15 bionic chipset makes the phone a beast. The chipset puts an impact on every aspect of performance. You will get an extra advantage while playing heavy games. Even if you can never feel any lag and latency while browsing. The chipset can help you to improve the phone’s photography. Additionally, in this edition of the iPhone SE, the RAM has also increased. Together, the A15 chipset and upgraded RAM runs the activity of the phone at the same pace as other flagships run.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/3676-79391.jpg",
+        "product_imageGallery":[
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_hero_09142021_inline.jpg.large.jpg",
+            "https://www.91-img.com/gallery_images_uploads/b/b/bbf0ec64f49b7e0bf7029d3a4494b540ee3ddb24.jpg",
+            "https://www.91-img.com/gallery_images_uploads/c/1/c14dcb6f7a8e7f6bc6646743f2eab875f92377ba.jpg",
+            "https://www.91-img.com/gallery_images_uploads/9/4/944994a447f91ff8dacc53cc7a2b38aecd6ca806.jpg",
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_design_09142021_big.jpg.large.jpg",
+            "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_colors_09142021_big.jpg.large.jpg"
         ],
         "user_rating": {
-            "rating": 4.9,
-            "count": 10
-        }
+            "rating":4.8 ,
+            "user_review":8 
+        },
+        "product_features":[
+            "Camera 12MP",
+            "Display 5.4 inches",
+            "Ram 4GB",
+            "Storage 256GB"
+        ]
     },
+    {
+        "brand": "Apple ",
+        "category":"Mobile",
+        "price":1500,
+        "product_name": "iPhone 13 Pro",
+        "small_description":"The iPhone 13 Pro is a smartphone developed and manufactured by Apple. It was released in September 2021, so my knowledge is based on information available up to that date. Here are some key features and specifications of the iPhone 13 Pro",
+        "product_description":"The iPhone 13 Pro is a high-end smartphone from Apple, known for its premium design and impressive performance. It features a Super Retina XDR display with HDR support, powered by the A15 Bionic chip for fast and efficient performance. The device boasts a versatile triple-camera system with enhancements for low-light photography and professional video recording options. With 5G connectivity, it offers faster data speeds when connected to compatible networks. The iPhone 13 Pro runs on Apple's iOS, supports MagSafe accessories, and is available in various storage capacities, making it a top choice for those seeking a powerful and feature-rich smartphone.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/3412-49256.jpg",
+        "product_imageGallery":[
+            "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_sierra_blue__2bovafkl4yaa_large.jpg",
+            "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/water_resistant__gnhxpuloslay_large.jpg",
+            "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_graphite__fecmtb11biye_large.jpg",
+            "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_gold__cc2su4y2aok2_large.jpg",
+            "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_silver__ckkt7pux51si_large.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":5
+        },
+        "product_features":[
+            "Camera 12MP",
+            "Display 6.1 inches",
+            "Ram 4GB",
+            "Storage 256GB"  
+        ]
+    },
+    {
+        "brand": "Apple ",
+        "category":"Mobile",
+        "price":15400,
+        "product_name": "iPhone 14",
+        "small_description":"The iPhone 13 Pro is a smartphone developed and manufactured by Apple. It was released in September 2021, so my knowledge is based on information available up to that date. Here are some key features and specifications of the iPhone 13 Pro",
+        "product_description":"The iPhone 13 Pro is a high-end smartphone from Apple, known for its premium design and impressive performance. It features a Super Retina XDR display with HDR support, powered by the A15 Bionic chip for fast and efficient performance. The device boasts a versatile triple-camera system with enhancements for low-light photography and professional video recording options. With 5G connectivity, it offers faster data speeds when connected to compatible networks. The iPhone 13 Pro runs on Apple's iOS, supports MagSafe accessories, and is available in various storage capacities, making it a top choice for those seeking a powerful and feature-rich smartphone.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Purple-6116.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Purple-6116.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Midnight-4715.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Blue-7810.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Starlight-8954.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":4
+        },
+        "product_features":[
+            "Camera 63MP",
+            "Display 6.1 inches",
+            "Ram 4GB",
+            "Storage 256GB"  
+        ]
+    }
 
 ]
+    {
+    "brand": "Apple ",
+    "category":"Laptop",
+    "price":619,
+    "product_name": "",
+    "small_description":"",
+    "product_description":"",
+    "product_image": "",
+    "product_imageGallery":[
+        "",
+        "",
+        "",
+        "",
+    ],
+    "user_rating": {
+        "rating":,
+        "user_review":8
+    },
+    "product_features":[
+        "Camera 12MP",
+        "Display 5.4",
+        "Ram 4GB",
+        "Storage 256GB"  
+    ]
+}
+]
+
+{
+    "brand": "Apple ",
+    "category":"Desktop",
+    "price":1434,
+    "product_name": "Apple 2020 iMac with Retina 5K Display (27-inch, 8GB RAM, 512GB SSD Storage)",
+    "small_description":"3.1GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.5GHz or 3.3GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.8GHz or 3.8GHz 8-core 10th-generation Intel Core i7 processor with Turbo Boost up to 5.0GHz",
+    "product_description":"3.1GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.5GHz or 3.3GHz 6-core 10th-generation Intel Core i5 processor with Turbo Boost up to 4.8GHz or 3.8GHz 8-core 10th-generation Intel Core i7 processor with Turbo Boost up to 5.0GHz",
+    "product_image": "https://m.media-amazon.com/images/I/71KR2i6-WaL._AC_SL1500_.jpg",
+    "product_imageGallery":[
+        "https://m.media-amazon.com/images/I/71KR2i6-WaL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Y5raKAYML._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71SvcctFTWL._AC_SL1500_.jpg"
+    ],
+    "user_rating": {
+        "rating":4.7,
+        "user_review":8
+    },
+    "product_features":[
+        "Camera 12MP",
+        "Display 5.4",
+        "Ram 4GB",
+        "Storage 256GB"  
+    ]
