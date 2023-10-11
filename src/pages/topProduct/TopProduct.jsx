@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
+
 const categoryName=[
     "Mobile",
     "Laptop",
@@ -10,7 +11,6 @@ const categoryName=[
 
 const TopProduct = () => {
   
-        
     const [products,setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('Mobile');
     const [filteredProduct, setFilteredProduct] = useState([]);

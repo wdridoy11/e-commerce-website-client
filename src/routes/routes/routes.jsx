@@ -16,6 +16,8 @@ import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Shopping from '../../components/shopping/Shopping';
 import Payment from '../../pages/dashboard/payment/Payment';
 import Shop from '../../pages/shop/Shop';
+import Blogs from '../../pages/blogs/Blogs';
+import BlogDetails from '../../pages/blogs/BlogDetails';
 
 const routes = createBrowserRouter([
   {
@@ -43,6 +45,11 @@ const routes = createBrowserRouter([
       {
         path:"shop",
         element:<Shop></Shop>
+      },
+      {
+        path:"blog/:id",
+        element:<BlogDetails></BlogDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
       },
       {
         path:"sign_up",

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
 
+
 const Shop = () => {
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const categoryName=[ "Mobile", "Laptop", "Ipad", "Headphone", "Airpods Pro"]
 
     const [products,setProducts] = useState([]);
     // min price and max price state 
@@ -24,7 +27,7 @@ const Shop = () => {
     },[])
 
     // handle min price and max price filter
-    const handleFilterPrice= (e)=>{
+    const handleFilterPrice =(e)=>{
         e.preventDefault();
         const min = parseFloat(minPrice);
         const max = parseFloat(maxPrice);
@@ -35,14 +38,19 @@ const Shop = () => {
         setFilteredProducts(filteredData)
     }
 
-
+// const handleCategory = (e) =>{
+//     console.log(e.target.value)
+// }
+// console.log(selectedCategory)
 
   return (
     <div>
         <div className='px-20 py-10'>
             <div className='grid grid-cols-5 gap-5'>
-                <div className=' bg-white h-20 rounded p-5'>
-                    {/* <div className='grid grid-cols-2 gap-3'> */}
+                <div className=' bg-white rounded p-5'>
+                    {/* filter by price */}
+                    <div className='border-b pb-5'>
+                        <h3 className='text-lg font-medium text-black mb-2'>Price</h3>
                         <form onSubmit={handleFilterPrice} className='flex gap-2'>
                             <div className='grid grid-cols-2 gap-3'>
                                 <input 
@@ -68,7 +76,29 @@ const Shop = () => {
                                 <BiSolidRightArrow></BiSolidRightArrow>
                             </button>
                         </form>
-                    {/* </div> */}
+                    </div>
+                    {/* filter by category Name */}
+                    <div className='pt-4 border-b pb-3'>
+                        <h3 className='text-lg font-medium text-black mb-2'>Category</h3>
+                        <div>
+                            {categoryName.map((category,index)=><div key={index} className='flex justify-between'>
+                                <div className='flex gap-2 mb-1'>
+                                    <input 
+                                        type="checkbox" 
+                                        className='checkbox checkbox-sm checkbox-[#ddd] rounded-sm' 
+                                        name="category" 
+                                        id="category"
+                                        value={category}
+                                        // onClick={(e)=>setSelectedCategory([...selectedCategory,e.target.value])}
+                                    />
+                                    <p>{category}</p>
+                                </div>
+                                <div>
+                                    <p>1</p>
+                                </div>
+                            </div>)}
+                        </div>
+                    </div>
                 </div>
                 <div className='col-span-4 grid grid-cols-5 gap-5'>
                     {filteredProducts.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
