@@ -15,6 +15,7 @@ import ProductCardDetails from '../../components/productCard/ProductCardDetails'
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Shopping from '../../components/shopping/Shopping';
 import Payment from '../../pages/dashboard/payment/Payment';
+import Shop from '../../pages/shop/Shop';
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
       {
         path:"login",
         element:<Login></Login>
+      },
+      {
+        path:"shop",
+        element:<Shop></Shop>
       },
       {
         path:"sign_up",
