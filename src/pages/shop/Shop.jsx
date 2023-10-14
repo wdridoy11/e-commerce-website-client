@@ -33,7 +33,7 @@ const Shop = () => {
             const price = parseFloat(product.price);
             return price >= min && price <= max;
         })
-        setFilteredProducts(filteredData)
+        setFilteredProducts(filteredData) 
     }
 
     // product category name find
@@ -44,6 +44,31 @@ const Shop = () => {
             categoryName.push(category)
         }
     }
+
+    // category value selected
+    const handleCategoryChange = (e) => {
+        const category = e.target.value;
+        if (e.target.checked) {
+          setSelectedCategories((prevSelectedCategories) => [
+            ...prevSelectedCategories, category,
+          ]);
+        } else {
+          setSelectedCategories((prevSelectedCategories) =>
+            prevSelectedCategories.filter((c) => c !== category)
+          );
+        }
+      };
+
+    //   category filter system added
+      useEffect(()=>{
+        if(selectedCategories.length === 0){
+            setFilteredProducts(products)
+        }else{
+            const filtered = products.filter((product)=>selectedCategories.includes(product.category))
+            setFilteredProducts(filtered);
+        }
+      },[selectedCategories, products])
+
 
   return (
     <div>
@@ -63,6 +88,7 @@ const Shop = () => {
                                     onChange={(e)=>setMinPrice(e.target.value)}
                                     className='w-full border px-2 py-1 border-slate-400 focus:outline-none'
                                     placeholder='Min'
+                                    required
                                 />
                                 <input 
                                     type="number" 
@@ -89,9 +115,10 @@ const Shop = () => {
                                         type="checkbox" 
                                         className='checkbox checkbox-sm checkbox-[#ddd] rounded-sm' 
                                         name="category" 
-                                        id="category"
+                                        id={`category`}
                                         value={category}
-                                        // onClick={(e)=>setSelectedCategory([...selectedCategory,e.target.value])}
+                                        onChange={handleCategoryChange}
+                                        checked={selectedCategories.includes(category)}
                                     />
                                     <p>{category}</p>
                                 </div>
