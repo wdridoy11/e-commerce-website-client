@@ -13,7 +13,7 @@ const Blogs = () => {
     },[])
 
   return (
-    <div className='py-20'>
+    <div className='pt-20 pb-10'>
         <div className='container mx-auto'>
             <h1 className='text-2xl font-semibold mb-5 text-center'>Our Blogs</h1>
             <div className='grid grid-cols-3 gap-5'>

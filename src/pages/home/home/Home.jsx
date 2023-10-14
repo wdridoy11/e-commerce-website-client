@@ -9,6 +9,7 @@ import TopProduct from '../../topProduct/TopProduct'
 import Blogs from '../../blogs/Blogs'
 import SpecialProduct from '../specialProduct/SpecialProduct'
 import Brand from '../brand/Brand'
+import Testimonial from '../testimonial/Testimonial'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Offer></Offer>
       <TopProduct></TopProduct>
       <SpecialProduct></SpecialProduct>
+      <Testimonial></Testimonial>
       <Blogs></Blogs>
       <Brand></Brand>
       <Subscribe></Subscribe>

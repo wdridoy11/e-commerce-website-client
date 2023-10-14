@@ -1,0 +1,38 @@
+[
+    {
+        "user_name":"David",
+        "user_image":"https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+        "user_rating":5,
+        "user_feedback":"I'm impressed by the quality and reliability of this eCommerce platform. Every purchase has been a breeze, and the products always match the descriptions. It's a one-stop-shop for all my needs."
+    },
+    {
+        "user_name":"Henry",
+        "user_image":"https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80",
+        "user_rating":5,
+        "user_feedback":"This website stands out in the crowded world of online shopping. The exceptional service, product variety, and hassle-free returns have made me a satisfied and repeat customer. Highly recommended!"
+    },
+    {
+        "user_name":"Jason",
+        "user_image":"https://images.unsplash.com/photo-1591084728795-1149f32d9866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
+        "user_rating":5,
+        "user_feedback":"Shopping here is a pleasure. The website's variety and competitive prices are unbeatable. With easy navigation and secure payments, it's a trusted source for quality products. My favorite online shopping hub."
+    },
+    {
+        "user_name":"Steven",
+        "user_image":"https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "user_rating":5,
+        "user_feedback":"I'm delighted with this eCommerce platform. It's where I always turn to for the latest trends and daily essentials. Their efficient service, clear product descriptions, and swift shipping are unbeatable. Five stars!"
+    },
+    {
+        "user_name":"Michael",
+        "user_image":"https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80",
+        "user_rating":5,
+        "user_feedback":"This eCommerce website has truly won me over. Their vast collection and great prices are remarkable. With an easy-to-navigate site, secure payments, and speedy deliveries, it's a shopper's dream come true. I couldn't be happier!"
+    },
+    {
+        "user_name":"Justin",
+        "user_image":"https://images.unsplash.com/photo-1607453998792-051fed7d2631?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+        "user_rating":5,
+        "user_feedback":""
+    }
+]
