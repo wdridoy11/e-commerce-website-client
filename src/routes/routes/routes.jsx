@@ -3,21 +3,18 @@ import { createBrowserRouter } from "react-router-dom";
 
 // page import
 import Main from '../../layout/Main';
+import Shop from '../../pages/shop/Shop';
 import Login from '../../pages/login/Login';
-import About from '../../pages/about/About';
 import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
 import Order from '../../components/order/Order';
-import PrivetRoute from '../privetRoute/PrivetRoute';
+import BlogDetails from '../../pages/blogs/BlogDetails';
+import Shopping from '../../components/shopping/Shopping';
+import Payment from '../../pages/dashboard/payment/Payment';
+import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
-import MyCard from '../../pages/dashboard/user/myCard/MyCard';
-import Shopping from '../../components/shopping/Shopping';
-import Payment from '../../pages/dashboard/payment/Payment';
-import Shop from '../../pages/shop/Shop';
-import Blogs from '../../pages/blogs/Blogs';
-import BlogDetails from '../../pages/blogs/BlogDetails';
 
 const routes = createBrowserRouter([
   {
@@ -27,10 +24,6 @@ const routes = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>
-      },
-      {
-        path:"about",
-        element:<About></About>
       },
       {
         // path:"productDetails",
@@ -45,6 +38,11 @@ const routes = createBrowserRouter([
       {
         path:"shop",
         element:<Shop></Shop>
+      },
+      {
+        path:"shop/:category",
+        element:<Shop></Shop>,
+        // loader:({params})=>fetch(`http://localhost:5000/product/${params.category}`)
       },
       {
         path:"blog/:id",

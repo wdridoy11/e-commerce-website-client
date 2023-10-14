@@ -3,6 +3,7 @@ import { categoriesData } from './CategoriesData'
 import Categorie from './Categorie'
 
 const Categories = () => {
+
   return (
     <div>
         <div className='container mx-auto'>

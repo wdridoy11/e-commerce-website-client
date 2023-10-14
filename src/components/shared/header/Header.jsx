@@ -60,7 +60,7 @@ const Header = () => {
                 <AddToCard></AddToCard>
               </li>
               <li title='Favorite'>
-                <Link to={`/dashboard/allusers`}><FaHeart className='text-xl text-black' /></Link>
+                <Link to={`/shop`}><FaHeart className='text-xl text-black' /></Link>
               </li>
               <li title='Compare'>
                 <Link><FaExchangeAlt className='text-xl text-black' /></Link>

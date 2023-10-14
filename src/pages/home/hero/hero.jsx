@@ -20,7 +20,7 @@ const heroSlider=[
         img:hero1,
         title:"iPhone",
         description:"Discount up to 5%",
-        link:"google.com",
+        link:"http://localhost:3000/productDetails/652516f3e783a1d31cd93a44",
         color:"black"
     },
     {
@@ -30,7 +30,7 @@ const heroSlider=[
         img:hero3,
         title:"Mackbook",
         description:"Discount up to 10%",
-        link:"google.com",
+        link:"http://localhost:3000/productDetails/652516f3e783a1d31cd93a48",
         color:"black"
     }
 ]

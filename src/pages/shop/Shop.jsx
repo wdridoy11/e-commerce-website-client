@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
+import { useLoaderData } from 'react-router-dom';
 
 
 const Shop = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const categoryName=[ "Mobile", "Laptop", "Ipad", "Headphone", "Airpods Pro"]
 
     const [products,setProducts] = useState([]);
     // min price and max price state 
@@ -13,8 +13,6 @@ const Shop = () => {
     const [maxPrice, setMaxPrice] = useState('');
     // price filter data
     const [filteredProducts, setFilteredProducts] = useState([]);
-
-
     // data loading form database
     useEffect(()=>{
         fetch(`http://localhost:5000/products`)
@@ -38,10 +36,14 @@ const Shop = () => {
         setFilteredProducts(filteredData)
     }
 
-// const handleCategory = (e) =>{
-//     console.log(e.target.value)
-// }
-// console.log(selectedCategory)
+    // product category name find
+    let categoryName =[];
+    for(let i = 0 ;i<products.length;i++){
+        let category = products[i].category;
+        if(categoryName.indexOf(category) == -1){
+            categoryName.push(category)
+        }
+    }
 
   return (
     <div>
