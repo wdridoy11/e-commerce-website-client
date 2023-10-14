@@ -261,6 +261,127 @@
             "Non-stop SIRI support ",
             "Quick switching"
         ]
+    },
+    {
+        "brand": "QCY",
+        "category":"Headphone",
+        "price":30,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "QCY H2 Wireless Headphone",
+        "small_description":"The headphones also offer very low latency, making them suitable for online gaming with instant response. Additionally, the dual-device connection feature allows you to seamlessly switch between two devices, adding to the headphones' overall convenience and functionality.",
+        "product_description":"The QCY H2 wireless headphones feature a stylish, colorful, and lightweight design that prioritizes comfort during extended use. These headphones are equipped with a built-in BASS mode that accentuates beats, delivering a punchy and engaging sound experience. A strong dynamic driver ensures an immersive audio output. With an impressive battery life of up to 60 hours, the headphones provide ample power for your music adventures. The latest Bluetooth 5.3 technology ensures a stable and reliable wireless connection. The headphones also offer very low latency, making them suitable for online gaming with instant response. Additionally, the dual-device connection feature allows you to seamlessly switch between two devices, adding to the headphones' overall convenience and functionality.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Black-6822.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Black-6822.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Green-2995.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":22
+        },
+        "product_features":[
+            "Comes with a stylish",
+            "Has a built-in  BASS",
+            "40MM NdFe strong",
+            "60-Hour Battery Life "
+        ]
+    },
+    {
+        "brand": "Edifier",
+        "category":"Headphone",
+        "price":30,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "Edifier Hecate G30s Bluetooth Gaming Headset",
+        "small_description":"To find detailed information about this gaming headset, I recommend visiting the official Edifier website, checking product reviews and descriptions on retail websites, or contacting Edifier customer support for the most up-to-date and accurate information regarding its features, specifications, and availability.",
+        "product_description":"To find detailed information about this gaming headset, I recommend visiting the official Edifier website, checking product reviews and descriptions on retail websites, or contacting Edifier customer support for the most up-to-date and accurate information regarding its features, specifications, and availability.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Black-6526.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/Black-6526.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/Gray-7902.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":14
+        },
+        "product_features":[
+            "Comes with a stylish",
+            "Has a built-in  BASS",
+            "40MM NdFe strong",
+            "60-Hour Battery Life "
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Ipad",
+        "price":30,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "iPad Pro M1 2021 - 11inch",
+        "small_description":"Meet the iPad Pro M1 11-inch, a remarkable tablet that embodies excellence in every aspect. Powered by the formidable M1 chipset, it redefines speed and efficiency, making it the undisputed leader in tablet performance.",
+        "product_description":"Its buttery smooth display sets new standards with vibrant colors and ProMotion technology. The remarkable camera system, including the groundbreaking center stage feature, captures stunning visuals with unparalleled precision. With an impressive battery life and the ability to function as a portable workstation, the iPad Pro M1 11-inch is a game-changer in the world of tablets. ",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/2469-64685.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2469-64685.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/2469-11447.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":15
+        },
+        "product_features":[
+            "Comes with an M1",
+            "Holds a Liquid Retina display",
+            "It has Ultra Wide camera with"
+        ]
+    },
+    {
+        "brand": "Apple",
+        "category":"Ipad",
+        "price":30,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "iPad mini 6",
+        "small_description":"The latest iPad Mini 6  price in Bangladesh starts from 54500 BDT. You can feel the magic in your palm by using this compact-sized powerful  iPad mini 6.",
+        "product_description":"Introducing the revolutionary iPad mini 6 – a compact powerhouse that redefines portability and performance. With its sleek all-screen design, every inch of the stunning display is at your fingertips, delivering an immersive experience like never before. Powered by cutting-edge technology, it boasts impressive performance to handle any task effortlessly. Plus, its remarkable battery life ensures uninterrupted productivity and entertainment on the go. Say goodbye to compromises and embrace the easy portability of the iPad mini 6 – the best option for those seeking uncompromising power in a compact form.",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/3414-67236.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3414-67236.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3414-37698.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3414-37635.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/3414-61080.jpg"
+        ],
+        "user_rating": {
+            "rating":4.9,
+            "user_review":11
+        },
+        "product_features":[
+            "New all‑screen design and a compact shape ",
+            "Holds the powerful A15 Bionic chip",
+            "Superfast 5G for seamless connectivity",
+            "Support for Apple Pencil to be more creative",
+            "Satisfactory battery life with great optimization"
+        ]
+    },
+    {
+        "brand": "OnePlus",
+        "category":"Televisions",
+        "price":30,
+        "seller_email":"ridoysharifbrmsrs@gmail.com",
+        "product_name": "OnePlus TV Y Series",
+        "small_description":"COMBINED DELIVERY & INSTALLATION : Avail brand-approved installation at the time of delivery by the same expert (Wall mount may be chargeable)",
+        "product_description":"Warranty Information: 1 year comprehensive warranty and additional 1 year on panel provided by the manufacturer from date of purchase",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-9437.jpg",
+        "product_imageGallery":[
+            "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-9437.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-d-3139.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-b-5915.jpg",
+            "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-c-3276.jpg"
+        ],
+        "user_rating": {
+            "rating":4.7,
+            "user_review":14
+        },
+        "product_features":[
+            "Resolution: HD Ready (1366x768) | Refresh Rate: 60 hertz"
+        ]
     }
 
 ]

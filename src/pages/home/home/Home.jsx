@@ -7,6 +7,7 @@ import Offer from '../offer/Offer'
 import Categories from '../../../components/categories/Categories'
 import TopProduct from '../../topProduct/TopProduct'
 import Blogs from '../../blogs/Blogs'
+import SpecialProduct from '../specialProduct/SpecialProduct'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ProductDataLoad></ProductDataLoad>
       <Offer></Offer>
       <TopProduct></TopProduct>
+      <SpecialProduct></SpecialProduct>
       <Blogs></Blogs>
       <Subscribe></Subscribe>
     </div>
