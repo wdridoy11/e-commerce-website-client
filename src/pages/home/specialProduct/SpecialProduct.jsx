@@ -28,9 +28,8 @@ const SpecialProduct = () => {
         setSpecialProduct(productRatingFilter)
     },[products])
 
-{/* {specialProduct && specialProduct?.map((product)=>console.log(product.user_rating.user_review))} */}
   return (
-    <div className='specialProduct py-20'>
+    <div className='specialProduct py-20 bg-white'>
         <div className='container mx-auto'>
             <div>
                 <Swiper
@@ -42,7 +41,7 @@ const SpecialProduct = () => {
                     modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                     className="mySwiper"
                 >
-                    {specialProduct && specialProduct?.map((product)=><SwiperSlide>
+                    {specialProduct && specialProduct?.map((product)=><SwiperSlide key={product._id}>
                         <div className='grid grid-cols-2 items-center'>
                             <div>
                                 <img className='w-1/2 mx-auto' src={product?.product_image} alt="" />

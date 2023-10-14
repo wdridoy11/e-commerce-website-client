@@ -8,6 +8,7 @@ import Categories from '../../../components/categories/Categories'
 import TopProduct from '../../topProduct/TopProduct'
 import Blogs from '../../blogs/Blogs'
 import SpecialProduct from '../specialProduct/SpecialProduct'
+import Brand from '../brand/Brand'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <TopProduct></TopProduct>
       <SpecialProduct></SpecialProduct>
       <Blogs></Blogs>
+      <Brand></Brand>
       <Subscribe></Subscribe>
     </div>
   )
