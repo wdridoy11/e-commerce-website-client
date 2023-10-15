@@ -1,7 +1,9 @@
 import React, {useContext, useState, } from 'react'
 import Swal from 'sweetalert2';
 import { MdAdd } from 'react-icons/md';
-import { FaMinus } from 'react-icons/fa';
+import { FaMinus, FaUser } from 'react-icons/fa';
+import { BsSuitHeart } from 'react-icons/bs';
+import { DiGitCompare } from 'react-icons/di';
 import SliderImage from "react-zoom-slider";
 import '@smastrom/react-rating/style.css';
 import useCard from '../../hooks/useCard';
@@ -130,13 +132,13 @@ const ProductCardDetails = () => {
                             <p className='text-base text-[#777] font-normal mt-3'>{small_description}</p>
 
                             <div className='mt-3'>
-                                <p className='text-base text-[#9e9e9e] font-medium'>Brand: <span className='text-black'>{brand}</span> </p>
-                                <p className='text-base text-[#9e9e9e] font-medium'>Category: <span className='text-black'>{category}</span></p>
+                                <p className='text-sm text-[#9e9e9e] font-medium'>Brand: <span className='text-black'>{brand}</span> </p>
+                                <p className='text-sm text-[#9e9e9e] font-medium'>Category: <span className='text-black'>{category}</span></p>
                             </div>
                             <div>
                             </div>
-                            <div className="divider"></div> 
-                            <p className='text-4xl font-medium text-blue-500 mb-5'>$<span>{price}</span></p>
+                            <div className="border-b pt-2"></div> 
+                            <p className='text-4xl font-medium text-blue-500 mb-5 mt-3'>$<span>{price}</span></p>
                             {/* quentity area start */}
                             <div className='flex items-center gap-5 mb-5'>
                                 <p className='text-base text-black font-medium'>Quantity</p>
@@ -167,6 +169,21 @@ const ProductCardDetails = () => {
                                  hover:bg-black duration-500' onClick={()=>handleAddToCard()}>Add To Card</button>
                             </div>
                             {/* <Link to={`/order`}>GO</Link> */}
+                            <div className="border-b pt-5"></div> 
+                            <div className='flex items-center gap-10 mt-3'>
+                                <div>
+                                    <button className='flex items-center gap-1 text-lg font-medium text-black hover:text-[#FF5039]
+                                    duration-500'>
+                                        <DiGitCompare></DiGitCompare> Compare
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className='flex items-center gap-1 text-lg font-medium text-black hover:text-[#FF5039]
+                                    duration-500'>
+                                        <BsSuitHeart></BsSuitHeart> Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='bg-white mt-3 p-5'>
