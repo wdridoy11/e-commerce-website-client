@@ -31,7 +31,7 @@ const Shop = () => {
         const max = parseFloat(maxPrice);
         const filteredData = products.filter((product)=>{
             const price = parseFloat(product.price);
-            return price >= min && price <= max;
+            return price >= min || price <= max;
         })
         setFilteredProducts(filteredData) 
     }
@@ -60,15 +60,21 @@ const Shop = () => {
       };
 
     //   category filter system added
-      useEffect(()=>{
+ 
+    useEffect(()=>{
         if(selectedCategories.length === 0){
             setFilteredProducts(products)
         }else{
-            const filtered = products.filter((product)=>selectedCategories.includes(product.category))
-            setFilteredProducts(filtered);
+            if(minPrice == '' && maxPrice == ''){
+                console.log('yes')
+                const filtered = products.filter((product)=>selectedCategories.includes(product.category));
+                setFilteredProducts(filtered);
+            }else{
+                const filtered = filteredProducts.filter((product)=>selectedCategories.includes(product.category));
+                setFilteredProducts(filtered);
+            }
         }
-      },[selectedCategories, products])
-
+    },[selectedCategories, products])
 
   return (
     <div>

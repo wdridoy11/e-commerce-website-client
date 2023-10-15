@@ -2,6 +2,7 @@ import React, {useContext, useState, } from 'react'
 import Swal from 'sweetalert2';
 import { MdAdd } from 'react-icons/md';
 import { FaMinus } from 'react-icons/fa';
+import SliderImage from "react-zoom-slider";
 import '@smastrom/react-rating/style.css';
 import useCard from '../../hooks/useCard';
 import RelatedProduct from './RelatedProduct';
@@ -9,6 +10,7 @@ import { Rating } from '@smastrom/react-rating'
 import { useLoaderData } from 'react-router-dom';
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
+import "./productSlider.css"
 // import SliderImage from "react-zoom-slider";
 const descriptionText ='Apple iPhone 14 Pro Max- the latest name of Apple’s Pro Max lineup. Gives you a magical interaction with its groundbreaking features, innovative camera functionality, and outstanding outlook. All these specs are combined and make the iPhone 14 Pro Max one of the best iPhones to date. '
 
@@ -85,6 +87,14 @@ const ProductCardDetails = () => {
         console.log("Hello HandleBuyNow")
     }
 
+    // image gallery get array and conver object
+    const result = product_imageGallery.map((url,index)=>{
+        return{
+            id: index+1,
+            image: url
+        }
+    })
+
   return (
     <div className='pt-20 pb-20 bg-white border-t'>
         <div className='container mx-auto px-5'>
@@ -95,12 +105,18 @@ const ProductCardDetails = () => {
                 <div className='col-span-4'>
                     <div className='grid grid-cols-2  gap-5 p-5'>
                         <div className=''>
-                            <div className='w-full'>
+                            <div className='w-full p-10'>
                             {/* <div className='w-full h-96 overflow-hidden'> */}
-                                <img className='w-1/3 mx-auto' src={product_image} alt="" />
+                                {/* <img className='w-1/3 mx-auto' src={product_image} alt="" /> */}
+                                <SliderImage
+                                    data={result}
+                                    // width="1000px"
+                                    showDescription={false}
+                                    direction="right"
+                                />
                             </div>
                             <div className='grid grid-cols-5'>
-                                {product_imageGallery && product_imageGallery.map((image)=><img className='w-1/2  mx-auto' src={image} alt="" />)}
+                                {/* {product_imageGallery && product_imageGallery.map((image)=><img className='w-1/2  mx-auto' src={image} alt="" />)} */}
                             </div>
                         </div>
                         <div className=''>
