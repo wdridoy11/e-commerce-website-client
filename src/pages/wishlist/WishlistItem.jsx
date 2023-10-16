@@ -1,12 +1,43 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import useWishlist from '../../hooks/useWishlist'
-import { FaTrash, FaUser} from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+
 const WishlistItem = () => {
-    const [wishlist] = useWishlist();
-console.log(wishlist)
+    const [wishlist,refetch] = useWishlist();
 
-const handleDelete=(e)=>{
-
+// handle delete card item
+const handleDelete=(id)=>{
+  Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:5000/wishlist/${id}`,{
+        method:"DELETE",
+        headers:{
+          "content-type":"application/json"
+        }
+      })
+      .then((res)=>res.json())
+      .then((data)=>{
+        console.log(data)
+        if(data.deletedCount>0){
+          refetch();
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
+    }
+  })
 }
 
   return (
@@ -39,7 +70,7 @@ const handleDelete=(e)=>{
                         <td className='text-base font-medium'>${product?.price}</td>
                         <th>
                             <div>
-                                <button onClick={()=>handleDelete(product)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
+                                <button onClick={()=>handleDelete(product._id)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
                             </div>
                         </th>
                     </tr>)}
