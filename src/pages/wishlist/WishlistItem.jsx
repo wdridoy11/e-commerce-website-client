@@ -1,11 +1,16 @@
-import React from 'react'
-import useWishlist from '../../hooks/useWishlist'
+import React, { useContext } from 'react'
 import { FaTrash } from 'react-icons/fa';
+import { IoMdCart } from 'react-icons/io';
+import useWishlist from '../../hooks/useWishlist'
 import Swal from 'sweetalert2';
+import useCard from '../../hooks/useCard';
+import { AuthContext } from '../../context/AuthProvider';
 
 const WishlistItem = () => {
-    const [wishlist,refetch] = useWishlist();
-
+  const [card] = useCard();
+  const {user} = useContext(AuthContext);
+  const [wishlist,refetch] = useWishlist();
+  
 // handle delete card item
 const handleDelete=(id)=>{
   Swal.fire({
@@ -40,6 +45,47 @@ const handleDelete=(id)=>{
   })
 }
 
+  // handleAddToCard button
+  const handleAddToCard = (item) =>{
+    const { brand, product_name, price, _id, product_image, quantity } = item;
+    // check privous card data id and new data id
+    const cardIdMatch = card.find((item)=> item.productId === _id && item.email === user?.email);
+    if(cardIdMatch){
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Your already added',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }else{
+        if(user && user?.email){
+            const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
+            fetch(`http://localhost:5000/carts`,{
+                method:"POST",
+                headers:{
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(productItem)
+            })
+            .then((res)=>res.json())
+            .then((data)=>{
+                if(data.insertedId){
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'New item added success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+        }        
+    }
+}
+
+
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -51,9 +97,10 @@ const handleDelete=(id)=>{
                     <th className='capitalize text-base font-medium'>No</th>
                     <th className='capitalize text-base font-medium'>Image</th>
                     <th className='capitalize text-base font-medium'>Info</th>
+                    <th className='capitalize text-base font-medium'>Quantity</th>
                     <th className='capitalize text-base font-medium'>Price</th>
-                    <th className='capitalize text-base font-medium'>Total</th>
-                    <th className='capitalize text-base font-medium'>Activon</th>
+                    <th className='capitalize text-base font-medium'>Add to Card</th>
+                    <th className='capitalize text-base font-medium'>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -66,8 +113,13 @@ const handleDelete=(id)=>{
                           <h4 className='text-base font-medium'>{product?.product_name}</h4>
                           <p className='text-sm font-normal text-[#A5A5A5]'>Brand: {product?.brand}</p>
                         </td>
+                        <td className='text-base font-medium'>{product?.quantity}</td>
                         <td className='text-base font-medium'>${product?.price}</td>
-                        <td className='text-base font-medium'>${product?.price}</td>
+                        <th>
+                            <div>
+                                <button onClick={()=>handleAddToCard(product)} className="text-xl bg-[#F57224] text-white p-3 rounded-md"><IoMdCart></IoMdCart></button>
+                            </div>
+                        </th>
                         <th>
                             <div>
                                 <button onClick={()=>handleDelete(product._id)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>

@@ -107,7 +107,7 @@ const ProductCardDetails = () => {
              })
          }else{
              if(user && user?.email){
-                 const productItem ={productId: _id,email:user?.email, brand, product_image, product_name, price}
+                const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
                  fetch(`http://localhost:5000/wishlist`,{
                      method:"POST",
                      headers:{
