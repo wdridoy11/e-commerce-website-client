@@ -10,3 +10,7 @@ h1,h2,h3,h4,h5,h6{
 p,button{
     font-family: 'Open Sans', sans-serif;
 }
+.dashboard-nav>li a.active {
+    color: #fff;
+    background: #FF5039;
+  }

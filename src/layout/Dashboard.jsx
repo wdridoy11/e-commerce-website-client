@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaBars,FaShoppingBag, FaEnvelope, FaUtensils, FaUsers, FaBook} from 'react-icons/fa';
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { FaHeart, FaHome, FaUsers,} from 'react-icons/fa';
+import { IoMdCart } from 'react-icons/io';
+import { NavLink, Outlet } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider';
 
 const Dashboard = () => {
@@ -24,8 +25,17 @@ const Dashboard = () => {
                         <p className='mt-3 text-lg font-semibold'>{user?.displayName}</p>
                         <p className=''>{user?.email}</p>
                     </div>
-                    <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink></li>
-                    <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><FaUsers></FaUsers> My Cart</NavLink></li>
+                    <div className='dashboard-nav'>
+                        <li className='mb-2'>
+                            <NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink>
+                        </li>
+                        <li className='mb-2'>
+                            <NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink>
+                        </li>
+                        <li className='mb-2'>
+                            <NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink>
+                        </li>
+                    </div>
                 </div>
                 <div className="divider"></div> 
                 <div>

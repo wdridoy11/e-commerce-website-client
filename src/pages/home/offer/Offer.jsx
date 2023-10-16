@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import offer1 from '../../../assets/hero-5.jpg';
+import offer2 from '../../../assets/offer-02.png';
+import offer3 from '../../../assets/offer-03.png';
 import "./offer.css"
-
-import offer1 from '../../../assets/hero-5.jpg'
-import offer2 from '../../../assets/offer-02.png'
-import offer3 from '../../../assets/offer-03.png'
 
 const offerItem =[
     {
@@ -19,14 +18,14 @@ const offerItem =[
         image:offer2,
         title:"Iphone",
         link:"https://google.com",
-        description:"Discount up to 30%",
+        description:"Discount up to 5%",
     },
     {
         id:3,
         image:offer3,
         title:"MackBook",
         link:"https://google.com",
-        description:"Discount up to 30%",
+        description:"Discount up to 10%",
     }
 ]
 

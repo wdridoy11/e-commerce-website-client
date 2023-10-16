@@ -4,6 +4,7 @@ import { BiSolidRightArrow } from 'react-icons/bi';
 
 
 const Shop = () => {
+
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     const [products,setProducts] = useState([]);
@@ -12,6 +13,7 @@ const Shop = () => {
     const [maxPrice, setMaxPrice] = useState('');
     // price filter data
     const [filteredProducts, setFilteredProducts] = useState([]);
+
     // data loading form database
     useEffect(()=>{
         fetch(`http://localhost:5000/products`)
@@ -24,16 +26,29 @@ const Shop = () => {
     },[])
 
     // handle min price and max price filter
-    const handleFilterPrice =(e)=>{
+    const handleFilterPrice= (e)=>{
         e.preventDefault();
         const min = parseFloat(minPrice);
         const max = parseFloat(maxPrice);
-        const filteredData = products.filter((product)=>{
-            const price = parseFloat(product.price);
-            return price >= min || price <= max;
-        })
-        setFilteredProducts(filteredData) 
+        const filteredData = products.filter((product) => {
+          const price = parseFloat(product.price);
+          const priceMatch = isNaN(min) || isNaN(max) || (price >= min && price <= max);
+          const categoryMatch =
+            selectedCategories.length === 0 || selectedCategories.includes(product.category);
+          return priceMatch && categoryMatch;
+        });
+        setFilteredProducts(filteredData);
     }
+    // const handleFilterPrice= (e)=>{
+    //     e.preventDefault();
+    //     const min = parseFloat(minPrice);
+    //     const max = parseFloat(maxPrice);
+    //     const filteredData = products.filter((product)=>{
+    //         const price = parseFloat(product.price);
+    //         return price >= min || price <= max;
+    //     })
+    //     setFilteredProducts(filteredData)
+    // }
 
     // product category name find
     let categoryName =[];
@@ -44,40 +59,49 @@ const Shop = () => {
         }
     }
 
-    // category value selected
+
+    // const uniqueCategories = Array.from(new Set(products.map((product) => product.category)));
+
     const handleCategoryChange = (e) => {
         const category = e.target.value;
         if (e.target.checked) {
-          setSelectedCategories((prevSelectedCategories) => [
-            ...prevSelectedCategories, category,
-          ]);
+          setSelectedCategories([...selectedCategories, category]);
         } else {
-          setSelectedCategories((prevSelectedCategories) =>
-            prevSelectedCategories.filter((c) => c !== category)
-          );
+          setSelectedCategories(selectedCategories.filter((c) => c !== category));
         }
       };
+// console.log(uniqueCategories)
+
+    // category value selected
+    // const handleCategoryChange = (e) => {
+    //     const category = e.target.value;
+    //     if (e.target.checked) {
+    //       setSelectedCategories((prevSelectedCategories) => [
+    //         ...prevSelectedCategories, category ]);
+    //     } else {
+    //       setSelectedCategories((prevSelectedCategories) =>
+    //         prevSelectedCategories.filter((c) => c !== category)
+    //       );
+    //     }
+    //   };
 
     //   category filter system added
  
-    useEffect(()=>{
+    // useEffect(()=>{
+    //     if(selectedCategories.length === 0){
+    //         setFilteredProducts(products)
+    //     }else{
+    //         if(minPrice == '' && maxPrice == ''){
+    //             console.log('yes')
+    //             const filtered = products.filter((product)=>selectedCategories.includes(product.category));
+    //             setFilteredProducts(filtered);
+    //         }else{
+    //             const filtered = filteredProducts.filter((product)=>selectedCategories.includes(product.category));
+    //             setFilteredProducts(filtered);
+    //         }
+    //     }
+    // },[selectedCategories, products])
 
-        if(selectedCategories.length === 0){
-            setFilteredProducts(products)
-        }else{
-            if(minPrice == '' && maxPrice == ''){
-                console.log('yes')
-                const filtered = products.filter((product)=>selectedCategories.includes(product.category));
-                setFilteredProducts(filtered);
-            }else{
-                const filtered = filteredProducts.filter((product)=>selectedCategories.includes(product.category));
-                setFilteredProducts(filtered);
-            }
-        }
-    },[selectedCategories, products])
-
-    const getData = localStorage.getItem("searchQuery");
-    console.log(getData)
 
 
   return (
