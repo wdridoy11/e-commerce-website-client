@@ -16,6 +16,7 @@ import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import WishlistItem from '../../pages/wishlist/WishlistItem';
+import Seller from '../../pages/dashboard/seller/Seller';
 
 const routes = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const routes = createBrowserRouter([
       {
         path:"wishlist",
         element:<WishlistItem></WishlistItem>
+      },
+      {
+        path:"seller",
+        element:<Seller></Seller>
       },
       {
         path:"shopping",

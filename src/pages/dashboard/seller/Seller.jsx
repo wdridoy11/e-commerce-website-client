@@ -1,16 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { FaUser, FaUserAlt } from 'react-icons/fa';
+import React from 'react'
 
-const AllUsers = () => {
-
-    const [user, setUser] = useState();
-    useEffect(()=>{
-      fetch(`http://localhost:5000/users`)
-      .then((res)=>res.json())
-      .then((data)=>setUser(data))
-      .catch((err)=>console.log(err.message))
-    },[])
-
+const Seller = () => {
   return (
     <>
         <div className='w-full px-10'>
@@ -21,8 +11,9 @@ const AllUsers = () => {
                   <tr>
                     <th>No</th>
                     <th>Image</th>
-                    <th>Info</th>
+                    <th>Name</th>
                     <th>Role</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,13 +28,11 @@ const AllUsers = () => {
                         </div>
                       </div>
                     </td>
-                    <td>
-                      <p>Ridoy Sharif</p>
-                      <p>developerridoy@gmail.com</p>
-                    </td>
-                    <td>
-                      <p>Admin</p>
-                    </td>
+                    <td>Ridoy</td>
+                    <td>Indigo</td>
+                    <th>
+                      <button className="btn btn-ghost btn-xs">details</button>
+                    </th>
                   </tr>
                 </tbody>
               </table>
@@ -53,4 +42,4 @@ const AllUsers = () => {
   )
 }
 
-export default AllUsers
+export default Seller
