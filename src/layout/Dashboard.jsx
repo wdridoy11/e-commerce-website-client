@@ -7,7 +7,9 @@ import { AuthContext } from '../context/AuthProvider';
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
-    
+    const isAdmin = false;
+    const isUser = true;
+    const isSeller = false;
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -21,20 +23,25 @@ const Dashboard = () => {
             <ul className="menu p-4 w-80 bg-slate-200 text-base-content">
                 <div>
                     <div className='text-center mb-5'>
-                        <img className='w-28 rounded-full mx-auto' src={user?.photoURL} alt="Profile image" />
+                        <img className='w-28 rounded-full mx-auto ring-2' src={user?.photoURL} alt="Profile image" />
                         <p className='mt-3 text-lg font-semibold'>{user?.displayName}</p>
                         <p className=''>{user?.email}</p>
                     </div>
                     <div className='dashboard-nav'>
-                        <li className='mb-2'>
-                            <NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink>
-                        </li>
-                        <li className='mb-2'>
-                            <NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink>
-                        </li>
-                        <li className='mb-2'>
-                            <NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink>
-                        </li>
+                        {isAdmin && <>
+                            <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
+                        </>}
+                        {isSeller && <>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Product Add</NavLink></li>
+                        </>}
+                        {isUser && <>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
+                        </>}
                     </div>
                 </div>
                 <div className="divider"></div> 

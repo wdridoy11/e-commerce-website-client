@@ -5,17 +5,17 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const SocialLogin = () => {
 
-  const {createUserUsingGoogle, createUserUsingGithub} = useContext(AuthContext)
+  const {createUserUsingGoogle,user, createUserUsingGithub} = useContext(AuthContext)
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from.pathname || "/";
-
+console.log(user)
   // handle login using google account
   const handleGoogleLogin=()=>{
     createUserUsingGoogle()
     .then((res)=>{
       const loginUser = res.user;
-      const saveUser = {name:loginUser?.displayName, email: loginUser?.email }
+      const saveUser = {name:loginUser?.displayName, email: loginUser?.email, image:loginUser?.photoURL }
       fetch(`http://localhost:5000/users`,{
         method:"POST",
         headers:{
