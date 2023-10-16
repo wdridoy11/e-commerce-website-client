@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
-import { useLoaderData } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -62,6 +61,7 @@ const Shop = () => {
     //   category filter system added
  
     useEffect(()=>{
+
         if(selectedCategories.length === 0){
             setFilteredProducts(products)
         }else{
@@ -75,6 +75,10 @@ const Shop = () => {
             }
         }
     },[selectedCategories, products])
+
+    const getData = localStorage.getItem("searchQuery");
+    console.log(getData)
+
 
   return (
     <div>

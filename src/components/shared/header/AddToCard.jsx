@@ -8,7 +8,7 @@ const AddToCard = () => {
   return (
     <div>
         <div className="indicator">
-            <span className="indicator-item badge badge-secondary -mt-1">{card?.length || 0}</span> 
+            <span className="indicator-item badge badge-sm badge-secondary -mt-1">{card?.length || 0}</span> 
             <Link to={'/dashboard/my_cart'}><FaCartArrowDown className='text-xl text-black' /></Link>
         </div>
     </div>

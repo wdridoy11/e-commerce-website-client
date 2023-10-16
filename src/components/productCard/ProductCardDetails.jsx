@@ -13,21 +13,29 @@ import { useLoaderData } from 'react-router-dom';
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
 import "./productSlider.css"
+import useWishlist from '../../hooks/useWishlist';
 // import SliderImage from "react-zoom-slider";
 const descriptionText ='Apple iPhone 14 Pro Max- the latest name of Apple’s Pro Max lineup. Gives you a magical interaction with its groundbreaking features, innovative camera functionality, and outstanding outlook. All these specs are combined and make the iPhone 14 Pro Max one of the best iPhones to date. '
 
 const ProductCardDetails = () => {
 
     const {user}= useContext(AuthContext)
-    const [rating, setRating] = useState(4);
-    const [quantity,setQuantity]= useState(1);
-    const [isOpen, setIsOpen] = useState(false);
-    const [card,refetch] = useCard();
-
     // data loading form routes
     const productsData = useLoaderData();
     const { brand, product_name, price, _id, product_image, category, product_description, small_description, product_imageGallery } = productsData;
         
+    // product rating
+    const [rating, setRating] = useState(4);
+    const [quantity,setQuantity]= useState(1);
+
+    // if user not login but user click add to card or buy btn then show popup
+    const [isOpen, setIsOpen] = useState(false);
+    // only user add to card data load from useCard hook
+    const [card,refetch] = useCard();
+
+    // wishlist
+    const [wishlist] = useWishlist();
+
     // headless ui modal
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true)
@@ -83,10 +91,52 @@ const ProductCardDetails = () => {
             }            
         }
     }
+    
+    // wishlist button
+    const handleWishlist=(id)=>{
+        console.log(id)
+         // check privous card data id and new data id
+         const cardIdMatch = wishlist.find((item)=> item.productId === id && item.email === user?.email);
+         if(cardIdMatch){
+             Swal.fire({
+                 position: 'top-end',
+                 icon: 'error',
+                 title: 'Your already added',
+                 showConfirmButton: false,
+                 timer: 1500
+             })
+         }else{
+             if(user && user?.email){
+                 const productItem ={productId: _id,email:user?.email, brand, product_image, product_name, price}
+                 fetch(`http://localhost:5000/wishlist`,{
+                     method:"POST",
+                     headers:{
+                         "content-type": "application/json"
+                     },
+                     body: JSON.stringify(productItem)
+                 })
+                 .then((res)=>res.json())
+                 .then((data)=>{
+                     if(data.insertedId){
+                         refetch();
+                         Swal.fire({
+                             position: 'top-end',
+                             icon: 'success',
+                             title: 'New item added success',
+                             showConfirmButton: false,
+                             timer: 1500
+                        })
+                     }
+                 })
+             }else{
+                 openModal();
+             }            
+         }
+    }
 
     // handleBuyNow button
-    const handleBuyNow=()=>{
-        console.log("Hello HandleBuyNow")
+    const handleBuyNow=(e)=>{
+        console.log(e)
     }
 
     // image gallery get array and conver object
@@ -121,7 +171,7 @@ const ProductCardDetails = () => {
                                 {/* {product_imageGallery && product_imageGallery.map((image)=><img className='w-1/2  mx-auto' src={image} alt="" />)} */}
                             </div>
                         </div>
-                        <div className=''>
+                        <div>
                             <h3 className='text-3xl font-semibold text-[#333] mb-3'>{product_name}</h3>
                             <div className='flex gap-1 items-center'>
                                 <div>
@@ -178,7 +228,7 @@ const ProductCardDetails = () => {
                                     </button>
                                 </div>
                                 <div>
-                                    <button className='flex items-center gap-1 text-lg font-medium text-black hover:text-[#FF5039]
+                                    <button onClick={()=>handleWishlist(_id)} className='flex items-center gap-1 text-lg font-medium text-black hover:text-[#FF5039]
                                     duration-500'>
                                         <BsSuitHeart></BsSuitHeart> Add to wishlist
                                     </button>

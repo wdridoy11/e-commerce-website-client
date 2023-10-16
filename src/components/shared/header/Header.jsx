@@ -7,6 +7,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import Account from '../account/Account';
 import ProductSearch from './ProductSearch';
 import AddToCard from './AddToCard';
+import Wishlist from './Wishlist';
 const Header = () => {
     const {user} = useContext(AuthContext);
 
@@ -60,10 +61,11 @@ const Header = () => {
                 <AddToCard></AddToCard>
               </li>
               <li title='Favorite'>
-                <Link to={`/shop`}><FaHeart className='text-xl text-black' /></Link>
+                {/* <Link><FaHeart className='text-xl text-black' /></Link> */}
+                <Wishlist></Wishlist>
               </li>
               <li title='Compare'>
-                <Link><FaExchangeAlt className='text-xl text-black' /></Link>
+                <Link to={`/shop`}><FaExchangeAlt className='text-xl text-black' /></Link>
               </li>
               <div>
                 <Account></Account>

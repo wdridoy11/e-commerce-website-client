@@ -1,12 +1,13 @@
 import React from 'react'
 import { FaSearch} from 'react-icons/fa';
+import Shop from '../../../pages/shop/Shop';
 
 const ProductSearch = () => {
 
     const handleSubmit=(event)=>{
         event.preventDefault();
         const userSearchValue = event.target.search.value;
-        console.log(userSearchValue)
+        localStorage.setItem("searchQuery",userSearchValue)
     }
 
   return (

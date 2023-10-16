@@ -15,6 +15,7 @@ import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
+import WishlistItem from '../../pages/wishlist/WishlistItem';
 
 const routes = createBrowserRouter([
   {
@@ -39,11 +40,11 @@ const routes = createBrowserRouter([
         path:"shop",
         element:<Shop></Shop>
       },
-      {
-        path:"shop/:category",
-        element:<Shop></Shop>,
-        // loader:({params})=>fetch(`http://localhost:5000/product/${params.category}`)
-      },
+      // {
+      //   path:"/search/:query",
+      //   element:<Shop></Shop>,
+      //   // loader:({params})=>fetch(`http://localhost:5000/product/${params.category}`)
+      // },
       {
         path:"blog/:id",
         element:<BlogDetails></BlogDetails>,
@@ -70,6 +71,10 @@ const routes = createBrowserRouter([
       {
         path:"my_cart",
         element:<MyCard></MyCard>
+      },
+      {
+        path:"wishlist",
+        element:<WishlistItem></WishlistItem>
       },
       {
         path:"shopping",
