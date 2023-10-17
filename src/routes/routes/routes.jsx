@@ -9,14 +9,15 @@ import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
 import Order from '../../components/order/Order';
 import BlogDetails from '../../pages/blogs/BlogDetails';
+import Seller from '../../pages/dashboard/seller/Seller';
 import Shopping from '../../components/shopping/Shopping';
 import Payment from '../../pages/dashboard/payment/Payment';
+import WishlistItem from '../../pages/wishlist/WishlistItem';
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
-import WishlistItem from '../../pages/wishlist/WishlistItem';
-import Seller from '../../pages/dashboard/seller/Seller';
+import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
 
 const routes = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const routes = createBrowserRouter([
       {
         path:"seller",
         element:<Seller></Seller>
+      },
+      {
+        path:"add_product",
+        element:<AddProduct></AddProduct>
       },
       {
         path:"shopping",
