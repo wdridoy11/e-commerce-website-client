@@ -2,22 +2,44 @@ import React, { useContext } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import useCategory from '../../../../hooks/useCategory';
 import { AuthContext } from '../../../../context/AuthProvider';
+const img_hosting_token=process.env.REACT_APP_IMAGE_UPLOAD_TOKEN;
 
 const AddProduct = () => {
     const [categoryName] = useCategory();
     const {user} = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const img_hosting_url=`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+
+
     const onSubmit = data => {
-        
+
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url,{
+            method:"POST",
+            body:formData,
+        })
+        .then((res)=>res.json())
+        .then((imgResponse)=>{
+            if(imgResponse.success){
+                const imgUrl = imgResponse.data.display_url;
+                // const {}= data;
+                // productItem.image= imgUrl
+                console.log(data)
+            }
+            console.log("hello res",imgResponse)
+        })
     };
 
 
   return (
-    <div className='w-full h-screen pt-10 lg:px-10'>
+    <div className='w-full h-screen pt-10 lg:px-20'>
         <div>
             <div>
                 <div>
                     <form className='w-full border p-10 rounded bg-white' onSubmit={handleSubmit(onSubmit)}>
+                        <h1 className='text-center text-3xl font-semibold mb-10'>Add Product</h1>
                         <div className='grid md:grid-cols-2 gap-5 mb-2'>
                             <div>
                                 <label className='text-base font-medium' htmlFor="brand">Product Brand</label>
@@ -36,9 +58,6 @@ const AddProduct = () => {
                                     {categoryName && categoryName.map((category, index)=><option key={index} value={category}>{category}</option>)}
                                 </select>
                             </div>
-                        </div>
-
-                        <div className='grid md:grid-cols-2 gap-5 mb-2'>
                             <div>
                                 <label className='text-base font-medium' htmlFor="product_name">Product name</label>
                                 <input 
@@ -61,8 +80,79 @@ const AddProduct = () => {
                                     className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
+                            {/* <div>
+                                <label className='text-base font-medium' htmlFor="seller_email">Seller email</label>
+                                <input 
+                                    type="text" 
+                                    name='seller_email'
+                                    id='seller_email'
+                                    placeholder='Seller email'
+                                    {...register("seller_email", { required: true })}
+                                    defaultValue={user?.email}
+                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md bg-slate-200 focus:outline-none cursor-not-allowed'
+                                    readOnly
+                                />
+                            </div> */}
+                            <div>
+                                <label className='text-base font-medium' htmlFor="small_description">Small description</label>
+                                <input 
+                                    type="text" 
+                                    name='small_description'
+                                    id='small_description'
+                                    placeholder='Small description'
+                                    {...register("small_description", { required: true })}
+                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
+                                />
+                            </div>
+                            <div>
+                                <label className='text-base font-medium' htmlFor="small_description">Product features</label>
+                                <input 
+                                    type="text" 
+                                    name='product_features'
+                                    id='product_features'
+                                    placeholder='Product features'
+                                    {...register("product_features", { required: true })}
+                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
+                                />
+                            </div>
+                            <div>
+                                <label className='text-base font-medium' htmlFor="image">Product image</label>
+                                <input 
+                                    type="file"
+                                    name='image'
+                                    id='image'
+                                    {...register("image", { required: true })}
+                                    // onChange={(event)=>{handleImageChange(event.target.files[0])}}
+                                    className="file-input file-input-bordered w-full" 
+                                />
+                            </div>
+                            <div>
+                                <label className='text-base font-medium' htmlFor="product_gallery">Product Gallery image</label>
+                                <input 
+                                    type="file"
+                                    name='product_gallery'
+                                    id='product_gallery'
+                                    className="file-input file-input-bordered w-full" 
+                                />
+                            </div>
                         </div>
-                        
+                        <div className='mt-4'>
+                            <label className='text-base font-medium' htmlFor="product_description">Product description</label>
+                            <textarea 
+                                name="product_description" 
+                                id="product_description" 
+                                cols="30" 
+                                rows="5"
+                                placeholder='Product description...'
+                                {...register("product_description", { required: true })}
+                                className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
+                            ></textarea>
+                        </div>
+                            <input 
+                                type="submit" 
+                                value="Add Product" 
+                                className=' px-8 rounded-sm py-2 bg-[#FF5039] text-white font-medium hover:bg-black duration-500 cursor-pointer'
+                            />
                     </form>
                 </div>
             </div>
