@@ -24,17 +24,23 @@ const AllUsers = () => {
         console.log(data)
       })
     }
-
-    const handleMakeSeller=()=>{
-      console.log("Hello")
+    
+    const handleMakeSeller=(user)=>{
+      fetch(`http://localhost:5000/users/seller/${user._id}`,{
+        method:"PATCH",
+        headers:{
+          "content-type":"application/json"
+        }
+      })
+      .then((res)=>res.json())
+      .then((data)=>{
+        console.log(data)
+      })
     }
     const handleMakeUser=()=>{
       console.log("Hello")
     }
 
-
-
-console.log(users)
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>

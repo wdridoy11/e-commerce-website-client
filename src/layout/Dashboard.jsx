@@ -4,12 +4,16 @@ import { FaHeart, FaHome, FaUsers,} from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
 import { NavLink, Outlet } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
+import useSeller from '../hooks/useSeller';
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
-    const isAdmin = false;
-    const isUser = true;
-    const isSeller = false;
+    const [isAdmin] = useAdmin();
+    const [isSeller] = useSeller();
+    // const isAdmin = true;
+    const isUser = false;
+    // const isSeller = false;
   return (
     <>
         <div className="drawer drawer-mobile ">
