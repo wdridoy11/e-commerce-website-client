@@ -14,16 +14,8 @@
             "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-gold-220907_inline.jpg.large.jpg",
             "https://m.media-amazon.com/images/I/51STBWsePzL._AC_SX679_.jpg"
         ],
-        "user_rating": {
-            "rating": 4.9,
-            "user_review": 10
-        },
-        "product_features":[
-            "Camera 48MP",
-            "Display 6.7 inches",
-            "Ram 6GB",
-            "Storage 256GB"
-        ]
+        "user_rating": 4.9,
+        "user_review": 10
     },
     {
         "brand": "Apple",
@@ -42,16 +34,8 @@
             "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_design_09142021_big.jpg.large.jpg",
             "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_colors_09142021_big.jpg.large.jpg"
         ],
-        "user_rating": {
-            "rating":4.8 ,
-            "user_review":8 
-        },
-        "product_features":[
-            "Camera 12MP",
-            "Display 5.4 inches",
-            "Ram 4GB",
-            "Storage 256GB"
-        ]
+        "user_rating":4.8 ,
+        "user_review":8 
     },
     {
         "brand": "Apple",
@@ -69,16 +53,9 @@
             "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_gold__cc2su4y2aok2_large.jpg",
             "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_silver__ckkt7pux51si_large.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":5
-        },
-        "product_features":[
-            "Camera 12MP",
-            "Display 6.1 inches",
-            "Ram 4GB",
-            "Storage 256GB"  
-        ]
+        "user_rating":4.9,
+        "user_review":5
+        
     },
     {
         "brand": "Apple",
@@ -95,16 +72,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Blue-7810.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Starlight-8954.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":4
-        },
-        "product_features":[
-            "Camera 63MP",
-            "Display 6.1 inches",
-            "Ram 4GB",
-            "Storage 256GB"  
-        ]
+        "user_rating":4.9,
+        "user_review":4
     },
     {
         "brand": "Apple",
@@ -121,16 +90,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2323-74676.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/2323-42032.jpg"
         ],
-        "user_rating": {
-            "rating":5,
-            "user_review":25
-        },
-        "product_features":[
-            "7 Core GPU",
-            "8 GB RAM",
-            "256 GB storage",
-            "18 hours of battery "  
-        ]
+        "user_rating":5,
+        "user_review":25
     },
     {
         "brand": "Apple",
@@ -148,16 +109,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3710-49683.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/3710-26078.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":15
-        },
-        "product_features":[
-            "Apple M1",
-            "16 GB RAM",
-            "512 GB storage",
-            "24 hours of battery "  
-        ]
+        "user_rating":4.9,
+        "user_review":15
     },
     {
         "brand": "Apple",
@@ -174,16 +127,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Space-Gray-a-2745.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Space-Gray-b-6002.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":18
-        },
-        "product_features":[
-            "13-inch Retina display",
-            "Apple M1",
-            "16GB Ram",
-            "256GB SSD storage"
-        ]
+        "user_rating":4.9,
+        "user_review":18
     },
     {
         "brand": "Apple",
@@ -200,16 +145,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2324-29453.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/2324-56214.jpg"
         ],
-        "user_rating": {
-            "rating":5,
-            "user_review":25
-        },
-        "product_features":[
-            "13-inch Retina display",
-            "Apple M1",
-            "8 GB Ram",
-            "256GB SSD storage"
-        ]
+        "user_rating":5,
+        "user_review":25
     },
     {
         "brand": "Apple",
@@ -226,16 +163,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3712-56628.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/3712-34705.jpg"
         ],
-        "user_rating": {
-            "rating":4.8,
-            "user_review":8
-        },
-        "product_features":[
-            "13-inch Retina display",
-            "Apple M1",
-            "32 GB Ram",
-            "1TB SSD storage"
-        ]
+        "user_rating":4.8,
+        "user_review":8
     },
     {
         "brand": "Apple",
@@ -251,16 +180,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-a-5806.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-b-3352.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":4
-        },
-        "product_features":[
-            "Universal USB-C charging case",
-            "Constructed with H2",
-            "Non-stop SIRI support ",
-            "Quick switching"
-        ]
+        "user_rating":4.9,
+        "user_review":4
     },
     {
         "brand": "QCY",
@@ -275,16 +196,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Black-6822.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Green-2995.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":22
-        },
-        "product_features":[
-            "Comes with a stylish",
-            "Has a built-in  BASS",
-            "40MM NdFe strong",
-            "60-Hour Battery Life "
-        ]
+        "user_rating":4.9,
+        "user_review":22
     },
     {
         "brand": "Edifier",
@@ -299,16 +212,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/Black-6526.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/Gray-7902.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":14
-        },
-        "product_features":[
-            "Comes with a stylish",
-            "Has a built-in  BASS",
-            "40MM NdFe strong",
-            "60-Hour Battery Life "
-        ]
+        "user_rating":4.9,
+        "user_review":14
     },
     {
         "brand": "Apple",
@@ -323,15 +228,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2469-64685.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/2469-11447.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":15
-        },
-        "product_features":[
-            "Comes with an M1",
-            "Holds a Liquid Retina display",
-            "It has Ultra Wide camera with"
-        ]
+        "user_rating":4.9,
+        "user_review":15
     },
     {
         "brand": "Apple",
@@ -348,17 +246,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3414-37635.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/3414-61080.jpg"
         ],
-        "user_rating": {
-            "rating":4.9,
-            "user_review":11
-        },
-        "product_features":[
-            "New all‑screen design and a compact shape ",
-            "Holds the powerful A15 Bionic chip",
-            "Superfast 5G for seamless connectivity",
-            "Support for Apple Pencil to be more creative",
-            "Satisfactory battery life with great optimization"
-        ]
+        "user_rating":4.9,
+        "user_review":11
     },
     {
         "brand": "OnePlus",
@@ -375,13 +264,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-b-5915.jpg",
             "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-c-3276.jpg"
         ],
-        "user_rating": {
-            "rating":4.7,
-            "user_review":14
-        },
-        "product_features":[
-            "Resolution: HD Ready (1366x768) | Refresh Rate: 60 hertz"
-        ]
+        "user_rating":4.7,
+        "user_review":14
     }
 
 ]

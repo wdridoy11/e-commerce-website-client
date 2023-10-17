@@ -18,6 +18,8 @@ import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
+import MyProduct from '../../pages/dashboard/seller/myProduct/MyProduct';
+import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProduct';
 
 const routes = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ const routes = createBrowserRouter([
       {
         path:"seller",
         element:<Seller></Seller>
+      },
+      {
+        path:"my_product",
+        element:<MyProduct></MyProduct>
+      },
+      {
+        path:"manage_product",
+        element:<ManageProduct></ManageProduct>
       },
       {
         path:"add_product",

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import useCategory from '../../../../hooks/useCategory';
 import { AuthContext } from '../../../../context/AuthProvider';
+
 const img_hosting_token=process.env.REACT_APP_IMAGE_UPLOAD_TOKEN;
 
 const AddProduct = () => {
@@ -24,11 +25,18 @@ const AddProduct = () => {
         .then((imgResponse)=>{
             if(imgResponse.success){
                 const imgUrl = imgResponse.data.display_url;
-                // const {}= data;
-                // productItem.image= imgUrl
-                console.log(data)
+                const {brand_name, category, price, product_description, product_features, product_name, small_description}= data;
+                const newItem = {seller_email: user?.email,price: parseFloat(price), product_image: imgUrl, brand_name, category, product_description, product_features, product_name, small_description}
+                fetch(`http://localhost:5000/seller_product`,{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(newItem)
+                })
+                .then((res)=>res.json())
+                .then((data)=>console.log(data))
             }
-            console.log("hello res",imgResponse)
         })
     };
 
@@ -76,23 +84,10 @@ const AddProduct = () => {
                                     name='price'
                                     id='price'
                                     placeholder='Product Price'
-                                    {...register("brand_name", { required: true })}
+                                    {...register("price", { required: true })}
                                     className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
-                            {/* <div>
-                                <label className='text-base font-medium' htmlFor="seller_email">Seller email</label>
-                                <input 
-                                    type="text" 
-                                    name='seller_email'
-                                    id='seller_email'
-                                    placeholder='Seller email'
-                                    {...register("seller_email", { required: true })}
-                                    defaultValue={user?.email}
-                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md bg-slate-200 focus:outline-none cursor-not-allowed'
-                                    readOnly
-                                />
-                            </div> */}
                             <div>
                                 <label className='text-base font-medium' htmlFor="small_description">Small description</label>
                                 <input 

@@ -24,7 +24,7 @@ const SpecialProduct = () => {
     },[])
 
     useEffect(()=>{
-        const productRatingFilter = products.filter((product)=>product.user_rating.rating === 5);
+        const productRatingFilter = products.filter((product)=>product.user_rating === 5);
         setSpecialProduct(productRatingFilter)
     },[products])
 
@@ -52,7 +52,7 @@ const SpecialProduct = () => {
                                 <p className='text-lg mb-1'>{product?.small_description}</p>
                                 <div className='flex gap-2 items-center mb-5'>
                                     <div>
-                                        <p className='flex gap-2'><Rating style={{ maxWidth: 90}} value={product?.user_rating?.rating} />({product?.user_rating?.user_review})</p>
+                                        <p className='flex gap-2'><Rating style={{ maxWidth: 90}} value={product?.user_rating} />({product?.user_review})</p>
                                     </div>
                                 </div>
                                 <h3 className='text-blue-500 font-medium text-4xl mb-5'>${product?.price}</h3>

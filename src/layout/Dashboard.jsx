@@ -9,11 +9,11 @@ import useSeller from '../hooks/useSeller';
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
-    const [isAdmin] = useAdmin();
-    const [isSeller] = useSeller();
-    // const isAdmin = true;
+    // const [isAdmin] = useAdmin();
+    // const [isSeller] = useSeller();
+    const isAdmin = true;
     const isUser = false;
-    // const isSeller = false;
+    const isSeller = false;
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -33,14 +33,16 @@ const Dashboard = () => {
                     </div>
                     <div className='dashboard-nav'>
                         {isAdmin && <>
-                            <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers> All Users</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers>All Users</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/manage_product`}><FaHeart></FaHeart>Manage Product</NavLink></li>
                         </>}
                         {isSeller && <>
-                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/add_product`}><FaHeart></FaHeart> Product Add</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/add_product`}><FaHeart></FaHeart>Product Add</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_product`}><FaHeart></FaHeart>My Product</NavLink></li>
                         </>}
                         {isUser && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
