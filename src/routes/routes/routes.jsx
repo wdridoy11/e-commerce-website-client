@@ -20,6 +20,7 @@ import ProductCardDetails from '../../components/productCard/ProductCardDetails'
 import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
 import MyProduct from '../../pages/dashboard/seller/myProduct/MyProduct';
 import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProduct';
+import ProductUpdate from '../../pages/dashboard/seller/productUpdate/ProductUpdate';
 
 const routes = createBrowserRouter([
   {
@@ -91,6 +92,11 @@ const routes = createBrowserRouter([
       {
         path:"manage_product",
         element:<ManageProduct></ManageProduct>
+      },
+      {
+        path:"product_update:/id",
+        element:<ProductUpdate></ProductUpdate>,
+        loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
       },
       {
         path:"add_product",

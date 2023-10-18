@@ -1,50 +1,109 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../../../../context/AuthProvider';
+import { FaEdit,FaTrashAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const MyProduct = () => {
+
+  const [sellerProduct, setSellerProduct] = useState();
+  const navigate = useNavigate();
+  const {user} = useContext(AuthContext)
+  useEffect(()=>{
+      fetch(`http://localhost:5000/my_products?email=${user?.email}`)
+      .then((res)=>res.json())
+      .then((data)=>setSellerProduct(data))
+  },[])
+
+  const handleProductUpdate=(product)=>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will update your product",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(product)
+        navigate(`/dashboard/product_update/${product._id}`)
+      }
+    })
+  }
+
+  const handleProductDelete=(product)=>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will delete your product",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/products/${product._id}`,{
+          method:"DELETE",
+          headers:{
+            "content-type":"application"
+          }
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+          console.log(data)
+        })
+      }
+    })
+  }
+
+
+
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
-            <div className="bg-white pb-5">
+            <div className="overflow-x-auto">
               <table className="table w-full">
                 {/* head */}
                 <thead>
                   <tr>
-                    <th className='capitalize text-base font-medium'>No</th>
-                    <th className='capitalize text-base font-medium'>Image</th>
-                    <th className='capitalize text-base font-medium'>Info</th>
-                    <th className='capitalize text-base font-medium'>Category</th>
-                    <th className='capitalize text-base font-medium'>Description</th>
-                    <th className='capitalize text-base font-medium'>Price</th>
-                    <th className='capitalize text-base font-medium'>Activon</th>
+                    <th>No</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Description</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                    {/* {card && card.map((product,index)=><tr key={product._id}>
-                        <th>{index+1}</th>
-                        <td>
-                            <img className='w-16' src={product?.product_image} alt={product?.product_name} />
-                        </td>
-                        <td>
-                          <h4 className='text-base font-medium'>{product?.product_name}</h4>
-                          <p className='text-sm font-normal text-[#A5A5A5]'>Brand: {product?.brand}</p>
-                        </td>
-                        <td className='text-base font-medium'>{product?.quantity}</td>
-                        <td className='text-base font-medium'>${product?.price}</td>
-                        <td className='text-base font-medium'>${product?.price * product?.quantity}</td>
-                        <th>
+                    {sellerProduct && sellerProduct?.map((product,index)=><tr key={product._id}>
+                    <th>{index+1}</th>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img src={product?.product_image} alt="Avatar Tailwind CSS Component" />
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{product?.product_name.length>30?`${product?.product_name.slice(0,30)}...`:product?.product_name}</td>
+                    <td>{product?.seller_email}</td>
+                    <td>{product?.product_description.length>50?`${product?.product_description.slice(0,50)}...`:product?.product_description}</td>
+                    <th>
+                        <div className='flex items-center gap-3'>
                             <div>
-                                <button onClick={()=>handleDelete(product)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
+                                <p>{product?.status}</p>
                             </div>
-                        </th>
-                    </tr>)} */}
+                            <div className='flex gap-2'>
+                              <button onClick={()=>handleProductUpdate(product)} className='p-2 bg-blue-500 text-white rounded-sm text-md'><FaEdit></FaEdit></button>
+                              <button onClick={()=>handleProductDelete(product)} className='p-2 bg-[#FF5039] text-white rounded-sm text-md'><FaTrashAlt></FaTrashAlt></button>
+                            </div>
+                        </div>
+                    </th>
+                  </tr>)}
                 </tbody>
               </table>
-              <div className='divider'></div>
-              <div className='text-end w-40'>
-                  {/* <Link to={'/dashboard/shopping'} className='blue-btn px-5 mr-10 flex items-center gap-2'>
-                      Place Order<BsArrowRight className='text-xl'></BsArrowRight>
-                  </Link> */}
-              </div>
             </div>
         </div>
     </>
