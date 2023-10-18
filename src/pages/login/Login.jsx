@@ -1,12 +1,12 @@
 import React from 'react'
-import loginImg from '../../assets/login.png'
-import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import loginImg from '../../assets/login.png'
 import SocialLogin from '../../components/shared/socialLogin/SocialLogin';
 const bgImage =`https://img.freepik.com/free-vector/isometric-e-commerce-concept_52683-39811.jpg?w=900&t=st=1685985549~exp=1685986149~hmac=315e1b3ce65a9c911441cabc56adaec6cbe1ad77c5370eed769690b7beeaa91b`
 
 const Login = () => {
-
+    
     const { register, handleSubmit} = useForm();
     const onSubmit = data => {
         console.log(data)

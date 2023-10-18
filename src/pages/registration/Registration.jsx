@@ -1,18 +1,19 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
-import loginImg from '../../assets/login.png'
 import { Link, useNavigate } from 'react-router-dom';
-import SocialLogin from '../../components/shared/socialLogin/SocialLogin';
 import { AuthContext } from '../../context/AuthProvider';
+import loginImg from '../../assets/login.png'
+import SocialLogin from '../../components/shared/socialLogin/SocialLogin';
 const bgImage =`https://img.freepik.com/free-vector/isometric-e-commerce-concept_52683-39811.jpg?w=900&t=st=1685985549~exp=1685986149~hmac=315e1b3ce65a9c911441cabc56adaec6cbe1ad77c5370eed769690b7beeaa91b`
 
 const Registration = () => {
+
     const {createUserUsingEmail, userProfileUpdate} = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        
+
         const email = data.email;
         const password = data.password;
         createUserUsingEmail(email,password)
@@ -41,9 +42,7 @@ const Registration = () => {
             .catch((error)=>{
                 console.log(error.message)
             })
-
         })
-
     };
 
     return (

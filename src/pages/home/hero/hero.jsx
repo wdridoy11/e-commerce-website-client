@@ -1,11 +1,11 @@
 import React from 'react'
-// slider
-import 'swiper/css';
-import "./slider.css"
-import 'swiper/css/pagination';
+// Import Swiper React components
 import { Link } from 'react-router-dom'
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import "./slider.css"
+import 'swiper/css/pagination';
 // image
 import hero1 from '../../../assets/hero-1.png'
 import hero2 from '../../../assets/hero-2.png'
@@ -13,7 +13,7 @@ import hero3 from '../../../assets/hero-3.png'
 import hero4 from '../../../assets/hero-4.jpg'
 import hero5 from '../../../assets/hero-5.jpg'
 import hero6 from '../../../assets/hero-6.png'
-// Import Swiper React components
+
 
 const heroSlider=[
     {

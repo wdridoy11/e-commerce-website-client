@@ -17,6 +17,7 @@ const Subscribe = () => {
                             id="email"
                             className='w-full py-3 px-5 rounded-md'
                             placeholder='Enter your email'
+                            required
                         />
                         <input 
                             type="submit" 

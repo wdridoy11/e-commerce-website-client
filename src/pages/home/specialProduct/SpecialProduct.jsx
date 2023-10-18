@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import '@smastrom/react-rating/style.css'
+import { Rating } from '@smastrom/react-rating'
+// Swiper slider
 import { Swiper, SwiperSlide } from 'swiper/react';
-import hero from '../../../assets/hero-3.png'
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./spcialProduct.css"
 
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
-import { Link } from 'react-router-dom';
-import '@smastrom/react-rating/style.css'
-import { Rating } from '@smastrom/react-rating'
 
 const SpecialProduct = () => {
 
@@ -39,12 +39,11 @@ const SpecialProduct = () => {
                     mousewheel={true}
                     keyboard={true}
                     modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                    className="mySwiper"
-                >
+                    className="mySwiper">
                     {specialProduct && specialProduct?.map((product)=><SwiperSlide key={product._id}>
                         <div className='grid grid-cols-2 items-center'>
                             <div>
-                                <img className='w-1/2 mx-auto' src={product?.product_image} alt="" />
+                                <img className='w-1/2 mx-auto' src={product?.product_image} alt={product?.product_name} />
                             </div>
                             <div className='text-start pr-20'>
                                 <h1 className='text-3xl font-semibold mb-3'>{product?.brand}</h1>

@@ -29,8 +29,6 @@ const offerItem =[
     }
 ]
 
-
-
 const Offer = () => {
   return (
     <div>

@@ -8,6 +8,7 @@ import Login from '../../pages/login/Login';
 import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
 import Order from '../../components/order/Order';
+import PrivetRoute from '../privetRoute/PrivetRoute';
 import BlogDetails from '../../pages/blogs/BlogDetails';
 import Seller from '../../pages/dashboard/seller/Seller';
 import Shopping from '../../components/shopping/Shopping';
@@ -16,9 +17,9 @@ import WishlistItem from '../../pages/wishlist/WishlistItem';
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
-import ProductCardDetails from '../../components/productCard/ProductCardDetails';
-import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
 import MyProduct from '../../pages/dashboard/seller/myProduct/MyProduct';
+import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
+import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProduct';
 import ProductUpdate from '../../pages/dashboard/seller/productUpdate/ProductUpdate';
 
@@ -32,42 +33,36 @@ const routes = createBrowserRouter([
         element:<Home></Home>
       },
       {
-        // path:"productDetails",
-        path:"productDetails/:id",
-        element:<ProductCardDetails></ProductCardDetails>,
-        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        path:"shop",
+        element:<Shop></Shop>
+      },
+      {
+        path:"order",
+        element:<Order></Order>
       },
       {
         path:"login",
         element:<Login></Login>
       },
       {
-        path:"shop",
-        element:<Shop></Shop>
+        path:"sign_up",
+        element:<Registration></Registration>
       },
-      // {
-      //   path:"/search/:query",
-      //   element:<Shop></Shop>,
-      //   // loader:({params})=>fetch(`http://localhost:5000/product/${params.category}`)
-      // },
       {
         path:"blog/:id",
         element:<BlogDetails></BlogDetails>,
         loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
       },
       {
-        path:"sign_up",
-        element:<Registration></Registration>
+        path:"productDetails/:id",
+        element:<ProductCardDetails></ProductCardDetails>,
+        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
       },
-      {
-        path:"order",
-        element:<Order></Order>
-      }
     ]
   },
   {
     path:"dashboard",
-    element:<Dashboard></Dashboard>,
+    element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
     children:[
       {
         path:"allusers",
@@ -78,17 +73,30 @@ const routes = createBrowserRouter([
         element:<MyCard></MyCard>
       },
       {
-        path:"wishlist",
-        element:<WishlistItem></WishlistItem>
-      },
-      {
         path:"seller",
         element:<Seller></Seller>
+      },
+      {
+        path:"payment",
+        element:<Payment></Payment>
+      },
+      {
+        path:"shopping",
+        element:<Shopping></Shopping>
       },
       {
         path:"my_product",
         element:<MyProduct></MyProduct>
       },
+      {
+        path:"add_product",
+        element:<AddProduct></AddProduct>
+      },
+      {
+        path:"wishlist",
+        element:<WishlistItem></WishlistItem>
+      },
+
       {
         path:"manage_product",
         element:<ManageProduct></ManageProduct>
@@ -97,18 +105,6 @@ const routes = createBrowserRouter([
         path:"product_update:/id",
         element:<ProductUpdate></ProductUpdate>,
         loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
-      },
-      {
-        path:"add_product",
-        element:<AddProduct></AddProduct>
-      },
-      {
-        path:"shopping",
-        element:<Shopping></Shopping>
-      },
-      {
-        path:"payment",
-        element:<Payment></Payment>
       }
     ]
   }

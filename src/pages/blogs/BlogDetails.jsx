@@ -1,9 +1,9 @@
 import React from 'react'
-import hero from '../../assets/hero-1.png'
 import { useLoaderData } from 'react-router-dom'
+
 const BlogDetails = () => {
-    const blogloading = useLoaderData();
-    const {img, title, description_1, description_2, description_3, description_4, description_5} = blogloading
+  const blogloading = useLoaderData();
+  const {img, title, description_1, description_2, description_3, description_4, description_5 } = blogloading;
   return (
     <div className='py-10'>
         <div className='container mx-auto'>

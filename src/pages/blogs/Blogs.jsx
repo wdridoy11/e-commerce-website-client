@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Blog from './Blog'
+import { getData } from '../../api/utils';
 
 const Blogs = () => {
 
@@ -11,6 +12,8 @@ const Blogs = () => {
         .then((data)=>setBlogs(data))
         .catch((err)=>console.log(err.message))
     },[])
+// console.log("blog",blogs)
+
 
   return (
     <div className='pt-20 pb-10'>

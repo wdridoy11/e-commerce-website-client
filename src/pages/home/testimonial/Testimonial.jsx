@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import her from '../../../assets/hero-3.png'
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-// import "./brand.css"
-// import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
 
 const Testimonial = () => {
 
@@ -54,22 +51,6 @@ const Testimonial = () => {
                     </div>
                 </Swiper>
             </div>
-            {/* <div className='grid grid-cols-4'>
-                <div className='bg-white shadow-lg rounded-xl px-5 py-10 text-center'>
-                    <div>
-                        <img className='-mt-20 w-24 h-24 rounded-full object-cover ring-2 ring-blue-500 mx-auto' src={her} alt="" />
-                    </div>
-                    <div>
-                        <h3 className='text-2xl font-semibold mt-5 mb-2'>Ridoy Sharif</h3>
-                        <div className='flex gap-2 items-center justify-center mb-3'>
-                            <div>
-                                <Rating style={{ maxWidth: 90}} value={5} />
-                            </div>
-                        </div>
-                        <p className='text-base mt-3 text-[#1a1e5d] font-normal'>When, while lovely valley teems with vapour around meand meridian sun strikes the</p>
-                    </div>
-                </div>
-            </div> */}
         </div>
     </div>
   )

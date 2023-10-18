@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../../../context/AuthProvider';
-import { FaEdit,FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { FaEdit,FaTrashAlt } from 'react-icons/fa';
+import { AuthContext } from '../../../../context/AuthProvider';
 
 const MyProduct = () => {
 
@@ -13,6 +13,7 @@ const MyProduct = () => {
       fetch(`http://localhost:5000/my_products?email=${user?.email}`)
       .then((res)=>res.json())
       .then((data)=>setSellerProduct(data))
+      .catch((err)=>console.log(err.message))
   },[])
 
   const handleProductUpdate=(product)=>{
@@ -33,6 +34,7 @@ const MyProduct = () => {
   }
 
   const handleProductDelete=(product)=>{
+    const id = product._id;
     Swal.fire({
       title: 'Are you sure?',
       text: "You will delete your product",
@@ -43,7 +45,7 @@ const MyProduct = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/products/${product._id}`,{
+        fetch(`http://localhost:5000/products/${id}`,{
           method:"DELETE",
           headers:{
             "content-type":"application"
@@ -51,13 +53,13 @@ const MyProduct = () => {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          console.log(data)
+          const remaining = sellerProduct.filter((product)=>product._id !== id);
+          setSellerProduct(remaining);
+          console.log("delete",data)
         })
       }
     })
   }
-
-
 
   return (
     <>

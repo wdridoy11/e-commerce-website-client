@@ -1,29 +1,29 @@
 import React from 'react'
-import Hero from '../hero/Hero'
-import ProductCard from '../../../components/productCard/ProductCard'
-import ProductDataLoad from '../../product/ProductDataLoad'
-import Subscribe from '../subscribe/Subscribe'
-import Offer from '../offer/Offer'
-import Categories from '../../../components/categories/Categories'
-import TopProduct from '../../topProduct/TopProduct'
-import Blogs from '../../blogs/Blogs'
-import SpecialProduct from '../specialProduct/SpecialProduct'
-import Brand from '../brand/Brand'
-import Testimonial from '../testimonial/Testimonial'
+import Hero from '../hero/Hero';
+import Offer from '../offer/Offer';
+import Brand from '../brand/Brand';
+import Blogs from '../../blogs/Blogs';
+import Subscribe from '../subscribe/Subscribe';
+import TopProduct from '../../topProduct/TopProduct';
+import Testimonial from '../testimonial/Testimonial';
+import ProductDataLoad from '../../product/ProductDataLoad';
+import SpecialProduct from '../specialProduct/SpecialProduct';
+import Categories from '../../../components/categories/Categories';
+import ProductCard from '../../../components/productCard/ProductCard';
 
 const Home = () => {
   return (
     <div>
-      <Hero></Hero>
-      <Categories></Categories>
-      <ProductDataLoad></ProductDataLoad>
-      <Offer></Offer>
-      <TopProduct></TopProduct>
-      <SpecialProduct></SpecialProduct>
-      <Testimonial></Testimonial>
-      <Blogs></Blogs>
-      <Brand></Brand>
-      <Subscribe></Subscribe>
+        <Hero></Hero>
+        <Categories></Categories>
+        <ProductDataLoad></ProductDataLoad>
+        <Offer></Offer>
+        <TopProduct></TopProduct>
+        <SpecialProduct></SpecialProduct>
+        <Testimonial></Testimonial>
+        <Blogs></Blogs>
+        <Brand></Brand>
+        <Subscribe></Subscribe>
     </div>
   )
 }
