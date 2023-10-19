@@ -4,8 +4,7 @@ import useWishlist from '../../../hooks/useWishlist'
 import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
-    const [wishlist] = useWishlist()
-
+  const [wishlist] = useWishlist();
   return (
     <div>
         <div className="indicator">

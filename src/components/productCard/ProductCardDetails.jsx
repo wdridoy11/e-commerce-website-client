@@ -1,21 +1,20 @@
 import React, {useContext, useState, } from 'react'
 import Swal from 'sweetalert2';
 import { MdAdd } from 'react-icons/md';
-import { FaMinus, FaUser } from 'react-icons/fa';
-import { BsSuitHeart } from 'react-icons/bs';
-import { DiGitCompare } from 'react-icons/di';
-import SliderImage from "react-zoom-slider";
 import '@smastrom/react-rating/style.css';
 import useCard from '../../hooks/useCard';
+import SliderImage from "react-zoom-slider";
+import { BsSuitHeart } from 'react-icons/bs';
+import { DiGitCompare } from 'react-icons/di';
 import RelatedProduct from './RelatedProduct';
-import { Rating } from '@smastrom/react-rating'
+import { Rating } from '@smastrom/react-rating';
+import { FaMinus, FaUser } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import useWishlist from '../../hooks/useWishlist';
 import AddToCardLogin from '../Modal/AddToCardLogin';
 import { AuthContext } from '../../context/AuthProvider';
 import "./productSlider.css"
-import useWishlist from '../../hooks/useWishlist';
 // import SliderImage from "react-zoom-slider";
-const descriptionText ='Apple iPhone 14 Pro Max- the latest name of Apple’s Pro Max lineup. Gives you a magical interaction with its groundbreaking features, innovative camera functionality, and outstanding outlook. All these specs are combined and make the iPhone 14 Pro Max one of the best iPhones to date. '
 
 const ProductCardDetails = () => {
 
@@ -83,7 +82,7 @@ const ProductCardDetails = () => {
                             title: 'New item added success',
                             showConfirmButton: false,
                             timer: 1500
-                          })
+                        })
                     }
                 })
             }else{
@@ -118,7 +117,7 @@ const ProductCardDetails = () => {
                  .then((res)=>res.json())
                  .then((data)=>{
                      if(data.insertedId){
-                         refetch();
+
                          Swal.fire({
                              position: 'top-end',
                              icon: 'success',

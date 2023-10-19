@@ -5,7 +5,6 @@ const Categorie = ({categorie}) => {
   const {icon, title} = categorie;
   const handleClick=(e)=>{
   }
-  
   return (
     <div>
         <div onClick={()=>handleClick(title)} className='bg-white text-center pt-2 pb-4 rounded-md hover:bg-[#EEEBFE] cursor-pointer duration-500'>

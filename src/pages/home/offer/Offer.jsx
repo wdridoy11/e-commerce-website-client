@@ -17,14 +17,14 @@ const offerItem =[
         id:2,
         image:offer2,
         title:"Iphone",
-        link:"https://google.com",
+        link:"http://localhost:3000/productDetails/653105bfc6a49660f9e5e5ff",
         description:"Discount up to 5%",
     },
     {
         id:3,
         image:offer3,
         title:"MackBook",
-        link:"https://google.com",
+        link:"http://localhost:3000/productDetails/653105bfc6a49660f9e5e607",
         description:"Discount up to 10%",
     }
 ]

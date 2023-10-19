@@ -5,10 +5,10 @@ import { FaEdit,FaTrashAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../../context/AuthProvider';
 
 const MyProduct = () => {
-
+  
+  const {user} = useContext(AuthContext)
   const [sellerProduct, setSellerProduct] = useState();
   const navigate = useNavigate();
-  const {user} = useContext(AuthContext)
   useEffect(()=>{
       fetch(`http://localhost:5000/my_products?email=${user?.email}`)
       .then((res)=>res.json())

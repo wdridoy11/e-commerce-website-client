@@ -61,7 +61,7 @@ const Hero = () => {
                     <div className='relative'>
                         <div className='absolute top-1/3 left-20'>
                             <h3 className='text-3xl font-semibold text-white mb-4'>Aurora Headset</h3>
-                            <Link className='bg-blue-500 px-10 py-3 rounded-md text-white hover:bg-black duration-500'>Buy Now</Link>
+                            <Link to={'http://localhost:3000/productDetails/653105bfc6a49660f9e5e60a'} className='bg-blue-500 px-10 py-3 rounded-md text-white hover:bg-black duration-500'>Buy Now</Link>
                         </div>
                         <img className='rounded-md' src={hero4} alt="" />
                     </div>
@@ -79,7 +79,7 @@ const Hero = () => {
                             <div className='absolute top-1/4 left-10'>
                                 <h3 className='text-lg font-medium text-black'>Xiaomi MI 11</h3>
                                 <p className='text-base text-black font-normal mt-2 mb-3'>Discount up to 30%</p>
-                                <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
+                                <Link to={'http://localhost:3000/productDetails/653105bfc6a49660f9e5e609'} className='bg-white text-black font-medium px-5 py-2 rounded-md 
                                 inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
                             </div>
                             <img className='rounded-md w-full h-48 object-cover' src={hero6} alt="" />

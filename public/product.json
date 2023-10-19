@@ -15,7 +15,8 @@
             "https://m.media-amazon.com/images/I/51STBWsePzL._AC_SX679_.jpg"
         ],
         "user_rating": 4.9,
-        "user_review": 10
+        "user_review": 10,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -35,7 +36,8 @@
             "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_colors_09142021_big.jpg.large.jpg"
         ],
         "user_rating":4.8 ,
-        "user_review":8 
+        "user_review":8,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -54,8 +56,8 @@
             "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/finishes_1_silver__ckkt7pux51si_large.jpg"
         ],
         "user_rating":4.9,
-        "user_review":5
-        
+        "user_review":5,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -73,7 +75,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Starlight-8954.jpg"
         ],
         "user_rating":4.9,
-        "user_review":4
+        "user_review":4,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -91,7 +94,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2323-42032.jpg"
         ],
         "user_rating":5,
-        "user_review":25
+        "user_review":25,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -110,7 +114,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3710-26078.jpg"
         ],
         "user_rating":4.9,
-        "user_review":15
+        "user_review":15,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -128,7 +133,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M1-16-256GB-13.3-inch-Space-Gray-b-6002.jpg"
         ],
         "user_rating":4.9,
-        "user_review":18
+        "user_review":18,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -146,7 +152,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2324-56214.jpg"
         ],
         "user_rating":5,
-        "user_review":25
+        "user_review":25,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -164,7 +171,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3712-34705.jpg"
         ],
         "user_rating":4.8,
-        "user_review":8
+        "user_review":8,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -181,7 +189,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/AirPods-Pro-(2nd-generation)-with-USB%E2%80%90C-charging-b-3352.jpg"
         ],
         "user_rating":4.9,
-        "user_review":4
+        "user_review":4,
+        "status":"approved"
     },
     {
         "brand": "QCY",
@@ -197,7 +206,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/QCY-H2-Wireless-Headphone-Green-2995.jpg"
         ],
         "user_rating":4.9,
-        "user_review":22
+        "user_review":22,
+        "status":"approved"
     },
     {
         "brand": "Edifier",
@@ -213,7 +223,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/Gray-7902.jpg"
         ],
         "user_rating":4.9,
-        "user_review":14
+        "user_review":14,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -229,7 +240,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/2469-11447.jpg"
         ],
         "user_rating":4.9,
-        "user_review":15
+        "user_review":15,
+        "status":"approved"
     },
     {
         "brand": "Apple",
@@ -247,7 +259,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/3414-61080.jpg"
         ],
         "user_rating":4.9,
-        "user_review":11
+        "user_review":11,
+        "status":"approved"
     },
     {
         "brand": "OnePlus",
@@ -265,7 +278,8 @@
             "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-TV-Y-Series-32-c-3276.jpg"
         ],
         "user_rating":4.7,
-        "user_review":14
+        "user_review":14,
+        "status":"approved"
     }
 
 ]

@@ -9,7 +9,6 @@ import Testimonial from '../testimonial/Testimonial';
 import ProductDataLoad from '../../product/ProductDataLoad';
 import SpecialProduct from '../specialProduct/SpecialProduct';
 import Categories from '../../../components/categories/Categories';
-import ProductCard from '../../../components/productCard/ProductCard';
 
 const Home = () => {
   return (

@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Subscribe = () => {
+    const handleSubscribe=(e)=>{
+        e.preventDefault();
+    }
   return (
     <div>
         <div className='container mx-auto px-5 bg-red-400 py-20 rounded-md relative -bottom-20'>
@@ -10,7 +13,7 @@ const Subscribe = () => {
                     <h2 className='text-3xl font-medium text-white mt-3'>Subscribe now & get free 20% discount</h2>
                 </div>
                 <div>
-                    <form className='flex gap-3'>
+                    <form onSubmit={handleSubscribe} className='flex gap-3'>
                         <input 
                             type="email" 
                             name="email"

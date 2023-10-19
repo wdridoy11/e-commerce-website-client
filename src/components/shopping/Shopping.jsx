@@ -6,6 +6,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import AddressUpdate from '../Modal/AddressUpdate';
 import Payment from '../../pages/dashboard/payment/Payment';
+import { getData } from '../../api/utils';
 
 const Shopping = () => {
 
@@ -57,9 +58,9 @@ const Shopping = () => {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/address`)
-        .then((res)=>res.json())
+        getData("address")
         .then((data)=>setAddress(data))
+        .catch((err)=>console.log(err.message))
     },[])
 
 

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { FaCheck } from 'react-icons/fa';
+import { getData } from '../../../../api/utils';
 
 const ManageProduct = () => {
 
     const [sellerProduct, setSellerProduct] = useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/seller_product`)
-        .then((res)=>res.json())
+        getData("seller_product")
         .then((data)=>setSellerProduct(data))
+        .catch((err)=>console.log(err.message))
     },[])
 
     const handleMakeApproved=(product)=>{
@@ -31,11 +32,21 @@ const ManageProduct = () => {
             .then((res)=>res.json())
             .then((data)=>{
               console.log("congration",data)
+              fetch(`http://localhost:5000/products`,{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify(product)
+                })
+                .then((res)=>res.json())
+                .then((data)=>{
+                    console.log("congration",data)
+                })
             })
           }
         })
     }
-
 
   return (
     <>
@@ -79,7 +90,6 @@ const ManageProduct = () => {
                         </div>
                     </th>
                   </tr>)}
-                  
                 </tbody>
               </table>
             </div>

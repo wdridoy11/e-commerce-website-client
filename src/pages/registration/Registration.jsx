@@ -12,8 +12,8 @@ const Registration = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
+    // form data send
     const onSubmit = data => {
-
         const email = data.email;
         const password = data.password;
         createUserUsingEmail(email,password)

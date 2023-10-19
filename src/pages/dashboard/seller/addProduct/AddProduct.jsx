@@ -4,19 +4,24 @@ import useCategory from '../../../../hooks/useCategory';
 import { AuthContext } from '../../../../context/AuthProvider';
 
 const img_hosting_token=process.env.REACT_APP_IMAGE_UPLOAD_TOKEN;
-
+const categoryName=[
+    "Ipad",
+    "Mobile",
+    "Laptop",
+    "Headphone",
+    "Televisions",
+    "AirPods Pro"
+]
 const AddProduct = () => {
-    const [categoryName] = useCategory();
+    
     const {user} = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const img_hosting_url=`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
-
 
     const onSubmit = data => {
 
         const formData = new FormData();
         formData.append('image', data.image[0])
-
         fetch(img_hosting_url,{
             method:"POST",
             body:formData,
@@ -25,8 +30,8 @@ const AddProduct = () => {
         .then((imgResponse)=>{
             if(imgResponse.success){
                 const imgUrl = imgResponse.data.display_url;
-                const {brand_name, category, price, product_description, product_features, product_name, small_description}= data;
-                const newItem = {seller_email: user?.email,price: parseFloat(price), product_image: imgUrl, brand_name, category, product_description, product_features, product_name, small_description}
+                const {brand_name, category, price, product_description, product_name, small_description}= data;
+                const newItem = {seller_email: user?.email,price: parseFloat(price), user_rating:null, user_review:0, product_image: imgUrl, brand_name, category, product_description, product_name, small_description}
                 fetch(`http://localhost:5000/seller_product`,{
                     method:"POST",
                     headers:{
@@ -38,6 +43,7 @@ const AddProduct = () => {
                 .then((data)=>console.log(data))
             }
         })
+        
     };
 
 
@@ -56,7 +62,7 @@ const AddProduct = () => {
                                     name='brand'
                                     id='brand'
                                     placeholder='Product brand'
-                                    {...register("brand_name", { required: true })}
+                                    {...register("brand", { required: true })}
                                     className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
@@ -106,7 +112,7 @@ const AddProduct = () => {
                                     name='product_features'
                                     id='product_features'
                                     placeholder='Product features'
-                                    {...register("product_features", { required: true })}
+                                    // {...register("product_features", { required: true })}
                                     className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
@@ -116,8 +122,8 @@ const AddProduct = () => {
                                     type="file"
                                     name='image'
                                     id='image'
+                                    accept="image/png, image/gif, image/jpeg"
                                     {...register("image", { required: true })}
-                                    // onChange={(event)=>{handleImageChange(event.target.files[0])}}
                                     className="file-input file-input-bordered w-full" 
                                 />
                             </div>
@@ -127,6 +133,8 @@ const AddProduct = () => {
                                     type="file"
                                     name='product_gallery'
                                     id='product_gallery'
+                                    multiple="multiple"
+                                    // {...register("product_gallery", { required: true })}
                                     className="file-input file-input-bordered w-full" 
                                 />
                             </div>

@@ -10,18 +10,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./spcialProduct.css"
+import useProducts from '../../../api/useProducts';
 
 
 const SpecialProduct = () => {
-
-    const [products,setProducts] = useState([]);
+    
+    const [products] = useProducts();
     const [specialProduct, setSpecialProduct]  = useState([]);
-    useEffect(()=>{
-        fetch(`http://localhost:5000/products`)
-        .then((res)=>res.json())
-        .then((data)=>setProducts(data))
-        .catch((err)=>console.log(err.message))
-    },[])
 
     useEffect(()=>{
         const productRatingFilter = products.filter((product)=>product.user_rating === 5);

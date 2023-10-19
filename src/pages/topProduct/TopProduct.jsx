@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import useProducts from '../../api/useProducts';
 import ProductCard from '../../components/productCard/ProductCard';
-
-const categoryName=[
-    "Mobile",
-    "Laptop",
-    "Ipad",
-    "Headphone",
-    "Airpods Pro"
-]
+import useCategory from '../../hooks/useCategory';
 
 const TopProduct = () => {
-  
-    const [products,setProducts] = useState([]);
+    const [categoryName] = useCategory();
+    const [products] = useProducts();
     const [selectedCategory, setSelectedCategory] = useState('Mobile');
     const [filteredProduct, setFilteredProduct] = useState([]);
-
-    useEffect(()=>{
-        fetch(`http://localhost:5000/products`)
-        .then((res)=>res.json())
-        .then((data)=>setProducts(data))
-        .catch((err)=>console.log(err.message))
-    },[])
 
     useEffect(()=>{
         const productFilter= products.filter((product)=>product.category === selectedCategory);
@@ -30,8 +17,6 @@ const TopProduct = () => {
     const handleCategory=(e)=>{
         setSelectedCategory(e.target.value);
     }
-
-
   return (
     <div className='py-20'>
         <div className='container mx-auto'>

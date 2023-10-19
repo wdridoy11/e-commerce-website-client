@@ -4,17 +4,14 @@ import { getData } from '../../api/utils';
 
 const Blogs = () => {
 
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(()=>{
-        fetch(`http://localhost:5000/blogs`)
-        .then((res)=>res.json())
-        .then((data)=>setBlogs(data))
-        .catch((err)=>console.log(err.message))
-    },[])
-// console.log("blog",blogs)
-
-
+  const [blogs, setBlogs] = useState([]);
+  // blogs data get
+  useEffect(()=>{
+    getData("blogs")
+     .then((data)=>setBlogs(data))
+     .catch((err)=>console.log(err.message))
+  },[])
+  
   return (
     <div className='pt-20 pb-10'>
         <div className='container mx-auto'>

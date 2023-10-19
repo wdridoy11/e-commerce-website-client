@@ -4,12 +4,10 @@ import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 
 const ProductCard = ({product}) => {
-    // react reating
-    const [rating, setRating] = useState(4);
-    // product data destructuring
-    const { brand, product_name, price, _id, product_image } = product;
-
-
+  // react reating
+  const [rating, setRating] = useState(4);
+  // product data destructuring
+  const { brand, product_name, price, _id, product_image } = product;
   return (
     <Link to={`/productDetails/${_id}`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-md pb-3'>

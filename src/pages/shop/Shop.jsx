@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
+import { getData } from '../../api/utils';
 
 
 const Shop = () => {
@@ -16,8 +17,7 @@ const Shop = () => {
 
     // data loading form database
     useEffect(()=>{
-        fetch(`http://localhost:5000/products`)
-        .then((res)=>res.json())
+        getData("products")
         .then((data)=>{
             setProducts(data)
             setFilteredProducts(data)

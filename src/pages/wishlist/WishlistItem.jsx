@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
+import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
-import useWishlist from '../../hooks/useWishlist'
-import Swal from 'sweetalert2';
 import useCard from '../../hooks/useCard';
+import useWishlist from '../../hooks/useWishlist'
 import { AuthContext } from '../../context/AuthProvider';
 
 const WishlistItem = () => {

@@ -8,23 +8,21 @@ import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
 import 'swiper/css';
 import "./brand.css"
-// api get data from src/api/utils
+import { getData } from '../../../api/utils';
 
 const Brand = () => {
+
     const [brands, setBrands] = useState([]);
-    // brand data get from database
     useEffect(()=>{
-        fetch(`http://localhost:5000/brands`)
-        .then((res)=>res.json())
+        getData('brands')
         .then((data)=>setBrands(data))
         .catch((err)=>console.log(err.message))
     },[])
-    
 
   return (
     <div className='pt-10 mt-5'>
         <div className='container mx-auto'>
-            <div>
+            <div className='brand pb-20'>
                 <Swiper
                     slidesPerView={6}
                     spaceBetween={10}
@@ -33,7 +31,7 @@ const Brand = () => {
                     modules={[FreeMode, Pagination]}
                     className="mySwiper">
                     {brands && brands?.map((brand)=><SwiperSlide key={brand._id}>
-                        <div className="w-full h-20 overflow-hidden mb-10 border p-5">
+                        <div className="w-full h-20 overflow-hidden border p-5 pb-10">
                             <img className='w-auto h-10 mx-auto' src={brand?.brand_img} alt={brand?.name} />
                         </div>
                     </SwiperSlide>)}

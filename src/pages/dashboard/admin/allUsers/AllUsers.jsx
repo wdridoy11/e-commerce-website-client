@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { FaUser, FaUserShield,FaUsers } from 'react-icons/fa';
 import { TbTruckDelivery } from 'react-icons/tb';
+import { getData } from '../../../../api/utils';
 
 const AllUsers = () => {
 
     const [users, setUsers] = useState();
     useEffect(()=>{
-      fetch(`http://localhost:5000/users`)
-      .then((res)=>res.json())
+      getData('users')
       .then((data)=>setUsers(data))
       .catch((err)=>console.log(err.message))
     },[])
