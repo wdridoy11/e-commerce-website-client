@@ -11,9 +11,9 @@ const Dashboard = () => {
     const {user} = useContext(AuthContext);
     // const [isAdmin] = useAdmin();
     // const [isSeller] = useSeller();
-    const isAdmin = false;
+    const isAdmin = true;
     const isUser = false;
-    const isSeller = true;
+    const isSeller = false;
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -33,6 +33,7 @@ const Dashboard = () => {
                     </div>
                     <div className='dashboard-nav'>
                         {isAdmin && <>
+                            <li className='mb-2'><NavLink to={`/dashboard/admin_home`}><FaUsers></FaUsers>Admin Home</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers>All Users</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>

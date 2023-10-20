@@ -9,7 +9,7 @@ const useSeller = () => {
     const {data: isSeller, isLoading: isSellerLoading} = useQuery({
         queryKey:["isSeller", user?.email],
         queryFn:async()=>{
-            const res = await axiosSecure.get(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users/seller/${user?.email}`)
+            const res = await axiosSecure.get(`/users/seller/${user?.email}`)
             return res.data.seller;
         }
     })
