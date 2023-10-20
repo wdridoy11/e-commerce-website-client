@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-import { useForm, SubmitHandler } from "react-hook-form"
-import useCategory from '../../../../hooks/useCategory';
+import { useForm } from "react-hook-form"
 import { AuthContext } from '../../../../context/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -16,7 +15,7 @@ const categoryName=[
 const AddProduct = () => {
     
     const {user} = useContext(AuthContext)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset} = useForm();
     const img_hosting_url=`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
@@ -44,12 +43,12 @@ const AddProduct = () => {
                 })
                 .then((res)=>res.json())
                 .then((data)=>{
-                    console.log("hello",data)
                     Swal.fire(
                         'Congratulation!',
                         'Product added successfully',
                         'success'
                     )
+                    reset();
                 })
             }
         })

@@ -102,7 +102,7 @@ const routes = createBrowserRouter([
         element:<ManageProduct></ManageProduct>
       },
       {
-        path:"product_update:/id",
+        path:"product_update/:id",
         element:<ProductUpdate></ProductUpdate>,
         loader:({params})=>fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${params.id}`)
       }
