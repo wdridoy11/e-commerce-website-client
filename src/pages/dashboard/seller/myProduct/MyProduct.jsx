@@ -10,7 +10,7 @@ const MyProduct = () => {
   const [sellerProduct, setSellerProduct] = useState();
   const navigate = useNavigate();
   useEffect(()=>{
-      fetch(`http://localhost:5000/my_products?email=${user?.email}`)
+      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/my_products?email=${user?.email}`)
       .then((res)=>res.json())
       .then((data)=>setSellerProduct(data))
       .catch((err)=>console.log(err.message))
@@ -45,7 +45,7 @@ const MyProduct = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/products/${id}`,{
+        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${id}`,{
           method:"DELETE",
           headers:{
             "content-type":"application"
@@ -53,9 +53,15 @@ const MyProduct = () => {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          const remaining = sellerProduct.filter((product)=>product._id !== id);
-          setSellerProduct(remaining);
-          console.log("delete",data)
+          if(data.deletedCount>0){
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        const remaining = sellerProduct.filter((product)=>product._id !== id);
+        setSellerProduct(remaining);
         })
       }
     })

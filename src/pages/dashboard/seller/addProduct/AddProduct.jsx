@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import useCategory from '../../../../hooks/useCategory';
 import { AuthContext } from '../../../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const img_hosting_token=process.env.REACT_APP_IMAGE_UPLOAD_TOKEN;
 const categoryName=[
@@ -19,7 +20,6 @@ const AddProduct = () => {
     const img_hosting_url=`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
-
         const formData = new FormData();
         formData.append('image', data.image[0])
         fetch(img_hosting_url,{
@@ -30,8 +30,11 @@ const AddProduct = () => {
         .then((imgResponse)=>{
             if(imgResponse.success){
                 const imgUrl = imgResponse.data.display_url;
-                const {brand_name, category, price, product_description, product_name, small_description}= data;
-                const newItem = {seller_email: user?.email,price: parseFloat(price), user_rating:null, user_review:0, product_image: imgUrl, brand_name, category, product_description, product_name, small_description}
+                const product_imageGallery = [data.product_gallery1,data.product_gallery2]
+                const {brand, category, price, product_description, product_name, small_description}= data;
+                console.log(data)
+                const newItem = {seller_email: user?.email,price: parseFloat(price), user_rating:null, user_review:0, 
+                product_image: imgUrl, brand, category, product_description, product_name, small_description, product_imageGallery}
                 fetch(`http://localhost:5000/seller_product`,{
                     method:"POST",
                     headers:{
@@ -40,7 +43,14 @@ const AddProduct = () => {
                     body:JSON.stringify(newItem)
                 })
                 .then((res)=>res.json())
-                .then((data)=>console.log(data))
+                .then((data)=>{
+                    console.log("hello",data)
+                    Swal.fire(
+                        'Congratulation!',
+                        'Product added successfully',
+                        'success'
+                    )
+                })
             }
         })
         
@@ -106,17 +116,6 @@ const AddProduct = () => {
                                 />
                             </div>
                             <div>
-                                <label className='text-base font-medium' htmlFor="small_description">Product features</label>
-                                <input 
-                                    type="text" 
-                                    name='product_features'
-                                    id='product_features'
-                                    placeholder='Product features'
-                                    // {...register("product_features", { required: true })}
-                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
-                                />
-                            </div>
-                            <div>
                                 <label className='text-base font-medium' htmlFor="image">Product image</label>
                                 <input 
                                     type="file"
@@ -128,14 +127,25 @@ const AddProduct = () => {
                                 />
                             </div>
                             <div>
-                                <label className='text-base font-medium' htmlFor="product_gallery">Product Gallery image</label>
+                                <label className='text-base font-medium' htmlFor="product_gallery1">Product Gallery image one</label>
                                 <input 
-                                    type="file"
-                                    name='product_gallery'
-                                    id='product_gallery'
-                                    multiple="multiple"
-                                    // {...register("product_gallery", { required: true })}
-                                    className="file-input file-input-bordered w-full" 
+                                    type="text" 
+                                    name='product_gallery1'
+                                    id='product_gallery1'
+                                    placeholder='Product Gallery URL'
+                                    {...register("product_gallery1", { required: true })}
+                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
+                                />
+                            </div>
+                            <div>
+                                <label className='text-base font-medium' htmlFor="product_gallery2">Product Gallery image two</label>
+                                <input 
+                                    type="text" 
+                                    name='product_gallery2'
+                                    id='product_gallery2'
+                                    placeholder='Product Gallery URL'
+                                    {...register("product_gallery2", { required: true })}
+                                    className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
                         </div>

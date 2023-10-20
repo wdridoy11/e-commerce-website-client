@@ -5,7 +5,7 @@ const ProductUpdate = () => {
     const productData = useLoaderData();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit=(data)=>{
-  // fetch(`http://localhost:5000/products/${product._id}`,{
+  // fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${product._id}`,{
   //   method:"PUT",
   //   headers:{
   //     "content-type":"application/json"

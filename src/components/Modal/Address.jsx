@@ -21,7 +21,7 @@ const Address = ({isOpen,closeModal}) => {
         const allInfo = {useremail:user?.email,name, email, phone, address,selectProvince,selectCity,area,type};
 
         // user address send
-        fetch(`http://localhost:5000/address`,{
+        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address`,{
             method:"POST",
             headers:{
                 "content-type":"application/json"

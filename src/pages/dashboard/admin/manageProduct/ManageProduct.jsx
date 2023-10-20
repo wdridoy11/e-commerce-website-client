@@ -13,7 +13,7 @@ const ManageProduct = () => {
 
     const handleMakeApproved=(product)=>{
       console.log("product",product)
-        fetch(`http://localhost:5000/seller_product/${product._id}`,{
+        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/seller_product/${product._id}`,{
             method:"PATCH",
             headers:{
                 "content-type":"application/json"
@@ -22,7 +22,7 @@ const ManageProduct = () => {
         .then((res)=>res.json())
         .then((data)=>{
             if(data.matchedCount>0){
-              fetch(`http://localhost:5000/products`,{
+              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products`,{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"
@@ -32,7 +32,7 @@ const ManageProduct = () => {
             .then((res)=>res.json())
             .then((data)=>{
               console.log("congration",data)
-              fetch(`http://localhost:5000/products`,{
+              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products`,{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"

@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { FaTrash, FaUser} from 'react-icons/fa';
 import useCard from '../../../../hooks/useCard'
-
+import cardImg from '../../../../assets/card.png'
 const MyCard = () => {
 
-const [card, refetch] = useCard();
-
+const [card, refetch] = useCard()
 // handle delete card item
 const handleDelete=(item)=>{
   Swal.fire({
@@ -21,7 +20,7 @@ const handleDelete=(item)=>{
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/carts/${item._id}`,{
+      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/carts/${item._id}`,{
         method:"DELETE",
         headers:{
           "content-type":"application/json"
@@ -81,12 +80,20 @@ const handleDelete=(item)=>{
                     </tr>)}
                 </tbody>
               </table>
-              <div className='divider'></div>
-              <div className='text-end w-40'>
-                  <Link to={'/dashboard/shopping'} className='blue-btn px-5 mr-10 flex items-center gap-2'>
-                      Place Order<BsArrowRight className='text-xl'></BsArrowRight>
-                  </Link>
+              {card && card.length>0 ? <>
+                <div className='divider'></div>
+                <div className='text-end w-44 pl-5'>
+                    <Link to={'/dashboard/shopping'} className='blue-btn px-5 mr-10 flex items-center gap-2'>
+                        Place Order<BsArrowRight className='text-xl'></BsArrowRight>
+                    </Link>
+                </div>             
+              </>
+              :
+              <div>
+                  <img className='w-52 mx-auto' src={cardImg} alt="card" />
+                  <p className='text-center text-xl font-semibold'>Your Cart is Empty!</p>
               </div>
+              }
             </div>
         </div>
     </>

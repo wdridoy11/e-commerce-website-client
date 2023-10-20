@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useAxiosSecure = () => {
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app', 
   });
 
   return [axiosSecure];

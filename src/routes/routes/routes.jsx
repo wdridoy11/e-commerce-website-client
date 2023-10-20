@@ -51,12 +51,12 @@ const routes = createBrowserRouter([
       {
         path:"blog/:id",
         element:<BlogDetails></BlogDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+        loader:({params})=>fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/blog/${params.id}`)
       },
       {
         path:"productDetails/:id",
         element:<ProductCardDetails></ProductCardDetails>,
-        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader:({params})=> fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${params.id}`)
       },
     ]
   },
@@ -104,7 +104,7 @@ const routes = createBrowserRouter([
       {
         path:"product_update:/id",
         element:<ProductUpdate></ProductUpdate>,
-        loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        loader:({params})=>fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${params.id}`)
       }
     ]
   }

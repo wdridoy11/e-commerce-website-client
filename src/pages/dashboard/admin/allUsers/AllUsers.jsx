@@ -13,7 +13,7 @@ const AllUsers = () => {
     },[])
 
     const handleMakeAdmin=(user)=>{
-      fetch(`http://localhost:5000/users/admin/${user._id}`,{
+      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users/admin/${user._id}`,{
         method:"PATCH",
         headers:{
           "content-type":"application/json"
@@ -26,7 +26,7 @@ const AllUsers = () => {
     }
     
     const handleMakeSeller=(user)=>{
-      fetch(`http://localhost:5000/users/seller/${user._id}`,{
+      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users/seller/${user._id}`,{
         method:"PATCH",
         headers:{
           "content-type":"application/json"

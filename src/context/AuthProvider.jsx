@@ -11,6 +11,7 @@ import {
   createUserWithEmailAndPassword,
   } from 'firebase/auth'
 import app from '../utils/firebase/firebase.config';
+import ProductSearch from '../components/shared/header/ProductSearch';
 export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {

@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import { FaSearch} from 'react-icons/fa';
+import {useHistory } from 'react-router-dom'
 import Shop from '../../../pages/shop/Shop';
 
 const ProductSearch = () => {
+    const [searchValue, setSearchValue] = useState('');
 
     const handleSubmit=(event)=>{
         event.preventDefault();
-        const userSearchValue = event.target.search.value;
-        localStorage.setItem("searchQuery",userSearchValue)
+        console.log(searchValue)
     }
+
+    const handleChange = (e) => {
+        setSearchValue(e.target.value);
+    };
 
   return (
     <div>
@@ -18,6 +23,8 @@ const ProductSearch = () => {
                 name="search" 
                 id="search"
                 placeholder='Search...'
+                onChange={handleChange}
+                value={searchValue}
                 className='input-bordered w-full lg:w-[500px] outline-none py-2 px-3 m-0 bg-neutral-100'
                 required
             />

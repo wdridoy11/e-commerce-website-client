@@ -23,7 +23,7 @@ const handleDelete=(id)=>{
       confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/wishlist/${id}`,{
+      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/wishlist/${id}`,{
         method:"DELETE",
         headers:{
           "content-type":"application/json"
@@ -61,7 +61,7 @@ const handleDelete=(id)=>{
     }else{
         if(user && user?.email){
             const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
-            fetch(`http://localhost:5000/carts`,{
+            fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/carts`,{
                 method:"POST",
                 headers:{
                     "content-type": "application/json"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
@@ -9,13 +9,11 @@ import Payment from '../../pages/dashboard/payment/Payment';
 import { getData } from '../../api/utils';
 
 const Shopping = () => {
-
     const [address, setAddress] = useState([]);
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
     const [errorCoupon, setErrorCoupon] = useState(false);
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
-    
     // loading add to card data from useCard hook
     const [card] = useCard();
 
@@ -76,7 +74,7 @@ const Shopping = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:5000/address/${id}`,{
+              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address/${id}`,{
                 method:"DELETE",
                 headers:{
                     "content-type":"application/json"
@@ -219,4 +217,4 @@ const Shopping = () => {
   )
 }
 
-export default Shopping
+export default Shopping;
