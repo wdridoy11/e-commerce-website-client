@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { FaUser } from 'react-icons/fa';
 import { FaClockRotateLeft, FaUsers } from 'react-icons/fa6';
 import { IoIosCart } from 'react-icons/io';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
+
 import useUser from '../../../../hooks/useUser';
 
 const AdminHome = () => {
@@ -19,12 +29,45 @@ const AdminHome = () => {
   // product pending and approved filter
   const approvedProduct = allProduct.filter((product)=>product.status === "approved");
   const pendingProduct = allProduct.filter((product)=>product.status === "pending");
-
   // seller filter
   const seller = users.filter((user)=>user.role === "seller");
+  const mobile = approvedProduct.filter((product)=>product.category === "Mobile")
+// console.log(mobile.length)
+const lengthFind=(category)=>{
+  const data = approvedProduct.filter((product)=>product.category === category);
+  return data
+}
+console.log()
+
+  const data = [
+    {
+      name: "Mobile",
+      uv: lengthFind("Mobile").length,
+    },
+    {
+      name: "Laptop",
+      uv: lengthFind("Laptop").length,
+    },
+    {
+      name: "AirPods Pro",
+      uv: lengthFind("AirPods Pro").length,
+    },
+    {
+      name: "Headphone",
+      uv: lengthFind("Headphone").length,
+    },
+    {
+      name: "Ipad",
+      uv: lengthFind("Headphone").length,
+    },
+    {
+      name: "Televisions",
+      uv: lengthFind("Headphone").length,
+    }
+  ];
 
   return (
-    <div className='w-full h-screen pt-10 lg:px-10'>
+    <div className='w-full bg-[#F8F8FC] h-screen pt-10 lg:px-10'>
       <div>
         <div>
           <div className='grid grid-cols-4 gap-5'>
@@ -72,6 +115,15 @@ const AdminHome = () => {
                       </div>
                   </div>
               </div>
+          </div>
+          <div className='pt-10'>
+              <BarChart width={500} height={300} data={data}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="uv" fill="#6AAEFF" />
+              </BarChart>
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@
     "react-router-dom": "^6.11.0",
     "react-scripts": "5.0.1",
     "react-zoom-slider": "^0.1.0",
+    "recharts": "^2.9.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.27",
     "swiper": "^10.3.1",
