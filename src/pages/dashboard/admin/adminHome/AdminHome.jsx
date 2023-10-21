@@ -9,10 +9,12 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  PieChart, Pie, Cell
 } from "recharts";
 
 import useUser from '../../../../hooks/useUser';
+import useCategory from '../../../../hooks/useCategory';
 
 const AdminHome = () => {
 
@@ -37,7 +39,7 @@ const lengthFind=(category)=>{
   const data = approvedProduct.filter((product)=>product.category === category);
   return data
 }
-console.log()
+
 
   const data = [
     {
@@ -65,6 +67,53 @@ console.log()
       uv: lengthFind("Headphone").length,
     }
   ];
+
+  const COLORS = ["#00C49F","#BB34F5", "#FFBB28", "#FF8042", "#0088FE",];
+  const data1 = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 }
+  ];
+
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
+
+
+
+  // const filterINfo = approvedProduct.filter((product)=>product.category);
+  // console.log(filterINfo)
+
+// let array=[] 
+// for(let info of approvedProduct){
+//   let information = info.category;
+//   console.log(information)
+// }
+const findCategoryLength = (name)=>{
+  const result = approvedProduct.filter((product)=>product.category === name);
+  return result.length;
+}
+
+const [categoryName] = useCategory();
+const categoryObjects = categoryName.map((name) => ({ name: name, value: findCategoryLength(name)}));
+console.log(categoryObjects);
+
+
+
+
+
+
 
   return (
     <div className='w-full bg-[#F8F8FC] h-screen pt-10 lg:px-10'>
@@ -116,15 +165,39 @@ console.log()
                   </div>
               </div>
           </div>
-          <div className='pt-10'>
-              <BarChart width={500} height={300} data={data}>
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="uv" fill="#6AAEFF" />
-              </BarChart>
+          <div className='grid grid-cols-2 gap-10 items-center mt-10 bg-white'>
+              <div className='pt-10'>
+                  {/* <BarChart width={500} height={300} data={data}>
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="uv" fill="#6AAEFF" />
+                  </BarChart> */}
+              </div>
+              <div className='mx-auto'>
+                <h1 className='text-center'>Category</h1>
+                  <PieChart width={500} height={500}>
+                  <Legend />
+                   <Pie
+                      data={categoryObjects}
+                      cx={200}
+                      cy={220}
+                      labelLine={false}
+                      label={renderCustomizedLabel}
+                      outerRadius={200}
+                      fill="#8884d8"
+                      dataKey="value">
+                     {data.map((entry, index) => (
+                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                     ))}
+                   </Pie>
+                   <Tooltip />
+                  
+                 </PieChart>
+              </div>
           </div>
+
         </div>
       </div>
     </div>
