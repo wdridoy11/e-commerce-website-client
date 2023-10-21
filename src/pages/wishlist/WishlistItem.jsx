@@ -5,11 +5,12 @@ import { IoMdCart } from 'react-icons/io';
 import useCard from '../../hooks/useCard';
 import useWishlist from '../../hooks/useWishlist'
 import { AuthContext } from '../../context/AuthProvider';
+import Loader from '../../components/shared/loader/Loader';
 
 const WishlistItem = () => {
   const [card] = useCard();
   const {user} = useContext(AuthContext);
-  const [wishlist,refetch] = useWishlist();
+  const [wishlist,refetch,isLoading] = useWishlist();
   
 // handle delete card item
 const handleDelete=(id)=>{
@@ -85,9 +86,9 @@ const handleDelete=(id)=>{
     }
 }
 
-
   return (
     <>
+      {isLoading ? <Loader></Loader> : 
         <div className='w-full h-screen pt-10 lg:px-10'>
             <div className="bg-white">
               <table className="table w-full">
@@ -130,6 +131,7 @@ const handleDelete=(id)=>{
               </table>
             </div>
         </div>
+        }
     </>
   )
 }

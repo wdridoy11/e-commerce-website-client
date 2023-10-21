@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { FaCheck } from 'react-icons/fa';
 import { getData } from '../../../../api/utils';
+import Swal from 'sweetalert2';
+import Loader from '../../../../components/shared/loader/Loader';
 
 const ManageProduct = () => {
-
+    const [loading, setLoading] = useState(true);
     const [sellerProduct, setSellerProduct] = useState();
     useEffect(()=>{
         getData("seller_product")
-        .then((data)=>setSellerProduct(data))
+        .then((data)=>{
+          setSellerProduct(data)
+          setLoading(false)
+        })
         .catch((err)=>console.log(err.message))
     },[])
 
     const handleMakeApproved=(product)=>{
-      console.log("product",product)
-        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/seller_product/${product._id}`,{
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You will approve this product",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/seller_product/${product._id}`,{
             method:"PATCH",
             headers:{
                 "content-type":"application/json"
@@ -31,25 +45,25 @@ const ManageProduct = () => {
             })
             .then((res)=>res.json())
             .then((data)=>{
-              console.log("congration",data)
-              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products`,{
-                method:"POST",
-                headers:{
-                    "content-type":"application/json"
-                },
-                body:JSON.stringify(product)
-                })
-                .then((res)=>res.json())
-                .then((data)=>{
-                    console.log("congration",data)
-                })
+              const remaining = sellerProduct.filter((product)=>product._id !== product._id);
+              setSellerProduct(remaining);
+              if(data.insertedId){
+                Swal.fire(
+                  'Congratulation!',
+                  'Successfully approved',
+                  'success'
+                )
+              }
             })
           }
         })
+        }
+      })
     }
 
   return (
     <>
+    {loading ? <Loader></Loader>:
         <div className='w-full h-screen pt-10 lg:px-10'>
             <div className="overflow-x-auto">
               <table className="table w-full">
@@ -94,6 +108,7 @@ const ManageProduct = () => {
               </table>
             </div>
         </div>
+        }
     </>
   )
 }

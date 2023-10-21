@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { FaTrash, FaUser} from 'react-icons/fa';
 import useCard from '../../../../hooks/useCard'
 import cardImg from '../../../../assets/card.png'
+import Loader from '../../../../components/shared/loader/Loader';
+
 const MyCard = () => {
 
-const [card, refetch] = useCard()
+const [card, refetch, isLoading] = useCard();
+// const [loading, setLoading] = useState(false);
 // handle delete card item
 const handleDelete=(item)=>{
   Swal.fire({
@@ -44,6 +47,7 @@ const handleDelete=(item)=>{
 
   return (
     <>
+      {isLoading ? <Loader></Loader> :
         <div className='w-full h-screen pt-10 lg:px-10'>
             <div className="bg-white pb-5">
               <table className="table w-full">
@@ -96,6 +100,7 @@ const handleDelete=(item)=>{
               }
             </div>
         </div>
+        }
     </>
   )
 }

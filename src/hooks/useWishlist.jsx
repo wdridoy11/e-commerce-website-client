@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const useWishlist = () => {
     const {user, loading} = useContext(AuthContext);
-    const {refetch, data: wishlist =[] } = useQuery({
+    const {refetch, data: wishlist =[], isLoading } = useQuery({
         queryKey:["wishlist", user?.email],
         enabled: !loading,
         queryFn: async ()=>{
@@ -12,7 +12,7 @@ const useWishlist = () => {
             return res.json();
         }
     })
-    return [wishlist,refetch]
+    return [wishlist,refetch,isLoading]
 }
 
 export default useWishlist

@@ -163,6 +163,16 @@ const Header = () => {
           </div>
         </div>
         {/* Middle header logo search bar end*/}
+        <div className='bg-white pb-5'>
+          <div className='flex gap-10'>
+            <Link className='text-base font-medium text-slate-700'>Laptop</Link>
+            <Link className='text-base font-medium text-slate-700'>Mobile</Link>
+            <Link className='text-base font-medium text-slate-700'>Ipad</Link>
+            <Link className='text-base font-medium text-slate-700'>AirPods Pro</Link>
+            <Link className='text-base font-medium text-slate-700'>Televisions</Link>
+            <Link className='text-base font-medium text-slate-700'>Headphone</Link>
+          </div>
+        </div>
       </Container>
     </div>
   )
