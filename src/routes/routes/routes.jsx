@@ -7,7 +7,6 @@ import Shop from '../../pages/shop/Shop';
 import Login from '../../pages/login/Login';
 import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
-import Order from '../../components/order/Order';
 import PrivetRoute from '../privetRoute/PrivetRoute';
 import BlogDetails from '../../pages/blogs/BlogDetails';
 import Seller from '../../pages/dashboard/seller/Seller';
@@ -36,10 +35,6 @@ const routes = createBrowserRouter([
       {
         path:"shop",
         element:<Shop></Shop>
-      },
-      {
-        path:"order",
-        element:<Order></Order>
       },
       {
         path:"login",

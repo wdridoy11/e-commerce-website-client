@@ -94,9 +94,9 @@ import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider';
 import Account from '../account/Account';
-import ProductSearch from './ProductSearch';
 import AddToCard from './AddToCard';
 import Wishlist from './Wishlist';
+import ProductSearch from '../search/ProductSearch';
 const Header = () => {
     const {user} = useContext(AuthContext);
 
@@ -109,10 +109,10 @@ const Header = () => {
   </>
 
   return(
-    <div className='bg-white'>
+    <div className='bg-white pt-5'>
       <Container>
         {/* Top header start */}
-          <div className='flex items-center justify-between py-3'>
+          {/* <div className='flex items-center justify-between py-3'>
             <div className='flex'>
               <li className='flex items-center gap-2 text-black font-normal text-base'>
                 <FaPhoneAlt /> <Link to={'tel:017228241640'} className='text-base font-medium'>01722824160</Link>
@@ -130,7 +130,7 @@ const Header = () => {
                 <Link><FaLinkedin className='text-3xl border rounded-full p-1.5 border-slate-400'  /></Link>
               </div>
             </div>
-          </div>
+          </div> */}
         {/* Top header end */}
 
         {/* Middle header logo search bar start*/}
@@ -162,18 +162,23 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* Middle header logo search bar end*/}
-        <div className='bg-white pb-5'>
-          <div className='flex gap-10'>
-            <Link className='text-base font-medium text-slate-700'>Laptop</Link>
-            <Link className='text-base font-medium text-slate-700'>Mobile</Link>
-            <Link className='text-base font-medium text-slate-700'>Ipad</Link>
-            <Link className='text-base font-medium text-slate-700'>AirPods Pro</Link>
-            <Link className='text-base font-medium text-slate-700'>Televisions</Link>
-            <Link className='text-base font-medium text-slate-700'>Headphone</Link>
-          </div>
-        </div>
+
       </Container>
+      {/* Middle header logo search bar end*/}
+        <div className='bg-[#E6EFFD] py-3'>
+          <Container>
+              <div className='flex gap-10'>
+                <Link to={'/'} className='text-base font-medium text-slate-700'>Home</Link>
+                <Link className='text-base font-medium text-slate-700'>Laptop</Link>
+                <Link className='text-base font-medium text-slate-700'>Mobile</Link>
+                <Link className='text-base font-medium text-slate-700'>Ipad</Link>
+                <Link className='text-base font-medium text-slate-700'>AirPods Pro</Link>
+                <Link className='text-base font-medium text-slate-700'>Televisions</Link>
+                <Link className='text-base font-medium text-slate-700'>Headphone</Link>
+              </div>
+          </Container>
+
+        </div>
     </div>
   )
 }

@@ -1,29 +1,70 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
 import { getData } from '../../api/utils';
+import { AuthContext } from '../../context/AuthProvider';
+import useProducts from '../../api/useProducts';
+import Sort from '../../components/sort/Sort';
 
 
 const Shop = () => {
 
     const [selectedCategories, setSelectedCategories] = useState([]);
-
-    const [products,setProducts] = useState([]);
+    // const [products,setProducts] = useState([]);
     // min price and max price state 
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     // price filter data
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [products] = useProducts();
+    const [filteredProducts, setFilteredProducts] = useState(products);
+    const {searchValue,sortByPrice} = useContext(AuthContext)
 
-    // data loading form database
     useEffect(()=>{
-        getData("products")
+        if(sortByPrice.length>0){
+            setFilteredProducts(sortByPrice)
+        }else if(sortByPrice.length === 0){
+            setFilteredProducts(products)
+        }
+    },[sortByPrice])
+
+
+// console.log(sortByPrice);
+
+    // setFilteredProducts(products)
+// console.log(searchValue)
+
+    // console.log(searchValue)
+    // const handleSearch = () =>{
+    //     fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
+    //     .then((res)=>res.json())
+    //     .then((data)=>{
+    //         setFilteredProducts(data)
+    //     })
+    //     .catch((err)=>console.log(err.message))
+    // }
+    useEffect(()=>{
+        fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
+        .then((res)=>res.json())
         .then((data)=>{
-            setProducts(data)
-            setFilteredProducts(data)
+            // setFilteredProducts(data)
+            // console.log("res",data)
         })
         .catch((err)=>console.log(err.message))
-    },[])
+    },[searchValue])
+
+
+
+
+
+    // data loading form database
+    // useEffect(()=>{
+    //     getData("products")
+    //     .then((data)=>{
+    //         setProducts(data)
+    //         setFilteredProducts(data)
+    //     })
+    //     .catch((err)=>console.log(err.message))
+    // },[])
 
     // handle min price and max price filter
     const handleFilterPrice= (e)=>{
@@ -102,8 +143,6 @@ const Shop = () => {
     //     }
     // },[selectedCategories, products])
 
-
-
   return (
     <div>
         <div className='px-20 py-10'>
@@ -163,8 +202,22 @@ const Shop = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-span-4 grid grid-cols-5 gap-5'>
-                    {filteredProducts.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
+                <div className='col-span-4'>
+                    {/* <div className='bg-white px-5 py-2 mb-5 grid grid-cols-2'>
+                        <div></div>
+                        <div className='text-end'>
+                            <span className='text-lg font-medium'>Sort By</span>
+                            <select className="select select-bordered w-full max-w-xs focus:outline-none ml-2">
+                                <option>Default</option>
+                                <option value={"LW"}>Low to High (Price)</option>
+                                <option value={"HL"}>High to Low (Price)</option>
+                            </select>
+                        </div>
+                    </div> */}
+                    <Sort></Sort>
+                    <div className='grid grid-cols-5 gap-5'>
+                        {filteredProducts.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
+                    </div>
                 </div>
             </div>
         </div>

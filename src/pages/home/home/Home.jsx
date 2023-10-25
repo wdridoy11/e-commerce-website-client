@@ -9,6 +9,7 @@ import Testimonial from '../testimonial/Testimonial';
 import ProductDataLoad from '../../product/ProductDataLoad';
 import SpecialProduct from '../specialProduct/SpecialProduct';
 import Categories from '../../../components/categories/Categories';
+import Messenger from '../../../components/shared/messenger/Messenger';
 
 const Home = () => {
   return (

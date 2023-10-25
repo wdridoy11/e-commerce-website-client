@@ -23,7 +23,7 @@ const AdminHome = () => {
   const [loading, setLoading] = useState(true);
   const [allProduct, setAllProduct] = useState([]);
   useEffect(()=>{
-    fetch(`https://e-commerce-website-server-a67rbuiv4-developersridoy-gmailcom.vercel.app/all_product`)
+    fetch(`http://localhost:5000/all_product`)
     .then((res)=>res.json())
     .then((data)=>{
       setAllProduct(data)

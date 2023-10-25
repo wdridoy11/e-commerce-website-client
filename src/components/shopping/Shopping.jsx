@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import { GrAdd } from 'react-icons/gr'
 import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
@@ -7,13 +7,16 @@ import Swal from 'sweetalert2';
 import AddressUpdate from '../Modal/AddressUpdate';
 import Payment from '../../pages/dashboard/payment/Payment';
 import { getData } from '../../api/utils';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Shopping = () => {
     const [address, setAddress] = useState([]);
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
-    const [errorCoupon, setErrorCoupon] = useState(false);
-    const [successfulCoupon, setSuccessfulCoupon] = useState(false);
+
+
+    const {searchValue} = useContext(AuthContext);
+
     // loading add to card data from useCard hook
     const [card] = useCard();
 
@@ -36,6 +39,30 @@ const Shopping = () => {
     const productTotalPrice = totalPrice.toFixed(2);
     const price = discountPrice === 0? productTotalPrice : discountPrice.toFixed(2);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const [errorCoupon, setErrorCoupon] = useState(false);
+    const [successfulCoupon, setSuccessfulCoupon] = useState(false);
+
     // Coupon code 10% discount handle
     const handleCoupon = (event) =>{
         event.preventDefault();
@@ -55,6 +82,19 @@ const Shopping = () => {
        }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    
     useEffect(()=>{
         getData("address")
         .then((data)=>setAddress(data))
@@ -96,7 +136,21 @@ const Shopping = () => {
         })
     }
 
-    
+
+    useEffect(()=>{
+        console.log("shoping",searchValue)
+    },[searchValue])
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>

@@ -11,14 +11,18 @@ import {
   createUserWithEmailAndPassword,
   } from 'firebase/auth'
 import app from '../utils/firebase/firebase.config';
-import ProductSearch from '../components/shared/header/ProductSearch';
+import ProductSearch from '../components/shared/search/ProductSearch';
 export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
 
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  // user product search value
+  const [searchValue, setSearchValue] = useState();
+  // shop page price log log to High
+  const [sortByPrice, setSortByPrice] = useState([]);
 
    // create user using email and pasword
    const createUserUsingEmail=(email, password)=>{
@@ -70,11 +74,17 @@ const AuthProvider = ({children}) => {
     }
   },[])
 
+
+
   const userInfo ={
     user,
     logOut,
     loading,
     userLogin,
+    searchValue,
+    setSearchValue,
+    sortByPrice,
+    setSortByPrice,
     userProfileUpdate,
     createUserUsingEmail,
     createUserUsingGoogle,
