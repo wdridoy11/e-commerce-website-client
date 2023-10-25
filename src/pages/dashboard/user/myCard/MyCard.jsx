@@ -15,7 +15,7 @@ const [card, refetch, isLoading] = useCard();
 const handleDelete=(item)=>{
   Swal.fire({
     title: 'Are you sure?',
-    text: "You won't be able to revert this!",
+    text: "Will you delete the card product",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -36,7 +36,7 @@ const handleDelete=(item)=>{
           refetch();
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Your card product deleted successfully',
             'success'
           )
         }

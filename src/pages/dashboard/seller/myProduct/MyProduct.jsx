@@ -56,7 +56,7 @@ const MyProduct = () => {
           if(data.deletedCount>0){
             Swal.fire(
               'Deleted!',
-              'Your file has been deleted.',
+              'Your product deleted successfully',
               'success'
             )
           }

@@ -27,21 +27,6 @@ const Shop = () => {
         }
     },[sortByPrice])
 
-
-// console.log(sortByPrice);
-
-    // setFilteredProducts(products)
-// console.log(searchValue)
-
-    // console.log(searchValue)
-    // const handleSearch = () =>{
-    //     fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
-    //     .then((res)=>res.json())
-    //     .then((data)=>{
-    //         setFilteredProducts(data)
-    //     })
-    //     .catch((err)=>console.log(err.message))
-    // }
     useEffect(()=>{
         fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
         .then((res)=>res.json())
@@ -53,20 +38,6 @@ const Shop = () => {
     },[searchValue])
 
 
-
-
-
-    // data loading form database
-    // useEffect(()=>{
-    //     getData("products")
-    //     .then((data)=>{
-    //         setProducts(data)
-    //         setFilteredProducts(data)
-    //     })
-    //     .catch((err)=>console.log(err.message))
-    // },[])
-
-    // handle min price and max price filter
     const handleFilterPrice= (e)=>{
         e.preventDefault();
         const min = parseFloat(minPrice);
@@ -80,18 +51,7 @@ const Shop = () => {
         });
         setFilteredProducts(filteredData);
     }
-    // const handleFilterPrice= (e)=>{
-    //     e.preventDefault();
-    //     const min = parseFloat(minPrice);
-    //     const max = parseFloat(maxPrice);
-    //     const filteredData = products.filter((product)=>{
-    //         const price = parseFloat(product.price);
-    //         return price >= min || price <= max;
-    //     })
-    //     setFilteredProducts(filteredData)
-    // }
 
-    // product category name find
     let categoryName =[];
     for(let i = 0 ;i<products.length;i++){
         let category = products[i].category;
@@ -99,9 +59,6 @@ const Shop = () => {
             categoryName.push(category)
         }
     }
-
-
-    // const uniqueCategories = Array.from(new Set(products.map((product) => product.category)));
 
     const handleCategoryChange = (e) => {
         const category = e.target.value;
@@ -111,37 +68,6 @@ const Shop = () => {
           setSelectedCategories(selectedCategories.filter((c) => c !== category));
         }
       };
-// console.log(uniqueCategories)
-
-    // category value selected
-    // const handleCategoryChange = (e) => {
-    //     const category = e.target.value;
-    //     if (e.target.checked) {
-    //       setSelectedCategories((prevSelectedCategories) => [
-    //         ...prevSelectedCategories, category ]);
-    //     } else {
-    //       setSelectedCategories((prevSelectedCategories) =>
-    //         prevSelectedCategories.filter((c) => c !== category)
-    //       );
-    //     }
-    //   };
-
-    //   category filter system added
- 
-    // useEffect(()=>{
-    //     if(selectedCategories.length === 0){
-    //         setFilteredProducts(products)
-    //     }else{
-    //         if(minPrice == '' && maxPrice == ''){
-    //             console.log('yes')
-    //             const filtered = products.filter((product)=>selectedCategories.includes(product.category));
-    //             setFilteredProducts(filtered);
-    //         }else{
-    //             const filtered = filteredProducts.filter((product)=>selectedCategories.includes(product.category));
-    //             setFilteredProducts(filtered);
-    //         }
-    //     }
-    // },[selectedCategories, products])
 
   return (
     <div>
@@ -203,17 +129,6 @@ const Shop = () => {
                     </div>
                 </div>
                 <div className='col-span-4'>
-                    {/* <div className='bg-white px-5 py-2 mb-5 grid grid-cols-2'>
-                        <div></div>
-                        <div className='text-end'>
-                            <span className='text-lg font-medium'>Sort By</span>
-                            <select className="select select-bordered w-full max-w-xs focus:outline-none ml-2">
-                                <option>Default</option>
-                                <option value={"LW"}>Low to High (Price)</option>
-                                <option value={"HL"}>High to Low (Price)</option>
-                            </select>
-                        </div>
-                    </div> */}
                     <Sort></Sort>
                     <div className='grid grid-cols-5 gap-5'>
                         {filteredProducts.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}

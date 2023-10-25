@@ -13,7 +13,8 @@ const Shopping = () => {
     const [address, setAddress] = useState([]);
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
-
+    const [errorCoupon, setErrorCoupon] = useState(false);
+    const [successfulCoupon, setSuccessfulCoupon] = useState(false);
 
     const {searchValue} = useContext(AuthContext);
 
@@ -39,30 +40,6 @@ const Shopping = () => {
     const productTotalPrice = totalPrice.toFixed(2);
     const price = discountPrice === 0? productTotalPrice : discountPrice.toFixed(2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const [errorCoupon, setErrorCoupon] = useState(false);
-    const [successfulCoupon, setSuccessfulCoupon] = useState(false);
-
     // Coupon code 10% discount handle
     const handleCoupon = (event) =>{
         event.preventDefault();
@@ -82,19 +59,6 @@ const Shopping = () => {
        }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
     useEffect(()=>{
         getData("address")
         .then((data)=>setAddress(data))
@@ -106,12 +70,12 @@ const Shopping = () => {
     const handleAddressDelete=(id)=>{
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You will delete your address",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes'
           }).then((result) => {
             if (result.isConfirmed) {
               fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address/${id}`,{
@@ -127,7 +91,7 @@ const Shopping = () => {
                 setAddress(remaining);
                   Swal.fire(
                     'Deleted!',
-                    'Your file has been deleted.',
+                    'Your address deleted successfully',
                     'success'
                   )
                 }

@@ -16,7 +16,7 @@ const WishlistItem = () => {
 const handleDelete=(id)=>{
   Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "Will you delete the wishlist product",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -37,7 +37,7 @@ const handleDelete=(id)=>{
           refetch();
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Your wishlist product deleted successfully',
             'success'
           )
         }
