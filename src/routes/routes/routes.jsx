@@ -22,6 +22,7 @@ import ProductCardDetails from '../../components/productCard/ProductCardDetails'
 import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProduct';
 import ProductUpdate from '../../pages/dashboard/seller/productUpdate/ProductUpdate';
 import AdminHome from '../../pages/dashboard/admin/adminHome/AdminHome';
+import Test from '../../pages/blogs/Test';
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path:"shop",
         element:<Shop></Shop>
+      },
+      {
+        path:"test",
+        element:<Test></Test>
       },
       {
         path:"login",

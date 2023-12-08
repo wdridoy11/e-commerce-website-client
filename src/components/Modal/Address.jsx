@@ -11,12 +11,25 @@ const Address = ({isOpen,closeModal}) => {
     const [area, SetArea] = useState();
     const [countryDetails,setCountryDetails] = useState();
 
+    // countryDetails api
     useEffect(()=>{
         fetch(`https://countriesnow.space/api/v0.1/countries/population/cities`)
         .then((res)=>res.json())
         .then((data)=>setCountryDetails(data.data))
         .catch((err)=>console.log(err.message))
     },[])
+    // filter country
+    const countryFilter = countryDetails?.filter((countries)=>countries?.country === "Bangladesh");
+
+    // select only country
+    const selectCountry = [];
+    countryDetails?.map((countries)=>{
+        let country = countries.country;
+        if(selectCountry.indexOf(country) == -1){
+            selectCountry.push(country)
+        }
+    })
+    
     const handleSubmit=(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -113,13 +126,9 @@ const Address = ({isOpen,closeModal}) => {
                                         <div>
                                             <label className='block'>Province</label>
                                             <select onChange={handleSelectProvince} className="select select-bordered w-full">
-                                                <option className='text-base text-slate-600' value={"Barishal"}>Barishal</option>
-                                                <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
-                                                <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
-                                                <option className='text-base text-slate-600' value={"Mymensingh"}>Mymensingh</option>
-                                                <option className='text-base text-slate-600' value={"Rajshahi"}>Rajshahi</option>
-                                                <option className='text-base text-slate-600' value={"Rangpur"}>Rangpur</option>
-                                                <option className='text-base text-slate-600' value={"Sylhet"}>Sylhet</option>
+                                                {selectCountry?.map((country,index)=><option key={index} className='text-base text-slate-600' value={`${country.city}`}>
+                                                    {country}
+                                                </option>)}
                                             </select>
                                         </div>
                                         
@@ -128,13 +137,7 @@ const Address = ({isOpen,closeModal}) => {
                                         <div>
                                             <label className='block'>City</label>
                                             <select onChange={handleSelectCity} className="select select-bordered w-full">
-                                            <option className='text-base text-slate-600' value={"Barishal"}>Barishal</option>
-                                                <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
-                                                <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
-                                                <option className='text-base text-slate-600' value={"Mymensingh"}>Mymensingh</option>
-                                                <option className='text-base text-slate-600' value={"Rajshahi"}>Rajshahi</option>
-                                                <option className='text-base text-slate-600' value={"Rangpur"}>Rangpur</option>
-                                                <option className='text-base text-slate-600' value={"Sylhet"}>Sylhet</option>
+                                                {countryFilter?.map((country,index)=><option key={index} className='text-base text-slate-600' value={`${country.city}`}>{country.city}</option>)}
                                             </select>
                                         </div>
                                         <div>
