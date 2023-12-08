@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { RxCrossCircled } from 'react-icons/rx'
 import { Dialog, Transition } from '@headlessui/react'
 import { AuthContext } from '../../context/AuthProvider'
@@ -9,7 +9,14 @@ const Address = ({isOpen,closeModal}) => {
     const [selectProvince, setSelectProvince] = useState();
     const [selectCity, setselectCity] = useState();
     const [area, SetArea] = useState();
+    const [countryDetails,setCountryDetails] = useState();
 
+    useEffect(()=>{
+        fetch(`https://countriesnow.space/api/v0.1/countries/population/cities`)
+        .then((res)=>res.json())
+        .then((data)=>setCountryDetails(data.data))
+        .catch((err)=>console.log(err.message))
+    },[])
     const handleSubmit=(e)=>{
         e.preventDefault();
         const form = e.target;
