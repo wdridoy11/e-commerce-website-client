@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthProvider'
 const Address = ({isOpen,closeModal}) => {
 
     const {user} = useContext(AuthContext);
-    const [selectProvince, setSelectProvince] = useState();
+    const [selectedCountry, setSelectedCountry] = useState();
     const [selectCity, setselectCity] = useState();
     const [area, SetArea] = useState();
     const [countryDetails,setCountryDetails] = useState();
@@ -18,8 +18,9 @@ const Address = ({isOpen,closeModal}) => {
         .then((data)=>setCountryDetails(data.data))
         .catch((err)=>console.log(err.message))
     },[])
-    // filter country
-    const countryFilter = countryDetails?.filter((countries)=>countries?.country === "Bangladesh");
+
+    // when user select one country them show city
+    const countryFilter = countryDetails?.filter((countries)=>countries?.country === selectedCountry);
 
     // select only country
     const selectCountry = [];
@@ -38,7 +39,7 @@ const Address = ({isOpen,closeModal}) => {
         const phone = form.phone.value;
         const address = form.address.value;
         const type = form.type.value;
-        const allInfo = {useremail:user?.email,name, email, phone, address,selectProvince,selectCity,area,type};
+        const allInfo = {useremail:user?.email,name, email, phone, address,selectedCountry,selectCity,area,type};
 
         // user address send
         fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address`,{
@@ -55,7 +56,7 @@ const Address = ({isOpen,closeModal}) => {
 
     }
 
-    const handleSelectProvince=(e)=>setSelectProvince(e.target.value);
+    const handleSelectCountry=(e)=>setSelectedCountry(e.target.value);
     const handleSelectCity=(e)=>setselectCity(e.target.value);
     const handleAreaCity=(e)=>SetArea(e.target.value);
 
@@ -124,9 +125,10 @@ const Address = ({isOpen,closeModal}) => {
                                             />
                                         </div>
                                         <div>
-                                            <label className='block'>Province</label>
-                                            <select onChange={handleSelectProvince} className="select select-bordered w-full">
-                                                {selectCountry?.map((country,index)=><option key={index} className='text-base text-slate-600' value={`${country.city}`}>
+                                            <label className='block'>Country</label>
+                                            <select onChange={handleSelectCountry} className="select select-bordered w-full">
+                                                <option disabled selected>Select country</option>
+                                                {selectCountry?.map((country,index)=><option key={index} className='text-base text-slate-600' value={`${country}`}>
                                                     {country}
                                                 </option>)}
                                             </select>
@@ -137,12 +139,14 @@ const Address = ({isOpen,closeModal}) => {
                                         <div>
                                             <label className='block'>City</label>
                                             <select onChange={handleSelectCity} className="select select-bordered w-full">
+                                                <option disabled selected>Select City</option>
                                                 {countryFilter?.map((country,index)=><option key={index} className='text-base text-slate-600' value={`${country.city}`}>{country.city}</option>)}
                                             </select>
                                         </div>
                                         <div>
                                             <label className='block'>Area</label>
                                             <select onClick={handleAreaCity} className="select select-bordered w-full">
+                                                <option disabled selected>Select Area</option>
                                                 <option className='text-base text-slate-600' value={"Dhaka"}>Dhaka</option>
                                                 <option className='text-base text-slate-600' value={"Khulna"}>Khulna</option>
                                                 <option className='text-base text-slate-600' value={"Mymensingh"}>Mymensingh</option>

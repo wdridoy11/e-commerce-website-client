@@ -102,7 +102,7 @@ const Shopping = () => {
 
 
     useEffect(()=>{
-        console.log("shoping",searchValue)
+        // console.log("shoping",searchValue)
     },[searchValue])
 
 
