@@ -4,6 +4,7 @@ import { TbListDetails } from "react-icons/tb";
 import { getData } from '../../../../api/utils';
 import Swal from 'sweetalert2';
 import Loader from '../../../../components/shared/loader/Loader';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ManageProduct = () => {
     const [loading, setLoading] = useState(true);
@@ -61,6 +62,43 @@ const ManageProduct = () => {
         }
       })
     }
+// TODO: Delete count 0 this is the problem
+    const handleDelete=(id)=>{
+      console.log(`${process.env.REACT_APP_API_URL}/products/${id}`);
+      Swal.fire({
+          title: 'Are you sure?',
+          text: "Will you delete this product",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`${process.env.REACT_APP_API_URL}/products/${id}`,{
+            method:"DELETE",
+            headers:{
+              "content-type":"application/json"
+            }
+          })
+          .then((res)=>res.json())
+          .then((data)=>{
+            console.log(data)
+            if(data.deletedCount>0){
+              Swal.fire(
+                'Deleted!',
+                'Your wishlist product deleted successfully',
+                'success'
+              )
+            }
+          })
+        }
+      })
+    }
+// product details print
+const handleProductDetails=(id)=>{
+  
+}
 
   return (
     <>
@@ -107,13 +145,13 @@ const ManageProduct = () => {
                         </div>
                     </th>
                     <td>
-                      <button className='text-xl bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-3 rounded-md' >
+                      <button onClick={()=>handleProductDetails(product._id)} className='text-xl bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-3 rounded-md' >
                         <TbListDetails/>
                       </button>
                     </td>
                     <td>
                         <div>
-                            <button className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
+                            <button onClick={()=>handleDelete(product._id)} className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
                         </div>
                     </td>
                   </tr>)}
