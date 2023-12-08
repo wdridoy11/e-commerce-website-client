@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck , FaTrash} from 'react-icons/fa';
+import { TbListDetails } from "react-icons/tb";
 import { getData } from '../../../../api/utils';
 import Swal from 'sweetalert2';
 import Loader from '../../../../components/shared/loader/Loader';
@@ -10,7 +11,7 @@ const ManageProduct = () => {
     useEffect(()=>{
         getData("seller_product")
         .then((data)=>{
-          setSellerProduct(data)
+          setSellerProduct(data.reverse())
           setLoading(false)
         })
         .catch((err)=>console.log(err.message))
@@ -76,6 +77,8 @@ const ManageProduct = () => {
                     <th>Email</th>
                     <th>Description</th>
                     <th>Status</th>
+                    <th>View</th>
+                    <th>View</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -103,6 +106,16 @@ const ManageProduct = () => {
                             </button>
                         </div>
                     </th>
+                    <td>
+                      <button className='text-xl bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-3 rounded-md' >
+                        <TbListDetails/>
+                      </button>
+                    </td>
+                    <td>
+                        <div>
+                            <button className="text-xl bg-[#B91C1C] text-white p-3 rounded-md"><FaTrash></FaTrash></button>
+                        </div>
+                    </td>
                   </tr>)}
                 </tbody>
               </table>
