@@ -147,16 +147,14 @@ const ProductCardDetails = () => {
     })
 
   return (
-    <div className='pt-20 pb-20 bg-white border-t'>
+    <div className='pt-10 pb-20 bg-[#F8F8F8] border-t'>
         <div className='container mx-auto px-5'>
             {/* product details page gird start*/}
-            <div className=''>
-            {/* <div className='grid grid-cols-5 gap-5'> */}
-                {/* product details start */}
-                <div className='col-span-4'>
-                    <div className='grid grid-cols-2  gap-5 p-5'>
-                        <div className=''>
-                            <div className='w-full p-10'>
+            <div>
+                <div>
+                    <div className='grid grid-cols-2 gap-5'>
+                        <div>
+                            <div className='w-full p-10 bg-white'>
                             {/* <div className='w-full h-96 overflow-hidden'> */}
                                 {/* <img className='w-1/3 mx-auto' src={product_image} alt="" /> */}
                                 <SliderImage
@@ -170,8 +168,8 @@ const ProductCardDetails = () => {
                                 {/* {product_imageGallery && product_imageGallery.map((image)=><img className='w-1/2  mx-auto' src={image} alt="" />)} */}
                             </div>
                         </div>
-                        <div>
-                            <h3 className='text-3xl font-semibold text-[#333] mb-3'>{product_name}</h3>
+                        <div className='bg-white p-7'>
+                            <h3 className='text-2xl font-semibold text-[#333] mb-3'>{product_name}</h3>
                             <div className='flex gap-1 items-center'>
                                 <div>
                                     <Rating style={{ maxWidth: 90 }} value={rating} onChange={setRating} />
@@ -235,18 +233,19 @@ const ProductCardDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='bg-white mt-3 p-5'>
-                        <h3 className='text-2xl font-semibold text-black mb-2'>Product Details:</h3>
-                        <p className='text-base text-black font-medium'>{product_description}</p>
+                    <div className='mt-5 grid grid-cols-4 gap-5'>
+                        <div className='col-span-3 bg-white p-5'>
+                            <h3 className='text-2xl font-semibold text-black mb-2'>Product Details:</h3>
+                            <p className='text-base text-black font-medium'>{product_description}</p>
+                        </div>
+                        {/* Related product start */}
+                        <div className='bg-white p-4 col-span-1'>
+                            <RelatedProduct category={category}></RelatedProduct>
+                        </div>
+                        {/* Related product start */}
                     </div>
                 </div>
                 {/* product details end */}
-
-                {/* Related product start */}
-                {/* <div className='bg-white p-2'>
-                     <RelatedProduct></RelatedProduct>
-                </div> */}
-                {/* Related product end */}
             </div>
             {/* product details page gird end*/}
         </div>

@@ -62,12 +62,11 @@ const ManageProduct = () => {
         }
       })
     }
-// TODO: Delete count 0 this is the problem
+
     const handleDelete=(id)=>{
-      console.log(`${process.env.REACT_APP_API_URL}/products/${id}`);
       Swal.fire({
           title: 'Are you sure?',
-          text: "Will you delete this product",
+          text: "Will you delete this product ridoy",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
@@ -75,7 +74,7 @@ const ManageProduct = () => {
           confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`${process.env.REACT_APP_API_URL}/products/${id}`,{
+          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${id}`,{
             method:"DELETE",
             headers:{
               "content-type":"application/json"
@@ -95,6 +94,7 @@ const ManageProduct = () => {
         }
       })
     }
+
 // product details print
 const handleProductDetails=(id)=>{
   
