@@ -152,7 +152,7 @@ const ProductCardDetails = () => {
             {/* product details page gird start*/}
             <div>
                 <div>
-                    <div className='grid grid-cols-2 gap-5'>
+                    <div className='grid lg:grid-cols-2 gap-5'>
                         <div>
                             <div className='w-full p-10 bg-white'>
                             {/* <div className='w-full h-96 overflow-hidden'> */}
@@ -233,14 +233,14 @@ const ProductCardDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-5 grid grid-cols-4 gap-5'>
-                        <div className='col-span-3 bg-white p-5'>
+                    <div className='overflow-hidden mt-5'>
+                        <div className='bg-white p-5 h-auto float-left lg:w-[68.5%] mr-3 mb-5'>
                             <h3 className='text-2xl font-semibold text-black mb-2'>Product Details:</h3>
                             <p className='text-base text-black font-medium'>{product_description}</p>
                         </div>
                         {/* Related product start */}
-                        <div className='bg-white p-4 col-span-1'>
-                            <RelatedProduct category={category}></RelatedProduct>
+                        <div className='bg-white p-4 lg:w-[30%] float-right'>
+                            <RelatedProduct category={category} Id={_id}></RelatedProduct>
                         </div>
                         {/* Related product start */}
                     </div>
