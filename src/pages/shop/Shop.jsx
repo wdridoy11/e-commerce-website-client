@@ -31,12 +31,11 @@ const Shop = () => {
         fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
         .then((res)=>res.json())
         .then((data)=>{
-            // setFilteredProducts(data)
+            setFilteredProducts(data)
             // console.log("res",data)
         })
         .catch((err)=>console.log(err.message))
     },[searchValue])
-
 
     const handleFilterPrice= (e)=>{
         e.preventDefault();

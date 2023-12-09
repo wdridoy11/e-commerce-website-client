@@ -177,7 +177,6 @@ const Header = () => {
                 <Link className='text-base font-medium text-slate-700'>Headphone</Link>
               </div>
           </Container>
-
         </div>
     </div>
   )

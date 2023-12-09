@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Categorie = ({categorie}) => {
+  
   const {icon, title} = categorie;
   const handleClick=(e)=>{
+    console.log("hello",e);
   }
   return (
     <div>
