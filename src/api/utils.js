@@ -1,4 +1,4 @@
-const url = "https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app";
+const url = `${process.env.REACT_APP_API_URL}`;
 
 export const getData = async(path)=>{
     const respons = await fetch(`${url}/${path}`)

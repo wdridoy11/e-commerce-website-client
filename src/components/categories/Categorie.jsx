@@ -1,11 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Categorie = ({categorie}) => {
-  
+  const {setCategoryFilter} = useContext(AuthContext);
+  const navigate = useNavigate();
   const {icon, title} = categorie;
-  const handleClick=(e)=>{
-    console.log("hello",e);
+  const handleClick=(category)=>{
+    setCategoryFilter(category);
+    navigate('/shop')
   }
   return (
     <div>

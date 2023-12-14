@@ -23,6 +23,8 @@ const AuthProvider = ({children}) => {
   const [searchValue, setSearchValue] = useState();
   // shop page price log log to High
   const [sortByPrice, setSortByPrice] = useState([]);
+  // 
+  const [categoryFilter, setCategoryFilter] = useState()
 
    // create user using email and pasword
    const createUserUsingEmail=(email, password)=>{
@@ -89,6 +91,8 @@ const AuthProvider = ({children}) => {
     createUserUsingEmail,
     createUserUsingGoogle,
     createUserUsingGithub,
+    setCategoryFilter,
+    categoryFilter
   }
 
   return (

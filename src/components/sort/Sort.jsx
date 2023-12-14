@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import useProducts from '../../api/useProducts';
 import { AuthContext } from '../../context/AuthProvider';
 
-const Sort = () => {
+const Sort = ({products}) => {
     const [selectedValue, setSelectedValue] = useState('');
     const { sortByPrice, setSortByPrice } = useContext(AuthContext)
-    const [products] = useProducts();
+    // const [products] = useProducts();
 
     const handleSelectChange = (e) => {
         const selectedValue = e.target.value; 
@@ -20,8 +20,7 @@ const Sort = () => {
         }
         setSelectedValue(selectedValue);
     };
-
-
+// console.log("sort",products);
   return (
     <>
         <div className='bg-white px-5 py-2 mb-5 grid grid-cols-2'>

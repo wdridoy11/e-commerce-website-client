@@ -16,12 +16,22 @@ const Shop = () => {
     const [maxPrice, setMaxPrice] = useState('');
     // price filter data
     const [products] = useProducts();
-    const [filteredProducts, setFilteredProducts] = useState(products);
-    const {searchValue,sortByPrice} = useContext(AuthContext)
+    // const [filteredProducts, setFilteredProducts] = useState(products);
+    const [filteredProducts, setFilteredProducts] = useState();
+    const [filterByCategorydProducts, setFilterByCategorydProducts] = useState();
+    const {searchValue,sortByPrice,categoryFilter} = useContext(AuthContext);
+    const filterByCategory = products?.filter((product)=>product.category === categoryFilter);
+ 
+    useEffect(()=>{
+        if(filterByCategory.length>0){
+            setFilterByCategorydProducts(filterByCategory)
+        }
+    },[filterByCategory.length])
 
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
+            setFilterByCategorydProducts(sortByPrice)
         }else if(sortByPrice.length === 0){
             setFilteredProducts(products)
         }
@@ -66,7 +76,8 @@ const Shop = () => {
         } else {
           setSelectedCategories(selectedCategories.filter((c) => c !== category));
         }
-      };
+    };
+
 
   return (
     <div>
@@ -128,9 +139,16 @@ const Shop = () => {
                     </div>
                 </div>
                 <div className='col-span-4'>
-                    <Sort></Sort>
+                    {/* <Sort></Sort> */}
+                    {/* <Sort products={filterByCategory}></Sort> */}
+                    <Sort products={filterByCategorydProducts?.length>0 ?filterByCategorydProducts:filteredProducts}></Sort>
                     <div className='grid grid-cols-5 gap-5'>
-                        {filteredProducts.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
+                        {
+                            filterByCategorydProducts?.length>0 ?
+                            filterByCategorydProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>):
+                            filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)
+                        }
+                        {/* {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)} */}
                     </div>
                 </div>
             </div>
