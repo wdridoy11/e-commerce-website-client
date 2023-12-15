@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { FaCheck , FaTrash} from 'react-icons/fa';
 import { TbListDetails } from "react-icons/tb";
 import { getData } from '../../../../api/utils';
@@ -29,7 +29,7 @@ const ManageProduct = () => {
         confirmButtonText: 'Yes'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/seller_product/${product._id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/seller_product/${product._id}`,{
             method:"PATCH",
             headers:{
                 "content-type":"application/json"
@@ -37,8 +37,9 @@ const ManageProduct = () => {
         })
         .then((res)=>res.json())
         .then((data)=>{
+          console.log("App",data);
             if(data.matchedCount>0){
-              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products`,{
+              fetch(`${process.env.REACT_APP_API_URL}/products`,{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"
@@ -74,7 +75,7 @@ const ManageProduct = () => {
           confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/products/${id}`,{
             method:"DELETE",
             headers:{
               "content-type":"application/json"
@@ -95,10 +96,10 @@ const ManageProduct = () => {
       })
     }
 
-// product details print
-const handleProductDetails=(id)=>{
-  
-}
+    // product details print
+    const handleProductDetails=(id)=>{
+
+    }
 
   return (
     <>

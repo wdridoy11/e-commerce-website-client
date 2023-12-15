@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
-import { FaHeart, FaHome, FaUsers,} from 'react-icons/fa';
+import { FaHeart, FaHome, FaUsers,FaUser } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
 import { NavLink, Outlet } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider';
@@ -33,7 +33,7 @@ const Dashboard = () => {
                     </div>
                     <div className='dashboard-nav'>
                         {isAdmin && <>
-                            <li className='mb-2'><NavLink to={`/dashboard/admin_home`}><FaUsers></FaUsers>Admin Home</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/admin_home`}><FaUser></FaUser>Admin Home</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers>All Users</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>

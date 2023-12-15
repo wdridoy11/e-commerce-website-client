@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard';
 import { BiSolidRightArrow } from 'react-icons/bi';
-import { getData } from '../../api/utils';
 import { AuthContext } from '../../context/AuthProvider';
 import useProducts from '../../api/useProducts';
 import Sort from '../../components/sort/Sort';
@@ -17,17 +16,17 @@ const Shop = () => {
     // price filter data
     const [products] = useProducts();
     // const [filteredProducts, setFilteredProducts] = useState(products);
-    const [filteredProducts, setFilteredProducts] = useState();
+    const [filteredProducts, setFilteredProducts] = useState(products);
     const [filterByCategorydProducts, setFilterByCategorydProducts] = useState();
     const {searchValue,sortByPrice,categoryFilter} = useContext(AuthContext);
     const filterByCategory = products?.filter((product)=>product.category === categoryFilter);
- 
+
     useEffect(()=>{
         if(filterByCategory.length>0){
             setFilterByCategorydProducts(filterByCategory)
         }
-    },[filterByCategory.length])
-
+    },[filterByCategory.length]);
+    
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
