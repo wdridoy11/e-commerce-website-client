@@ -17,7 +17,7 @@ const offerItem =[
         id:2,
         image:offer2,
         title:"Iphone",
-        link:"http://localhost:3000/productDetails/657c609860c51081afc581fd",
+        link:"http://localhost:3000/productDetails/657c629860c51081afc581fe",
         description:"Discount up to 5%",
     },
     {

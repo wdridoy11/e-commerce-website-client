@@ -77,7 +77,7 @@ const Hero = () => {
                         </div>
                         <div className='relative'>
                             <div className='absolute top-1/4 left-10'>
-                                <h3 className='text-lg font-medium text-black'>Xiaomi MI 11</h3>
+                                <h3 className='text-lg font-medium text-black'>QCY H2 Wireless</h3>
                                 <p className='text-base text-black font-normal mt-2 mb-3'>Discount up to 30%</p>
                                 <Link to={'http://localhost:3000/productDetails/653105bfc6a49660f9e5e609'} className='bg-white text-black font-medium px-5 py-2 rounded-md 
                                 inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
