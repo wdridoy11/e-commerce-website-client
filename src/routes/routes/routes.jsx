@@ -52,12 +52,12 @@ const routes = createBrowserRouter([
       {
         path:"blog/:id",
         element:<BlogDetails></BlogDetails>,
-        loader:({params})=>fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/blog/${params.id}`)
+        loader:({params})=>fetch(`${process.env.REACT_APP_API_URL}/blog/${params.id}`)
       },
       {
         path:"productDetails/:id",
         element:<ProductCardDetails></ProductCardDetails>,
-        loader:({params})=> fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${params.id}`)
+        loader:({params})=> fetch(`${process.env.REACT_APP_API_URL}/products/${params.id}`)
       },
     ]
   },

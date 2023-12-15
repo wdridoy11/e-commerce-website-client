@@ -52,12 +52,6 @@ const ManageProduct = () => {
       })
     }
 
-    
-    // product details print
-    const handleProductDetails=(id)=>{
-
-    }
-
     const handleDelete=(id)=>{
       Swal.fire({
           title: 'Are you sure?',
@@ -90,7 +84,6 @@ const ManageProduct = () => {
         }
       })
     }
-
 
   return (
     <>
@@ -137,9 +130,9 @@ const ManageProduct = () => {
                         </div>
                     </th>
                     <td>
-                      <button onClick={()=>handleProductDetails(product._id)} className='text-xl bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-3 rounded-md' >
-                        <TbListDetails/>
-                      </button>
+                      <Link to={`/productDetails/${product._id}`} className='inline-block text-xl bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-3 rounded-md'>
+                          <TbListDetails/>
+                      </Link>
                     </td>
                     <td>
                         <div>
