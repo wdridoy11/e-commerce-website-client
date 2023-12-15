@@ -13,7 +13,7 @@ const MyProduct = () => {
   useEffect(()=>{
       fetch(`${process.env.REACT_APP_API_URL}/my_products?email=${user?.email}`)
       .then((res)=>res.json())
-      .then((data)=>setSellerProduct(data))
+      .then((data)=>setSellerProduct(data.reverse()))
       .catch((err)=>console.log(err.message))
   },[])
 
@@ -81,6 +81,7 @@ const MyProduct = () => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Description</th>
+                    <th>Price</th>
                     <th>Status</th>
                   </tr>
                 </thead>
@@ -99,10 +100,11 @@ const MyProduct = () => {
                     <td>{product?.product_name.length>30?`${product?.product_name.slice(0,30)}...`:product?.product_name}</td>
                     <td>{product?.seller_email}</td>
                     <td>{product?.product_description.length>50?`${product?.product_description.slice(0,50)}...`:product?.product_description}</td>
+                    <td className='text-lg font-medium'>${product?.price}</td>
                     <th>
                         <div className='flex items-center gap-3'>
                             <div>
-                                <p>{product?.status}</p>
+                                <p className={`${product.status === "pending"?'text-red-500':'text-[#287855]'}`}>{product?.status}</p>
                             </div>
                             <div className='flex gap-2'>
                               <Link to={`/productDetails/${product._id}`} className='inline-block text-md bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-2 rounded-md'>

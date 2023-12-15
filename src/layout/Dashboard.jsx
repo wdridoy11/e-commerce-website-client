@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
 import { FaHeart, FaHome, FaUsers,FaUser } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
+import { BsFillBoxFill } from "react-icons/bs";
+import { MdLibraryAdd } from "react-icons/md";
 import { NavLink, Outlet } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
@@ -37,13 +39,13 @@ const Dashboard = () => {
                             <li className='mb-2'><NavLink to={`/dashboard/allusers`}><FaUsers></FaUsers>All Users</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/manage_product`}><FaHeart></FaHeart>Manage Product</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/manage_product`}><BsFillBoxFill></BsFillBoxFill>Manage Product</NavLink></li>
                         </>}
                         {isSeller && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/add_product`}><FaHeart></FaHeart>Product Add</NavLink></li>
-                            <li className='mb-2'><NavLink to={`/dashboard/my_product`}><FaHeart></FaHeart>My Product</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/add_product`}><MdLibraryAdd></MdLibraryAdd>Product Add</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/my_product`}><BsFillBoxFill></BsFillBoxFill>My Product</NavLink></li>
                         </>}
                         {isUser && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>

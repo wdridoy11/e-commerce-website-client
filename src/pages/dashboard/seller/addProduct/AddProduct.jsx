@@ -48,7 +48,7 @@ const AddProduct = () => {
                         'Product added successfully',
                         'success'
                     )
-                    // reset();
+                    reset();
                 })
             }
         })
