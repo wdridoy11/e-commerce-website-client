@@ -13,9 +13,9 @@ const Dashboard = () => {
     const {user} = useContext(AuthContext);
     // const [isAdmin] = useAdmin();
     // const [isSeller] = useSeller();
-    const isAdmin = false;
+    const isAdmin = true;
     const isUser = false;
-    const isSeller = true;
+    const isSeller = false;
   return (
     <>
         <div className="drawer drawer-mobile ">

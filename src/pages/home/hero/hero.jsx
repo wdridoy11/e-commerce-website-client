@@ -20,7 +20,7 @@ const heroSlider=[
         img:hero1,
         title:"iPhone",
         description:"Discount up to 5%",
-        link:"http://localhost:3000/productDetails/652516f3e783a1d31cd93a44",
+        link:"http://localhost:3000/productDetails/657c629860c51081afc581fe",
         color:"black"
     },
     {
@@ -30,7 +30,7 @@ const heroSlider=[
         img:hero3,
         title:"Mackbook",
         description:"Discount up to 10%",
-        link:"http://localhost:3000/productDetails/652516f3e783a1d31cd93a48",
+        link:"http://localhost:3000/productDetails/653105bfc6a49660f9e5e604",
         color:"black"
     }
 ]
@@ -43,7 +43,7 @@ const Hero = () => {
                 {/* slider area */}
                 <div>
                     <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-                        {heroSlider.map((item,index)=><SwiperSlide key={index}>
+                        {heroSlider?.map((item,index)=><SwiperSlide key={index}>
                             <div className='relative'>
                                 <img className='w-full h-[520px] object-cover rounded-md' src={item.img} alt="" /> 
                                 <div className='absolute top-1/3 left-10 text-left'>
@@ -68,9 +68,9 @@ const Hero = () => {
                     <div className='grid grid-cols-2 gap-5'>
                         <div className='relative'>
                             <div className='absolute top-1/4 left-10'>
-                                <h3 className='text-lg font-medium text-white'>Xiaomi MI 11</h3>
+                                <h3 className='text-lg font-medium text-white'>Xiaomi 13T Pro</h3>
                                 <p className='text-base text-white font-normal mt-2 mb-3'>Discount up to 30%</p>
-                                <Link className='bg-white text-black font-medium px-5 py-2 rounded-md 
+                                <Link to={`http://localhost:3000/productDetails/657c609860c51081afc581fd`} className='bg-white text-black font-medium px-5 py-2 rounded-md 
                                 inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
                             </div>
                             <img className='rounded-md w-full h-48 object-cover' src={hero5} alt="" />
