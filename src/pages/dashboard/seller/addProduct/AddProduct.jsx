@@ -34,7 +34,7 @@ const AddProduct = () => {
                 console.log(data)
                 const newItem = {seller_email: user?.email,price: parseFloat(price), user_rating:null, user_review:0, 
                 product_image: imgUrl, brand, category, product_description, product_name, small_description, product_imageGallery}
-                fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/seller_product`,{
+                fetch(`${process.env.REACT_APP_API_URL}/seller_product`,{
                     method:"POST",
                     headers:{
                         "content-type":"application/json"
@@ -48,7 +48,7 @@ const AddProduct = () => {
                         'Product added successfully',
                         'success'
                     )
-                    reset();
+                    // reset();
                 })
             }
         })

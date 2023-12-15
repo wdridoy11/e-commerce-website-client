@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const ManageProduct = () => {
     const [loading, setLoading] = useState(true);
-    const [sellerProduct, setSellerProduct] = useState();
+    const [sellerProduct, setSellerProduct] = useState([]);
     useEffect(()=>{
         getData("seller_product")
         .then((data)=>{
@@ -16,7 +16,7 @@ const ManageProduct = () => {
           setLoading(false)
         })
         .catch((err)=>console.log(err.message))
-    },[])
+    },[sellerProduct])
 
     const handleMakeApproved=(product)=>{
       Swal.fire({
@@ -28,6 +28,7 @@ const ManageProduct = () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
       }).then((result) => {
+        console.log("Result",result);
         if (result.isConfirmed) {
           fetch(`${process.env.REACT_APP_API_URL}/seller_product/${product._id}`,{
             method:"PATCH",
@@ -37,31 +38,24 @@ const ManageProduct = () => {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          console.log("App",data);
-            if(data.matchedCount>0){
-              fetch(`${process.env.REACT_APP_API_URL}/products`,{
-                method:"POST",
-                headers:{
-                    "content-type":"application/json"
-                },
-                body:JSON.stringify(product)
-            })
-            .then((res)=>res.json())
-            .then((data)=>{
-              const remaining = sellerProduct.filter((product)=>product._id !== product._id);
-              setSellerProduct(remaining);
-              if(data.insertedId){
-                Swal.fire(
-                  'Congratulation!',
-                  'Successfully approved',
-                  'success'
-                )
-              }
-            })
+          const remaining = sellerProduct.filter((product)=>product._id !== product._id);
+          setSellerProduct(remaining);
+          if(data.insertedId){
+            Swal.fire(
+              'Congratulation!',
+              'Successfully approved',
+              'success'
+            )
           }
         })
         }
       })
+    }
+
+    
+    // product details print
+    const handleProductDetails=(id)=>{
+
     }
 
     const handleDelete=(id)=>{
@@ -75,7 +69,7 @@ const ManageProduct = () => {
           confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`${process.env.REACT_APP_API_URL}/products/${id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/product/${id}`,{
             method:"DELETE",
             headers:{
               "content-type":"application/json"
@@ -83,7 +77,8 @@ const ManageProduct = () => {
           })
           .then((res)=>res.json())
           .then((data)=>{
-            console.log(data)
+            const remaining = sellerProduct.filter((product)=>product._id !== product._id);
+            setSellerProduct(remaining);
             if(data.deletedCount>0){
               Swal.fire(
                 'Deleted!',
@@ -96,10 +91,6 @@ const ManageProduct = () => {
       })
     }
 
-    // product details print
-    const handleProductDetails=(id)=>{
-
-    }
 
   return (
     <>
