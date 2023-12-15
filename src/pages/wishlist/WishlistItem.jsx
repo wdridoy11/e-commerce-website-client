@@ -6,6 +6,7 @@ import useCard from '../../hooks/useCard';
 import useWishlist from '../../hooks/useWishlist'
 import { AuthContext } from '../../context/AuthProvider';
 import Loader from '../../components/shared/loader/Loader';
+import { Link } from 'react-router-dom';
 
 const WishlistItem = () => {
   const [card] = useCard();
