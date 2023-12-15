@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEdit,FaTrashAlt } from 'react-icons/fa';
+import { TbListDetails } from "react-icons/tb";
 import { AuthContext } from '../../../../context/AuthProvider';
 
 const MyProduct = () => {
@@ -10,7 +11,7 @@ const MyProduct = () => {
   const [sellerProduct, setSellerProduct] = useState();
   const navigate = useNavigate();
   useEffect(()=>{
-      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/my_products?email=${user?.email}`)
+      fetch(`${process.env.REACT_APP_API_URL}/my_products?email=${user?.email}`)
       .then((res)=>res.json())
       .then((data)=>setSellerProduct(data))
       .catch((err)=>console.log(err.message))
@@ -45,7 +46,7 @@ const MyProduct = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${id}`,{
+        fetch(`${process.env.REACT_APP_API_URL}/products/${id}`,{
           method:"DELETE",
           headers:{
             "content-type":"application"
@@ -104,8 +105,11 @@ const MyProduct = () => {
                                 <p>{product?.status}</p>
                             </div>
                             <div className='flex gap-2'>
-                              <button onClick={()=>handleProductUpdate(product)} className='p-2 bg-blue-500 text-white rounded-sm text-md'><FaEdit></FaEdit></button>
-                              <button onClick={()=>handleProductDelete(product)} className='p-2 bg-[#FF5039] text-white rounded-sm text-md'><FaTrashAlt></FaTrashAlt></button>
+                              <Link to={`/productDetails/${product._id}`} className='inline-block text-md bg-[#F57224] hover:bg-[#dc763b] duration-500 text-white p-2 rounded-md'>
+                                  <TbListDetails/>
+                              </Link>
+                              <button onClick={()=>handleProductUpdate(product)} className='p-2 bg-blue-500 text-white rounded-md text-md'><FaEdit></FaEdit></button>
+                              <button onClick={()=>handleProductDelete(product)} className='p-2 bg-[#FF5039] text-white rounded-md text-md'><FaTrashAlt></FaTrashAlt></button>
                             </div>
                         </div>
                     </th>
