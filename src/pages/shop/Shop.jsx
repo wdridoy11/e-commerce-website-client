@@ -22,17 +22,19 @@ const Shop = () => {
 
     useEffect(()=>{
         if(categoryFilter?.length>0){
+            console.log(`http://localhost:5000/products/category/${categoryFilter}`);
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
             .then((res)=>res.json())
             .then((data)=>setFilteredProducts(data))
             setCategoryFilter([])
+        }else{
+            setFilteredProducts(products)
         }
     },[products])
 
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
-            // setFilterByCategorydProducts(sortByPrice)
         }else if(sortByPrice.length === 0){
             setFilteredProducts(products)
         }
@@ -140,15 +142,8 @@ const Shop = () => {
                     </div>
                 </div>
                 <div className='col-span-4'>
-                    {/* <Sort></Sort> */}
                     <Sort products={filteredProducts}></Sort>
-                    {/* <Sort products={filterByCategorydProducts?.length>0 ?filterByCategorydProducts:filteredProducts}></Sort> */}
                     <div className='grid grid-cols-5 gap-5'>
-                        {/* {
-                            filterByCategorydProducts?.length>0 ?
-                            filterByCategorydProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>):
-                            filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)
-                        } */}
                         {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
                     </div>
                 </div>
