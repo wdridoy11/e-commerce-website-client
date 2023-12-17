@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import useProducts from '../../api/useProducts';
 import { AuthContext } from '../../context/AuthProvider';
 
+// const Sort = () => {
 const Sort = ({products}) => {
     const [selectedValue, setSelectedValue] = useState('');
     const { sortByPrice, setSortByPrice } = useContext(AuthContext)

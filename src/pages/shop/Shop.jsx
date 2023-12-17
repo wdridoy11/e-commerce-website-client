@@ -17,34 +17,36 @@ const Shop = () => {
     const [products] = useProducts();
     // const [filteredProducts, setFilteredProducts] = useState(products);
     const [filteredProducts, setFilteredProducts] = useState(products);
-    const [filterByCategorydProducts, setFilterByCategorydProducts] = useState();
-    const {searchValue,sortByPrice,categoryFilter} = useContext(AuthContext);
-    const filterByCategory = products?.filter((product)=>product.category === categoryFilter);
+    // const [filterByCategorydProducts, setFilterByCategorydProducts] = useState();
+    const {searchValue,sortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
 
     useEffect(()=>{
-        if(filterByCategory.length>0){
-            setFilterByCategorydProducts(filterByCategory)
+        if(categoryFilter?.length>0){
+            fetch(`http://localhost:5000/products/category/${categoryFilter}`)
+            .then((res)=>res.json())
+            .then((data)=>setFilteredProducts(data))
+            setCategoryFilter([])
         }
-    },[filterByCategory.length]);
-    
+    },[products])
+
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
-            setFilterByCategorydProducts(sortByPrice)
+            // setFilterByCategorydProducts(sortByPrice)
         }else if(sortByPrice.length === 0){
             setFilteredProducts(products)
         }
     },[sortByPrice])
 
-    useEffect(()=>{
-        fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
-        .then((res)=>res.json())
-        .then((data)=>{
-            setFilteredProducts(data)
-            // console.log("res",data)
-        })
-        .catch((err)=>console.log(err.message))
-    },[searchValue])
+    // useEffect(()=>{
+    //     fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
+    //     .then((res)=>res.json())
+    //     .then((data)=>{
+    //         setFilteredProducts(data)
+    //         // console.log("res",data)
+    //     })
+    //     .catch((err)=>console.log(err.message))
+    // },[searchValue])
 
     const handleFilterPrice= (e)=>{
         e.preventDefault();
@@ -139,15 +141,15 @@ const Shop = () => {
                 </div>
                 <div className='col-span-4'>
                     {/* <Sort></Sort> */}
-                    {/* <Sort products={filterByCategory}></Sort> */}
-                    <Sort products={filterByCategorydProducts?.length>0 ?filterByCategorydProducts:filteredProducts}></Sort>
+                    <Sort products={filteredProducts}></Sort>
+                    {/* <Sort products={filterByCategorydProducts?.length>0 ?filterByCategorydProducts:filteredProducts}></Sort> */}
                     <div className='grid grid-cols-5 gap-5'>
-                        {
+                        {/* {
                             filterByCategorydProducts?.length>0 ?
                             filterByCategorydProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>):
                             filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)
-                        }
-                        {/* {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)} */}
+                        } */}
+                        {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
                     </div>
                 </div>
             </div>
