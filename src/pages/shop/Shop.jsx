@@ -22,7 +22,6 @@ const Shop = () => {
 
     useEffect(()=>{
         if(categoryFilter?.length>0){
-            console.log(`http://localhost:5000/products/category/${categoryFilter}`);
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
             .then((res)=>res.json())
             .then((data)=>setFilteredProducts(data))
@@ -31,7 +30,6 @@ const Shop = () => {
             setFilteredProducts(products)
         }
     },[products])
-
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
@@ -63,24 +61,6 @@ const Shop = () => {
         });
         setFilteredProducts(filteredData);
     }
-
-    let categoryName =[];
-    for(let i = 0 ;i<products.length;i++){
-        let category = products[i].category;
-        if(categoryName.indexOf(category) == -1){
-            categoryName.push(category)
-        }
-    }
-
-    const handleCategoryChange = (e) => {
-        const category = e.target.value;
-        if (e.target.checked) {
-          setSelectedCategories([...selectedCategories, category]);
-        } else {
-          setSelectedCategories(selectedCategories.filter((c) => c !== category));
-        }
-    };
-
 
   return (
     <div>
@@ -116,29 +96,6 @@ const Shop = () => {
                                 <BiSolidRightArrow></BiSolidRightArrow>
                             </button>
                         </form>
-                    </div>
-                    {/* filter by category Name */}
-                    <div className='pt-4 border-b pb-3'>
-                        <h3 className='text-lg font-medium text-black mb-2'>Category</h3>
-                        <div>
-                            {categoryName.map((category,index)=><div key={index} className='flex justify-between'>
-                                <div className='flex gap-2 mb-1'>
-                                    <input 
-                                        type="checkbox" 
-                                        className='checkbox checkbox-sm checkbox-[#ddd] rounded-sm' 
-                                        name="category" 
-                                        id={`category`}
-                                        value={category}
-                                        onChange={handleCategoryChange}
-                                        checked={selectedCategories.includes(category)}
-                                    />
-                                    <p>{category}</p>
-                                </div>
-                                <div>
-                                    <p>1</p>
-                                </div>
-                            </div>)}
-                        </div>
                     </div>
                 </div>
                 <div className='col-span-4'>
