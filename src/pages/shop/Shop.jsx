@@ -43,14 +43,10 @@ const Shop = () => {
             .then((res)=>res.json())
             .then((data)=>{
                 setFilteredProducts(data)
-                // console.log(data);
+                setSearchValue("")
             })
             .catch((err)=>console.log(err.message))
-        }else{
-            // setFilteredProducts(products)
         }
-        // setSearchValue([])
-        
     },[searchValue])
 
     const handleFilterPrice= (e)=>{

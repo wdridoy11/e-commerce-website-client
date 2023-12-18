@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useRef, useState } from 'react'
 import { FaSearch} from 'react-icons/fa';
 import Shop from '../../../pages/shop/Shop';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -8,25 +8,16 @@ import useProducts from '../../../api/useProducts';
 const ProductSearch = () => {
     // const [searchValues, setSearchValues] = useState('');
     const {setSearchValue} = useContext(AuthContext);
-    const [searchProduct, setSearchProduct] = useState([]);
-    const [products] = useProducts();
+    const searchInputRef = useRef(null);
     const navigate = useNavigate();
 
     const handleSubmit=(event)=>{
         event.preventDefault();
         let value = event.target.search.value;
-        setSearchValue(value);
         navigate("/shop");
-        // fetch(`${process.env.REACT_APP_API_URL}/search_product/${value}`)
-        // .then((res)=>res.json())
-        // .then((data)=>{
-        //     // setSearchProduct(data)
-        //     // console.log("data is call")
         setSearchValue(value)
-        // })
-        // .catch((err)=>console.log(err.message))
+        searchInputRef.current.value = '';
     }
-// console.log(searchProduct)
 
   return (
     <div>
@@ -37,6 +28,7 @@ const ProductSearch = () => {
                 id="search"
                 placeholder='Search...'
                 className='input-bordered w-full lg:w-[500px] outline-none py-2 px-3 m-0 bg-neutral-100'
+                ref={searchInputRef}
                 required
             />
             <button type='submit' className='bg-[#FF5039] py-3 px-3 text-white'><FaSearch /></button>
