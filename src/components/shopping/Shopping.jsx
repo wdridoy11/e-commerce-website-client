@@ -11,26 +11,32 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Shopping = () => {
     const [address, setAddress] = useState([]);
+    // address modal
+    const [isOpen, setIsOpen] = useState(false);
+    // address update 
+    const [isOpenAddress,setIsOpenAddress] = useState(false);
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
     const [errorCoupon, setErrorCoupon] = useState(false);
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
-
     const {searchValue} = useContext(AuthContext);
 
     // loading add to card data from useCard hook
     const [card] = useCard();
 
     // address modal
-    const [isOpen, setIsOpen] = useState(false);
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
     
     // address update 
-    const [isOpenAddress,setIsOpenAddress] = useState(false);
     const isOpenModalAddress=()=>setIsOpenAddress(true)
     const closeAddressModal=()=>setIsOpenAddress(false);
-
+    // address api call
+    useEffect(()=>{
+        getData("address")
+        .then((data)=>setAddress(data))
+        .catch((err)=>console.log(err.message))
+    },[address])
 
     // product total calculate
     const productPrice = card.reduce((sum,product)=>product.price * product.quantity + sum,0);
@@ -59,13 +65,6 @@ const Shopping = () => {
        }
     }
 
-    useEffect(()=>{
-        getData("address")
-        .then((data)=>setAddress(data))
-        .catch((err)=>console.log(err.message))
-    },[])
-
-
     // handle address delete
     const handleAddressDelete=(id)=>{
         Swal.fire({
@@ -78,7 +77,7 @@ const Shopping = () => {
             confirmButtonText: 'Yes'
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address/${id}`,{
+              fetch(`${process.env.REACT_APP_API_URL}/address/${id}`,{
                 method:"DELETE",
                 headers:{
                     "content-type":"application/json"
@@ -104,15 +103,6 @@ const Shopping = () => {
     useEffect(()=>{
         // console.log("shoping",searchValue)
     },[searchValue])
-
-
-
-
-
-
-
-
-
 
 
   return (

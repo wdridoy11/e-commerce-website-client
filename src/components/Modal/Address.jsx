@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { RxCrossCircled } from 'react-icons/rx'
 import { Dialog, Transition } from '@headlessui/react'
 import { AuthContext } from '../../context/AuthProvider'
+import Swal from 'sweetalert2'
 
 const Address = ({isOpen,closeModal}) => {
 
@@ -42,7 +43,7 @@ const Address = ({isOpen,closeModal}) => {
         const allInfo = {useremail:user?.email,name, email, phone, address,selectedCountry,selectCity,area,type};
 
         // user address send
-        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/address`,{
+        fetch(`${process.env.REACT_APP_API_URL}/address`,{
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -51,6 +52,15 @@ const Address = ({isOpen,closeModal}) => {
         })
         .then((res)=>res.json())
         .then((data)=>{
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Address added success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
             form.reset();
         })
 
