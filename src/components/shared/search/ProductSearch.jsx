@@ -22,7 +22,7 @@ const ProductSearch = () => {
         // .then((data)=>{
         //     // setSearchProduct(data)
         //     // console.log("data is call")
-            setSearchValue(value)
+        setSearchValue(value)
         // })
         // .catch((err)=>console.log(err.message))
     }

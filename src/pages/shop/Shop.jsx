@@ -8,18 +8,15 @@ import Sort from '../../components/sort/Sort';
 
 const Shop = () => {
 
+    const [products] = useProducts();
     const [selectedCategories, setSelectedCategories] = useState([]);
-    // const [products,setProducts] = useState([]);
-    // min price and max price state 
+    const [filteredProducts, setFilteredProducts] = useState(products);
+        // min price and max price state 
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    // price filter data
-    const [products] = useProducts();
-    // const [filteredProducts, setFilteredProducts] = useState(products);
-    const [filteredProducts, setFilteredProducts] = useState(products);
-    // const [filterByCategorydProducts, setFilterByCategorydProducts] = useState();
-    const {searchValue,sortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
-
+    const {searchValue,setSearchValue, sortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
+    
+    // filter by category using api
     useEffect(()=>{
         if(categoryFilter?.length>0){
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
@@ -30,6 +27,7 @@ const Shop = () => {
             setFilteredProducts(products)
         }
     },[products])
+
     useEffect(()=>{
         if(sortByPrice.length>0){
             setFilteredProducts(sortByPrice)
@@ -38,15 +36,22 @@ const Shop = () => {
         }
     },[sortByPrice])
 
-    // useEffect(()=>{
-    //     fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValue}`)
-    //     .then((res)=>res.json())
-    //     .then((data)=>{
-    //         setFilteredProducts(data)
-    //         // console.log("res",data)
-    //     })
-    //     .catch((err)=>console.log(err.message))
-    // },[searchValue])
+    useEffect(()=>{
+        if(searchValue?.length>0){
+            const searchValueCase = searchValue.toLowerCase();
+            fetch(`${process.env.REACT_APP_API_URL}/search_product/${searchValueCase}`)
+            .then((res)=>res.json())
+            .then((data)=>{
+                setFilteredProducts(data)
+                // console.log(data);
+            })
+            .catch((err)=>console.log(err.message))
+        }else{
+            // setFilteredProducts(products)
+        }
+        // setSearchValue([])
+        
+    },[searchValue])
 
     const handleFilterPrice= (e)=>{
         e.preventDefault();
@@ -101,7 +106,11 @@ const Shop = () => {
                 <div className='col-span-4'>
                     <Sort products={filteredProducts}></Sort>
                     <div className='grid grid-cols-5 gap-5'>
-                        {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
+                        {/* {
+                            filteredProducts.length>0?filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>):
+                            <h3 className='text-center text-2xl font-semibold'>Product not found</h3>
+                        } */}
+                         {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
                     </div>
                 </div>
             </div>
