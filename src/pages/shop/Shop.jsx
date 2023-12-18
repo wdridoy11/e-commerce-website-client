@@ -11,18 +11,22 @@ const Shop = () => {
     const [products] = useProducts();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState(products);
-        // min price and max price state 
+    // min price and max price state 
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    const {searchValue,setSearchValue, sortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
-    
+    const {searchValue,setSearchValue, sortByPrice,setSortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
+    const currentUrl = window.location.pathname;
+    // console.log(currentUrl);
+
     // filter by category using api
     useEffect(()=>{
         if(categoryFilter?.length>0){
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
             .then((res)=>res.json())
-            .then((data)=>setFilteredProducts(data))
-            setCategoryFilter([])
+            .then((data)=>{
+                setFilteredProducts(data)
+                setCategoryFilter("")
+            })
         }else{
             setFilteredProducts(products)
         }
@@ -36,6 +40,7 @@ const Shop = () => {
         }
     },[sortByPrice])
 
+    // when user search and product then call this api
     useEffect(()=>{
         if(searchValue?.length>0){
             const searchValueCase = searchValue.toLowerCase();
