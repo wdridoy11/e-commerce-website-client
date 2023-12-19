@@ -19,7 +19,19 @@ const Shopping = () => {
     const [discountPrice, setDiscountPrice] = useState(0);
     const [errorCoupon, setErrorCoupon] = useState(false);
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
-    const {searchValue} = useContext(AuthContext);
+    // next button step
+    const [nextButton,setNextButton] = useState(false);
+    //payment method show
+    const [paymentVisible,setPaymentVisible] = useState(false);
+    // 
+    const [confirmOrder, setConfirmOrder] = useState(false);
+    // orderInfo
+    const [orderInfo, setOrderInfo] = useState();
+    //
+    const [selectedAddress, setSelectedAddress] = useState();
+
+    const {searchValue,orderPayment} = useContext(AuthContext);
+
     // loading add to card data from useCard hook
     const [card] = useCard();
     // address modal
@@ -96,14 +108,51 @@ const Shopping = () => {
         })
     }
 
-
-    // useEffect(()=>{
-    //     // console.log("shoping",searchValue)
-    // },[searchValue])
-    const handleAddressSelected=(info)=>{
-        console.log(info);
+    // address Selected
+    const handleAddressSelected=(addressInfo)=>{
+        if(addressInfo){
+            setNextButton(true)
+            setSelectedAddress(addressInfo)
+        }else{
+            setNextButton(false)
+        }
     }
 
+    // click next step and show payment methord
+    const handleNextStep=()=>{
+        setPaymentVisible(true)
+    }
+
+    useEffect(()=>{
+        if(orderPayment){
+            setConfirmOrder(true)
+        }else{
+            console.log("Not found");
+        }
+    },[orderPayment])
+
+    const handleConfirmOrder=()=>{
+        fetch(`${process.env.REACT_APP_API_URL}/order`,{
+            method:"POST",
+            headers:{
+                "content-type":"application"
+            },
+            body: JSON.stringify(selectedAddress)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Order success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+    
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -156,10 +205,24 @@ const Shopping = () => {
                                     </div>
                             </div>)}
                         </div>
+                        <button 
+                            onClick={()=>handleNextStep()}
+                            className={`${nextButton?'px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500':
+                            'px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 opacity-50 cursor-not-allowed'}`}
+                        >Next</button>
                     </div>
-                    <div className='bg-white mt-5 p-5 rounded-md'>
-                        <Payment price={price} card={card}></Payment>
-                    </div>
+
+                    {/* payment methord */}
+                    {paymentVisible && 
+                        <div className='bg-white mt-5 p-5 rounded-md'>
+                            <Payment price={price} card={card}></Payment>
+                        </div>
+                    }
+                    {confirmOrder && 
+                        <div className='bg-white p-5 rounded-md border-t text-end mb-20'>
+                            <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
+                        </div>
+                    }
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>

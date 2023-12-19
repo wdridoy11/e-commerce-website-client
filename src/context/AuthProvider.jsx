@@ -23,9 +23,10 @@ const AuthProvider = ({children}) => {
   const [searchValue, setSearchValue] = useState();
   // shop page price log log to High
   const [sortByPrice, setSortByPrice] = useState([]);
-  // 
+  // product category
   const [categoryFilter, setCategoryFilter] = useState()
-
+  // payment success
+  const [orderPayment, setOrderPayment] = useState();
    // create user using email and pasword
    const createUserUsingEmail=(email, password)=>{
     setLoading(true)
@@ -92,7 +93,9 @@ const AuthProvider = ({children}) => {
     createUserUsingGoogle,
     createUserUsingGithub,
     setCategoryFilter,
-    categoryFilter
+    categoryFilter,
+    setOrderPayment,
+    orderPayment,
   }
 
   return (

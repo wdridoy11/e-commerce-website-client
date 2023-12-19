@@ -12,8 +12,9 @@ const CheckoutForm = ({price,cardData}) => {
     const [cardError,setCardError] = useState();
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
-    const [processing, setProcessing] = useState(false)
-
+    const [processing, setProcessing] = useState(false);
+    const {setOrderPayment} = useContext(AuthContext)
+  // console.log(orderPayment);
     useEffect(()=>{
       if(price>20){
         fetch(`${process.env.REACT_APP_API_URL}/create-payment-intent`,{
@@ -97,8 +98,8 @@ const CheckoutForm = ({price,cardData}) => {
           })
           .then((res)=>res.json())
           .then((data)=>{
-            console.log("Payment data",data)
             if(data.result.insertedId){
+              setOrderPayment(data.result.insertedId)
               Swal.fire(
                 'Payment',
                 'Congratulation! payment is successful',
