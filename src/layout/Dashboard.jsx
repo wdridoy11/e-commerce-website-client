@@ -40,16 +40,19 @@ const Dashboard = () => {
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/manage_product`}><BsFillBoxFill></BsFillBoxFill>Manage Product</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>
                         </>}
                         {isSeller && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart>My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart>Wishlist</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/add_product`}><MdLibraryAdd></MdLibraryAdd>Product Add</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/my_product`}><BsFillBoxFill></BsFillBoxFill>My Product</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>
                         </>}
                         {isUser && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
+                            <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>
                         </>}
                     </div>
                 </div>

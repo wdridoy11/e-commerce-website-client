@@ -23,6 +23,7 @@ import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProdu
 import ProductUpdate from '../../pages/dashboard/seller/productUpdate/ProductUpdate';
 import AdminHome from '../../pages/dashboard/admin/adminHome/AdminHome';
 import Test from '../../pages/blogs/Test';
+import Order from '../../pages/order/Order';
 
 const routes = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const routes = createBrowserRouter([
         element:<Payment></Payment>
       },
       {
+        path:"order",
+        element:<Order></Order>
+      },
+      {
         path:"shopping",
         element:<Shopping></Shopping>
       },
@@ -101,7 +106,6 @@ const routes = createBrowserRouter([
         path:"wishlist",
         element:<WishlistItem></WishlistItem>
       },
-
       {
         path:"manage_product",
         element:<ManageProduct></ManageProduct>

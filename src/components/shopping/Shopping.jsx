@@ -20,16 +20,13 @@ const Shopping = () => {
     const [errorCoupon, setErrorCoupon] = useState(false);
     const [successfulCoupon, setSuccessfulCoupon] = useState(false);
     const {searchValue} = useContext(AuthContext);
-
     // loading add to card data from useCard hook
     const [card] = useCard();
-
     // address modal
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
-    
     // address update 
-    const isOpenModalAddress=()=>setIsOpenAddress(true)
+    const isOpenModalAddress=()=>setIsOpenAddress(true);
     const closeAddressModal=()=>setIsOpenAddress(false);
     // address api call
     useEffect(()=>{
@@ -100,10 +97,12 @@ const Shopping = () => {
     }
 
 
-    useEffect(()=>{
-        // console.log("shoping",searchValue)
-    },[searchValue])
-
+    // useEffect(()=>{
+    //     // console.log("shoping",searchValue)
+    // },[searchValue])
+    const handleAddressSelected=(info)=>{
+        console.log(info);
+    }
 
   return (
     <>
@@ -126,6 +125,7 @@ const Shopping = () => {
                                                 type="radio" 
                                                 name="type" 
                                                 id="type" 
+                                                onClick={()=>handleAddressSelected(address)}
                                             />  ({address?.type})
                                         </p>
                                     </div>

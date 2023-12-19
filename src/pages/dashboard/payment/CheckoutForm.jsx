@@ -16,7 +16,7 @@ const CheckoutForm = ({price,cardData}) => {
 
     useEffect(()=>{
       if(price>20){
-        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/create-payment-intent`,{
+        fetch(`${process.env.REACT_APP_API_URL}/create-payment-intent`,{
           method:"POST",
           headers:{
             "content-type":"application/json"
@@ -88,7 +88,7 @@ const CheckoutForm = ({price,cardData}) => {
             productName: cardData.map((item)=>item.productId)
           }
 
-          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/payment`,{
+          fetch(`${process.env.REACT_APP_API_URL}/payment`,{
             method:"POST",
             headers:{
               "content-type":"application/json"
