@@ -99,7 +99,7 @@ const CheckoutForm = ({price,cardData}) => {
           .then((res)=>res.json())
           .then((data)=>{
             if(data.result.insertedId){
-              setOrderPayment(data.result.insertedId)
+              setOrderPayment(payment)
               Swal.fire(
                 'Payment',
                 'Congratulation! payment is successful',

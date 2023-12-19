@@ -126,18 +126,20 @@ const Shopping = () => {
     useEffect(()=>{
         if(orderPayment){
             setConfirmOrder(true)
-        }else{
-            console.log("Not found");
         }
     },[orderPayment])
 
     const handleConfirmOrder=()=>{
+
+        // let orderDetails ={...orderPayment,card,selectedAddress};
+        const orderDetails ={productId: "Hello Product"}
+
         fetch(`${process.env.REACT_APP_API_URL}/order`,{
             method:"POST",
             headers:{
                 "content-type":"application"
             },
-            body: JSON.stringify(selectedAddress)
+            body: JSON.stringify(orderDetails)
         })
         .then((res)=>res.json())
         .then((data)=>{
@@ -152,7 +154,7 @@ const Shopping = () => {
             }
         })
     }
-    
+
   return (
     <>
         <div className='w-full h-screen pt-10 lg:px-10'>
@@ -223,6 +225,7 @@ const Shopping = () => {
                             <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
                         </div>
                     }
+                    <button  onClick={()=>handleConfirmOrder()}>order</button>
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>
