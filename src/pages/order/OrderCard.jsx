@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 const OrderCard = ({card}) => {
   const productPrice = card?.reduce((sum,product)=>product.price * product.quantity + sum,0);
-  console.log(card);
   return (
     <div className='bg-white rounded-md '>
         <div>
