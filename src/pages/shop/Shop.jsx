@@ -15,7 +15,6 @@ const Shop = () => {
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const {searchValue,setSearchValue, sortByPrice,setSortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
-    const currentUrl = window.location.pathname;
     // console.log(currentUrl);
 
     // filter by category using api
@@ -58,7 +57,7 @@ const Shop = () => {
         e.preventDefault();
         const min = parseFloat(minPrice);
         const max = parseFloat(maxPrice);
-        const filteredData = products.filter((product) => {
+        const filteredData = filteredProducts.filter((product) => {
           const price = parseFloat(product.price);
           const priceMatch = isNaN(min) || isNaN(max) || (price >= min && price <= max);
           const categoryMatch =
