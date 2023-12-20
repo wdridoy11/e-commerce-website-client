@@ -130,27 +130,35 @@ const Shopping = () => {
     },[orderPayment])
 
     const handleConfirmOrder=()=>{
+        if(card?.length>0 && orderPayment){
+            let orderDetails ={...orderPayment,card,selectedAddress};
+            fetch(`${process.env.REACT_APP_API_URL}/order`,{
+                method:"POST",
+                headers:{
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(orderDetails)
+            })
+            .then((res)=>res.json())
+            .then((data)=>{
+                if(data.insertedId){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Order success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please check payment and product card",
+              });
+        }
 
-        let orderDetails ={...orderPayment,card,selectedAddress};
-        fetch(`${process.env.REACT_APP_API_URL}/order`,{
-            method:"POST",
-            headers:{
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(orderDetails)
-        })
-        .then((res)=>res.json())
-        .then((data)=>{
-            if(data.insertedId){
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Order success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        })
 
     }
 
@@ -224,7 +232,7 @@ const Shopping = () => {
                             <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
                         </div>
                     }
-                    {/* <button  onClick={()=>handleConfirmOrder()}>order</button> */}
+                    <button  onClick={()=>handleConfirmOrder()}>order</button>
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>

@@ -15,7 +15,7 @@ const Order = () => {
             })
         })
     },[])
-    
+    console.log(orderInfo);
   return (
     <div>
         {loading ? <Loader></Loader>:

@@ -109,7 +109,7 @@ const CheckoutForm = ({price,cardData}) => {
             }
           })
         }
-      form.reset();
+        form.reset();
     }
 
   return (

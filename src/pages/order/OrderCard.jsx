@@ -7,7 +7,7 @@ const OrderCard = ({card}) => {
     <div className='bg-white rounded-md '>
         <div>
             <h1 className='text-lg font-medium mb-2'>Your Order ID: <span>17135021605139</span> ({card?.length} items)</h1>
-            <h1 className='text-lg font-medium mb-5'>Payable Amount: TK. <span>{productPrice}</span></h1>
+            <h1 className='text-lg font-medium mb-5'>Payable Amount: TK. <span>{productPrice+20}</span></h1>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-5'>
             {card?.map((product)=><Link to={`/productDetails/${product.productId}`} className='border p-5 rounded-b'>
