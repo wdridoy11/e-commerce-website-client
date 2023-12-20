@@ -2,15 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const OrderCard = ({card}) => {
-
+  const productPrice = card?.reduce((sum,product)=>product.price * product.quantity + sum,0);
+  console.log(card);
   return (
     <div className='bg-white rounded-md '>
         <div>
             <h1 className='text-lg font-medium mb-2'>Your Order ID: <span>17135021605139</span> ({card?.length} items)</h1>
-            <h1 className='text-lg font-medium mb-5'>Payable Amount: TK. <span>713</span></h1>
+            <h1 className='text-lg font-medium mb-5'>Payable Amount: TK. <span>{productPrice}</span></h1>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-5'>
-            {card?.map((product)=><Link to={`/productDetails/${product._id}`} className='border p-5 rounded-b'>
+            {card?.map((product)=><Link to={`/productDetails/${product.productId}`} className='border p-5 rounded-b'>
                 <div>
                     <div className='w-full h-48 overflow-hidden'>
                         <img className='w-9/12 mx-auto pb-5 hover:scale-110 duration-500' src={product.product_image} />
