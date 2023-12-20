@@ -16,7 +16,7 @@ console.log(user)
     .then((res)=>{
       const loginUser = res.user;
       const saveUser = {name:loginUser?.displayName, email: loginUser?.email, image:loginUser?.photoURL }
-      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users`,{
+      fetch(`${process.env.REACT_APP_API_URL}/users`,{
         method:"POST",
         headers:{
           "content-type":"application/json"

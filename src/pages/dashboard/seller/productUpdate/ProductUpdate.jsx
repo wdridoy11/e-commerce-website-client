@@ -9,7 +9,7 @@ const ProductUpdate = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit=(data)=>{
-        fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/products/${_id}`,{
+        fetch(`${process.env.REACT_APP_API_URL}/products/${_id}`,{
           method:"PUT",
           headers:{
             "content-type":"application/json"

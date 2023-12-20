@@ -131,13 +131,11 @@ const Shopping = () => {
 
     const handleConfirmOrder=()=>{
 
-        // let orderDetails ={...orderPayment,card,selectedAddress};
-        const orderDetails ={productId: "Hello Product"}
-
+        let orderDetails ={...orderPayment,card,selectedAddress};
         fetch(`${process.env.REACT_APP_API_URL}/order`,{
             method:"POST",
             headers:{
-                "content-type":"application"
+                "content-type": "application/json"
             },
             body: JSON.stringify(orderDetails)
         })
@@ -153,6 +151,7 @@ const Shopping = () => {
                 })
             }
         })
+
     }
 
   return (
@@ -225,7 +224,7 @@ const Shopping = () => {
                             <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
                         </div>
                     }
-                    <button  onClick={()=>handleConfirmOrder()}>order</button>
+                    {/* <button  onClick={()=>handleConfirmOrder()}>order</button> */}
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>

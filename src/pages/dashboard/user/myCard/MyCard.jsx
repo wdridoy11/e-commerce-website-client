@@ -23,7 +23,7 @@ const handleDelete=(item)=>{
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/carts/${item._id}`,{
+      fetch(`${process.env.REACT_APP_API_URL}/carts/${item._id}`,{
         method:"DELETE",
         headers:{
           "content-type":"application/json"

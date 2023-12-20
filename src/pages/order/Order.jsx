@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OrderCard from './OrderCard'
 
 const Order = () => {
+    const [orderInfo, setOrderInfo] = useState();
+    useEffect(()=>{
+        fetch(`${process.env.REACT_APP_API_URL}/order`)
+        .then((res)=>res.json())
+        .then((data)=>setOrderInfo(data))
+    },[])
   return (
     <div>
         <div className='w-full h-screen pt-10 lg:px-10'>

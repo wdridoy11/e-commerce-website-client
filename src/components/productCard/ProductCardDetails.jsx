@@ -65,7 +65,7 @@ const ProductCardDetails = () => {
         }else{
             if(user && user?.email){
                 const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
-                fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/carts`,{
+                fetch(`${process.env.REACT_APP_API_URL}/carts`,{
                     method:"POST",
                     headers:{
                         "content-type": "application/json"
@@ -107,7 +107,7 @@ const ProductCardDetails = () => {
          }else{
              if(user && user?.email){
                 const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
-                 fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/wishlist`,{
+                 fetch(`${process.env.REACT_APP_API_URL}/wishlist`,{
                      method:"POST",
                      headers:{
                          "content-type": "application/json"

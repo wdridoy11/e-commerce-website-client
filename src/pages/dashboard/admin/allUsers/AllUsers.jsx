@@ -10,7 +10,7 @@ const AllUsers = () => {
     const [loading, setLoading] = useState(true);
     // user data load from server
     useEffect(()=>{
-      fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users`)
+      fetch(`${process.env.REACT_APP_API_URL}/users`)
       .then((res)=>res.json())
       .then((data)=>{
         setUsers(data)
@@ -32,7 +32,7 @@ const AllUsers = () => {
         confirmButtonText: 'Yes'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users/${apiPath}/${user._id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/users/${apiPath}/${user._id}`,{
             method:"PATCH",
             headers:{
               "content-type":"application/json"

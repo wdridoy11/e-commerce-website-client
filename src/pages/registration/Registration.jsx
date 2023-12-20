@@ -22,7 +22,7 @@ const Registration = () => {
             userProfileUpdate(data.name, data.photoURL)
             .then((res)=>{
                 const saveUser = {name:data?.name, email: data?.email, image: data?.photoURL}
-                fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/users`,{
+                fetch(`${process.env.REACT_APP_API_URL}/users`,{
                     method:"POST",
                     headers:{
                       "content-type":"application/json"

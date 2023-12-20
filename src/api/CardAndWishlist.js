@@ -17,7 +17,7 @@
 //     }else{
 //         if(user && user?.email){
 //             const productItem ={productId: _id,email:user?.email, quantity, brand, product_image, product_name, price}
-//             fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/${apiPath}`,{
+//             fetch(`${process.env.REACT_APP_API_URL}/${apiPath}`,{
 //                 method:"POST",
 //                 headers:{
 //                     "content-type": "application/json"

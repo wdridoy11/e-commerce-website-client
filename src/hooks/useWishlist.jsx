@@ -8,7 +8,7 @@ const useWishlist = () => {
         queryKey:["wishlist", user?.email],
         enabled: !loading,
         queryFn: async ()=>{
-            const res = await fetch(`https://e-commerce-website-server-pdooyqnqc-developersridoy-gmailcom.vercel.app/wishlist?email=${user?.email}`)
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/wishlist?email=${user?.email}`)
             return res.json();
         }
     })
