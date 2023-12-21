@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <div className='bg-[#F6F6F6] py-10'>
         <div className='container mx-auto'>
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
                 {/* slider area */}
                 <div>
                     <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
@@ -65,7 +65,7 @@ const Hero = () => {
                         </div>
                         <img className='rounded-md' src={hero4} alt="" />
                     </div>
-                    <div className='grid grid-cols-2 gap-5'>
+                    <div className='grid md:grid-cols-2 gap-5'>
                         <div className='relative'>
                             <div className='absolute top-1/4 left-10'>
                                 <h3 className='text-lg font-medium text-white'>Xiaomi 13T Pro</h3>

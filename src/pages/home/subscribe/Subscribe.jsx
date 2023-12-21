@@ -7,7 +7,7 @@ const Subscribe = () => {
   return (
     <div>
         <div className='container mx-auto px-5 bg-red-400 py-20 rounded-md relative -bottom-20'>
-            <div className='grid grid-cols-2 items-center gap-5 px-10'>
+            <div className='grid md:grid-cols-2 items-center gap-5 px-10'>
                 <div>
                     <p className='text-lg text-white font-medium'>Join our email list & get free unlimeted offer</p>
                     <h2 className='text-3xl font-medium text-white mt-3'>Subscribe now & get free 20% discount</h2>

@@ -111,29 +111,6 @@ const Header = () => {
   return(
     <div className='bg-white pt-5'>
       <Container>
-        {/* Top header start */}
-          {/* <div className='flex items-center justify-between py-3'>
-            <div className='flex'>
-              <li className='flex items-center gap-2 text-black font-normal text-base'>
-                <FaPhoneAlt /> <Link to={'tel:017228241640'} className='text-base font-medium'>01722824160</Link>
-              </li>
-              <div className="divider lg:divider-horizontal"></div> 
-              <li className='flex items-center gap-2 text-black font-normal text-base'>
-                <FaEnvelope /><Link to={''} className='text-base font-medium'>ridoysharif30@gmail.com</Link>
-              </li>
-            </div>
-            <div>
-              <div className='flex gap-2'>
-                <Link><FaFacebookF className='text-3xl border rounded-full p-1.5 border-slate-400' /></Link>
-                <Link><FaTwitter className='text-3xl border rounded-full p-1.5 border-slate-400'  /></Link>
-                <Link><FaInstagram className='text-3xl border rounded-full p-1.5 border-slate-400'  /></Link>
-                <Link><FaLinkedin className='text-3xl border rounded-full p-1.5 border-slate-400'  /></Link>
-              </div>
-            </div>
-          </div> */}
-        {/* Top header end */}
-
-        {/* Middle header logo search bar start*/}
         <div>
           <div className='flex items-center justify-between pb-5'>
             <div>
@@ -146,15 +123,13 @@ const Header = () => {
             </div>
             <div className='flex items-center list-none gap-3'>
               <li title='Shopping Cart'>
-                {/* <Link><FaCartArrowDown className='text-xl text-black' /></Link> */}
                 <AddToCard></AddToCard>
               </li>
               <li title='Favorite'>
-                {/* <Link><FaHeart className='text-xl text-black' /></Link> */}
                 <Wishlist></Wishlist>
               </li>
               <li title='Compare'>
-                <Link to={`/shop`}><FaExchangeAlt className='text-xl text-black' /></Link>
+                {/* <Link to={`/shop`}><FaExchangeAlt className='text-xl text-black' /></Link> */}
               </li>
               <div>
                 <Account></Account>
@@ -162,7 +137,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
       </Container>
       {/* Middle header logo search bar end*/}
         <div className='bg-[#E6EFFD] py-3'>

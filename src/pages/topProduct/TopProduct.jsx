@@ -21,7 +21,7 @@ const TopProduct = () => {
     <div className='py-20'>
         <div className='container mx-auto'>
             <h1 className='text-2xl font-semibold mb-5 text-center'>Top Product</h1>
-            <div className='flex gap-3 justify-center mb-8'>
+            <div className='flex flex-wrap gap-3 justify-center mb-8'>
                 {categoryName && categoryName.map((category,index)=><button
                     key={index}
                     value={category}
