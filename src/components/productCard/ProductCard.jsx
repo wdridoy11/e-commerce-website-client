@@ -11,7 +11,7 @@ const ProductCard = ({product}) => {
   return (
     <Link to={`/productDetails/${_id}`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-md pb-3'>
-            <div className='w-full h-48 overflow-hidden'>
+            <div className='w-1/2 mx-auto md:w-full h-48 overflow-hidden'>
                 <img className='w-9/12 mx-auto pb-5 hover:scale-110 duration-500' src={product_image} alt={product_name} />
             </div>
             <div className='p-5'>

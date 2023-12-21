@@ -73,7 +73,7 @@ const Hero = () => {
                                 <Link to={`http://localhost:3000/productDetails/657c609860c51081afc581fd`} className='bg-white text-black font-medium px-5 py-2 rounded-md 
                                 inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
                             </div>
-                            <img className='rounded-md w-full h-48 object-cover' src={hero5} alt="" />
+                            <img className='rounded-md w-full md:h-48 object-cover' src={hero5} alt="Xiaomi 13T Pro" />
                         </div>
                         <div className='relative'>
                             <div className='absolute top-1/4 left-10'>
@@ -82,7 +82,7 @@ const Hero = () => {
                                 <Link to={'http://localhost:3000/productDetails/653105bfc6a49660f9e5e609'} className='bg-white text-black font-medium px-5 py-2 rounded-md 
                                 inline-block hover:bg-black hover:text-white duration-500'>View Details</Link>
                             </div>
-                            <img className='rounded-md w-full h-48 object-cover' src={hero6} alt="" />
+                            <img className='rounded-md w-full md:h-48 object-cover' src={hero6} alt="QCY H2 Wireless" />
                         </div>
                     </div>
                 </div>

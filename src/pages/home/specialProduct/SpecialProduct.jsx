@@ -24,7 +24,7 @@ const SpecialProduct = () => {
     },[products])
 
   return (
-    <div className='specialProduct py-20 bg-white'>
+    <div className='specialProduct py-20 bg-white hidden md:block'>
         <div className='container mx-auto'>
             <div>
                 <Swiper
