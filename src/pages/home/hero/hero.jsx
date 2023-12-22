@@ -45,7 +45,7 @@ const Hero = () => {
                     <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
                         {heroSlider?.map((item,index)=><SwiperSlide key={index}>
                             <div className='relative'>
-                                <img className='w-full h-[520px] object-cover rounded-md' src={item.img} alt="" /> 
+                                <img className='w-full md:h-[520px] object-cover rounded-md' src={item.img} alt="" /> 
                                 <div className='absolute top-1/3 left-10 text-left'>
                                     {item.title && <h3 className={`text-2xl font-semibold ${item.color === "white" ? "text-white" : "text-black"}`}>{item.title}</h3>}
                                     {item.description && <p className={`text-base text-black font-normal mt-2 mb-3 ${item.color === "white"?"text-white" :"text-black"}`}>{item.description}</p>}

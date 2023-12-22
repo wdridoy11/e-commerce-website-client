@@ -23,7 +23,7 @@ const RelatedProduct = ({category,Id}) => {
             <Link to={`http://localhost:3000/productDetails/${product._id}`} className='hover:shadow-md duration-150'>
                 <div className='bg-white rounded-sm border rounded-b-md'>
                     <div className='w-full h-48 overflow-hidden'>
-                        <img className='w-3/5 mx-auto rounded-t-md' src={product?.product_image} alt={product?.product_name} />
+                        <img className='w-2/5 lg:w-3/5 mx-auto rounded-t-md' src={product?.product_image} alt={product?.product_name} />
                     </div>
                     <div className='p-2'>
                         <h4 className='text-sm text-[#212121] font-medium'>{product?.product_name.length>50? <>{product?.product_name.slice(0,50)}...</>:product?.product_name}</h4>
