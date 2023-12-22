@@ -12,7 +12,7 @@ const ProductCard = ({product}) => {
     <Link to={`/productDetails/${_id}`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-md pb-3'>
             <div className='w-1/2 mx-auto md:w-full h-48 overflow-hidden'>
-                <img className='w-9/12 mx-auto pb-5 hover:scale-110 duration-500' src={product_image} alt={product_name} />
+                <img className='md:w-9/12 mx-auto pb-5 hover:scale-110 duration-500' src={product_image} alt={product_name} />
             </div>
             <div className='p-5'>
                 <h4 className='text-base text-[#212121] font-medium'>{product_name.length>20? <>{product_name.slice(0,20)}...</>:product_name}</h4>

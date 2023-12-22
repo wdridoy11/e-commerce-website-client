@@ -24,7 +24,26 @@ const Brand = () => {
         <div className='container mx-auto'>
             <div className='brand pb-20'>
                 <Swiper
-                    slidesPerView={6}
+                    breakpoints={{
+                        // when window width is >= 640px
+                        640: {
+                          width: 640,
+                          slidesPerView: 2,
+                        },
+                        // when window width is >= 768px
+                        768: {
+                          width: 768,
+                          slidesPerView: 2,
+                        },
+                        992: {
+                          width: 992,
+                          slidesPerView: 3,
+                        },
+                        1920: {
+                          width: 1920,
+                          slidesPerView: 4,
+                        },
+                    }}
                     spaceBetween={10}
                     freeMode={true}
                     pagination={{clickable: true,}}

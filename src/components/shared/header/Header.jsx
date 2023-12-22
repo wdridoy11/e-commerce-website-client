@@ -9,7 +9,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import { categoriesData } from '../../categories/CategoriesData';
 
 const Header = () => {
-  
+
     const {setCategoryFilter} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const Header = () => {
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <Link to={'/'} className='text-base font-medium text-slate-700 py-2'>Home</Link>
                 {categoriesData.map((navItem)=><>
-                  <Link onClick={()=>handleClick(navItem?.title)} className='text-base font-medium text-slate-700 py-2'>{navItem?.title}</Link>
+                  <Link to={'/shop'}  onClick={()=>handleClick(navItem?.title)} className='text-base font-medium text-slate-700 py-2'>{navItem?.title}</Link>
                 </>)}
               </ul>
             </div>

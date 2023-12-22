@@ -25,8 +25,28 @@ const Testimonial = () => {
             <h1 className='text-2xl font-semibold mb-5 text-center'>Testimonial</h1>
             <div>
                 <Swiper
-                    slidesPerView={4}
-                    sliderPri
+                    breakpoints={{
+                        // when window width is >= 640px
+                        640: {
+                          width: 640,
+                          slidesPerView: 1,
+                        },
+                        // when window width is >= 768px
+                        768: {
+                          width: 768,
+                          slidesPerView: 2,
+                        },
+                        992: {
+                          width: 992,
+                          slidesPerView: 3,
+                        },
+                        1920: {
+                          width: 1920,
+                          slidesPerView: 4,
+                        },
+                    }}
+                    // slidesPerView={4}
+                    
                     spaceBetween={10}
                     freeMode={true}
                     pagination={{clickable: true,}}

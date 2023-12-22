@@ -15,10 +15,8 @@ const Shop = () => {
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const {searchValue,setSearchValue, sortByPrice,setSortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
-    // console.log(currentUrl);
 
     // filter by category using api
-    // console.log(categoryFilter);
     useEffect(()=>{
         if(categoryFilter?.length>0){
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
@@ -69,9 +67,9 @@ const Shop = () => {
 
   return (
     <div>
-        <div className='px-20 py-10'>
-            <div className='grid grid-cols-5 gap-5'>
-                <div className=' bg-white rounded p-5'>
+        <div className='px-7 py-10'>
+            <div className='grid md:grid-cols-5 gap-5'>
+                <div className='bg-white rounded p-5'>
                     {/* filter by price */}
                     <div className='border-b pb-5'>
                         <h3 className='text-lg font-medium text-black mb-2'>Price</h3>
@@ -103,9 +101,9 @@ const Shop = () => {
                         </form>
                     </div>
                 </div>
-                <div className='col-span-4'>
+                <div className='md:col-span-4'>
                     <Sort products={filteredProducts}></Sort>
-                    <div className='grid grid-cols-5 gap-5'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5'>
                          {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
                     </div>
                 </div>
