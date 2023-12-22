@@ -18,18 +18,18 @@ const Shop = () => {
     // console.log(currentUrl);
 
     // filter by category using api
+    // console.log(categoryFilter);
     useEffect(()=>{
         if(categoryFilter?.length>0){
             fetch(`http://localhost:5000/products/category/${categoryFilter}`)
             .then((res)=>res.json())
             .then((data)=>{
                 setFilteredProducts(data)
-                setCategoryFilter("")
             })
         }else{
             setFilteredProducts(products)
         }
-    },[products])
+    },[products,categoryFilter.length])
 
     useEffect(()=>{
         if(sortByPrice.length>0){
@@ -106,10 +106,6 @@ const Shop = () => {
                 <div className='col-span-4'>
                     <Sort products={filteredProducts}></Sort>
                     <div className='grid grid-cols-5 gap-5'>
-                        {/* {
-                            filteredProducts.length>0?filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>):
-                            <h3 className='text-center text-2xl font-semibold'>Product not found</h3>
-                        } */}
                          {filteredProducts?.map((product,index)=><ProductCard product={product} key={index}></ProductCard>)}
                     </div>
                 </div>

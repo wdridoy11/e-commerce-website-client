@@ -9,6 +9,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import { categoriesData } from '../../categories/CategoriesData';
 
 const Header = () => {
+  
     const {setCategoryFilter} = useContext(AuthContext);
     const navigate = useNavigate();
 
