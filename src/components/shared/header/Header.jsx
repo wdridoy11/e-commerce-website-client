@@ -1,58 +1,24 @@
-
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaExchangeAlt, FaHeart, FaUserCircle } from 'react-icons/fa';
-import logo from '../../../assets/logo.png'
-import { AuthContext } from '../../../context/AuthProvider';
-import Account from '../account/Account';
-import AddToCard from './AddToCard';
 import Wishlist from './Wishlist';
+import AddToCard from './AddToCard';
+import Account from '../account/Account';
+import logo from '../../../assets/logo.png'
 import ProductSearch from '../search/ProductSearch';
+import { AuthContext } from '../../../context/AuthProvider';
 import { categoriesData } from '../../categories/CategoriesData';
+
 const Header = () => {
-    const {user,setCategoryFilter,categoryFilter} = useContext(AuthContext);
+    const {setCategoryFilter} = useContext(AuthContext);
     const navigate = useNavigate();
+
     const handleClick=(category)=>{
       setCategoryFilter(category);
       navigate(`/shop`);
     }
-  const navMenu=<>
-    <li><Link to={``}>Home</Link></li>
-    <li><Link to={``}></Link></li>
-    <li><Link to={``}></Link></li>
-    <li><Link to={``}></Link></li>
-  </>
 
   return(
     <div className='bg-white pt-5'>
-      {/* <Container>
-        <div>
-          <div className='flex items-center justify-between pb-5'>
-            <div>
-              <Link to={'/'}>
-                <img width="150" src={logo} alt="Logo" />
-              </Link>
-            </div>
-            <div>
-                <ProductSearch></ProductSearch>
-            </div>
-            <div className='flex items-center list-none gap-3'>
-              <li title='Shopping Cart'>
-                <AddToCard></AddToCard>
-              </li>
-              <li title='Favorite'>
-                <Wishlist></Wishlist>
-              </li>
-              <li title='Compare'> */}
-                {/* <Link to={`/shop`}><FaExchangeAlt className='text-xl text-black' /></Link> */}
-              {/* </li>
-              <div>
-                <Account></Account>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container> */}
       <div className='container mx-auto'>
         <div className="navbar bg-base-100">
           <div className="navbar-start">
