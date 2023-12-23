@@ -99,7 +99,7 @@ console.log(categoryObjects);
       {loading ? <Loader></Loader> : <div className='w-full bg-[#F8F8FC] h-screen pt-10 lg:px-10'>
           <div>
             <div>
-              <div className='grid grid-cols-4 gap-5'>
+              <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-5'>
                   <div className='bg-gradient-to-r from-[#BB34F5] to-[#FCDBFF] p-7 rounded-md'>
                       <div className='flex items-center gap-5'>
                           <div>

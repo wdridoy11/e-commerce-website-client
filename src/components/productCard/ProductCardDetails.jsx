@@ -149,23 +149,23 @@ const ProductCardDetails = () => {
   return (
     <div className='pt-10 pb-20 bg-[#F8F8F8] border-t'>
         <div className='container mx-auto px-5'>
-            {/* product details page gird start*/}
             <div>
                 <div>
                     <div className='grid lg:grid-cols-2 gap-5'>
                         <div>
                             <div className='w-full p-10 bg-white'>
-                            {/* <div className='w-full h-96 overflow-hidden'> */}
-                                {/* <img className='w-1/3 mx-auto' src={product_image} alt="" /> */}
                                 <SliderImage
                                     data={result}
                                     // width="1000px"
                                     showDescription={false}
                                     direction="right"
+                                    breakpoints={{
+                                        768: {
+                                          width: 768,
+                                          direction:"left"
+                                        },
+                                    }}
                                 />
-                            </div>
-                            <div className='grid grid-cols-5'>
-                                {/* {product_imageGallery && product_imageGallery.map((image)=><img className='w-1/2  mx-auto' src={image} alt="" />)} */}
                             </div>
                         </div>
                         <div className='bg-white p-7'>
@@ -245,7 +245,6 @@ const ProductCardDetails = () => {
                         {/* Related product start */}
                     </div>
                 </div>
-                {/* product details end */}
             </div>
             {/* product details page gird end*/}
         </div>

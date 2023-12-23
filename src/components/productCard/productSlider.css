@@ -41,3 +41,18 @@ button.react-slider__btnNext {
     display: inline-block;
     padding: 4px;
 }
+@media screen and (width:768px) {
+    .react-slider__imgZoom {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translateX(20px);
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        border: thin solid #ccc;
+        opacity: 0;
+        z-index: -9999;
+        transition: opacity .3s ease-in-out;
+      }
+}
