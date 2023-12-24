@@ -131,7 +131,7 @@ const Shopping = () => {
 
     const handleConfirmOrder=()=>{
         if(card?.length>0 && orderPayment){
-            let orderDetails ={...orderPayment,card,selectedAddress};
+            let orderDetails ={...orderPayment,selectedAddress};
             fetch(`${process.env.REACT_APP_API_URL}/order`,{
                 method:"POST",
                 headers:{
@@ -214,11 +214,15 @@ const Shopping = () => {
                                     </div>
                             </div>)}
                         </div>
+                        {nextButton ?
                         <button 
                             onClick={()=>handleNextStep()}
-                            className={`${nextButton?'px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500':
-                            'px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 opacity-50 cursor-not-allowed'}`}
-                        >Next</button>
+                            className="px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500">
+                            Next
+                        </button>:
+                        <button className="px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 opacity-50 cursor-not-allowed">Next </button>
+                        }
+                        
                     </div>
 
                     {/* payment methord */}
