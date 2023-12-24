@@ -25,8 +25,6 @@ const Shopping = () => {
     const [paymentVisible,setPaymentVisible] = useState(false);
     // 
     const [confirmOrder, setConfirmOrder] = useState(false);
-    // orderInfo
-    const [orderInfo, setOrderInfo] = useState();
     //
     const [selectedAddress, setSelectedAddress] = useState();
 
@@ -141,6 +139,7 @@ const Shopping = () => {
             })
             .then((res)=>res.json())
             .then((data)=>{
+                console.log("data",data);
                 if(data.insertedId){
                     Swal.fire({
                         position: 'top-end',
@@ -158,8 +157,6 @@ const Shopping = () => {
                 text: "Please check payment and product card",
               });
         }
-
-
     }
 
   return (
@@ -236,7 +233,7 @@ const Shopping = () => {
                             <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
                         </div>
                     }
-                    <button  onClick={()=>handleConfirmOrder()}>order</button>
+                    {/* <button  onClick={()=>handleConfirmOrder()}>order</button> */}
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>
