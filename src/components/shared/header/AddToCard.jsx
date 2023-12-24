@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useCard from '../../../hooks/useCard';
 
 const AddToCard = () => {
-    const [card] = useCard();
+  const [card] = useCard();
   return (
     <div>
         <div className="indicator">

@@ -17,21 +17,16 @@ import "./productSlider.css"
 // import SliderImage from "react-zoom-slider";
 
 const ProductCardDetails = () => {
-
-    const {user}= useContext(AuthContext)
-    // data loading form routes
-    const productsData = useLoaderData();
-    const { brand, product_name, price, _id, product_image, category, product_description, small_description, product_imageGallery } = productsData;
-        
-    // product rating
-    const [rating, setRating] = useState(4);
+    // by default quantity
     const [quantity,setQuantity]= useState(1);
-
     // if user not login but user click add to card or buy btn then show popup
     const [isOpen, setIsOpen] = useState(false);
     // only user add to card data load from useCard hook
     const [card,refetch] = useCard();
-
+    const {user}= useContext(AuthContext)
+    // data loading form routes
+    const productsData = useLoaderData();
+    const { brand, product_name, price, _id, product_image, category, product_description,user_rating, small_description, product_imageGallery } = productsData;
     // wishlist
     const [wishlist] = useWishlist();
 
@@ -93,7 +88,6 @@ const ProductCardDetails = () => {
     
     // wishlist button
     const handleWishlist=(id)=>{
-        console.log(id)
          // check privous card data id and new data id
          const cardIdMatch = wishlist.find((item)=> item.productId === id && item.email === user?.email);
          if(cardIdMatch){
@@ -156,15 +150,8 @@ const ProductCardDetails = () => {
                             <div className='w-full p-10 bg-white'>
                                 <SliderImage
                                     data={result}
-                                    // width="1000px"
                                     showDescription={false}
                                     direction="right"
-                                    breakpoints={{
-                                        768: {
-                                          width: 768,
-                                          direction:"left"
-                                        },
-                                    }}
                                 />
                             </div>
                         </div>
@@ -172,7 +159,7 @@ const ProductCardDetails = () => {
                             <h3 className='text-2xl font-semibold text-[#333] mb-3'>{product_name}</h3>
                             <div className='flex gap-1 items-center'>
                                 <div>
-                                    <Rating style={{ maxWidth: 90 }} value={rating} onChange={setRating} />
+                                    <Rating style={{ maxWidth: 90 }} value={user_rating} readOnly />
                                 </div>
                                 <div className='text-base font-medium text-[#777]'>(10 customer reviews)</div>
                             </div>
@@ -248,6 +235,7 @@ const ProductCardDetails = () => {
             </div>
             {/* product details page gird end*/}
         </div>
+        {/* login modal */}
         <AddToCardLogin
             isOpen={isOpen}
             closeModal={closeModal}

@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import { RxCrossCircled } from 'react-icons/rx'
 import { Dialog, Transition } from '@headlessui/react'
 import { AuthContext } from '../../context/AuthProvider'
-import Swal from 'sweetalert2'
 
 const Address = ({isOpen,closeModal}) => {
 
@@ -143,7 +143,6 @@ const Address = ({isOpen,closeModal}) => {
                                                 </option>)}
                                             </select>
                                         </div>
-                                        
                                     </div>
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 mb-3'>
                                         <div>

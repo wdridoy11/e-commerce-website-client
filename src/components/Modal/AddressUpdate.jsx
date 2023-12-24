@@ -3,7 +3,6 @@ import { RxCrossCircled } from 'react-icons/rx'
 import { Dialog, Transition } from '@headlessui/react'
 
 const AddressUpdate = ({isOpen, closeModal}) => {
-
     return (
         <div>
             <div>

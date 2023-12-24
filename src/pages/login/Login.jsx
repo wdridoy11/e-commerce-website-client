@@ -15,7 +15,6 @@ const Login = () => {
   return (
     <div>
         <div className="py-20" style={{ backgroundImage: `url(${bgImage})`}}>
-        {/* <div className="hero min-h-screen" style={{ backgroundImage: `url(${bgImage})`}}> */}
           <div className="hero-overlay bg-opacity-30"></div>
             <div className='container mx-auto px-5'>
                 <div className='grid md:grid-cols-2 glass gap-10 p-10 rounded-xl items-center'>

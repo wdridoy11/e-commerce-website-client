@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import {
   getAuth,
   signOut,
@@ -11,7 +11,6 @@ import {
   createUserWithEmailAndPassword,
   } from 'firebase/auth'
 import app from '../utils/firebase/firebase.config';
-import ProductSearch from '../components/shared/search/ProductSearch';
 export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
@@ -27,6 +26,7 @@ const AuthProvider = ({children}) => {
   const [categoryFilter, setCategoryFilter] = useState()
   // payment success
   const [orderPayment, setOrderPayment] = useState();
+
    // create user using email and pasword
    const createUserUsingEmail=(email, password)=>{
     setLoading(true)
@@ -77,15 +77,11 @@ const AuthProvider = ({children}) => {
     }
   },[])
 
-
-
   const userInfo ={
     user,
     logOut,
     loading,
     userLogin,
-    searchValue,
-    setSearchValue,
     sortByPrice,
     setSortByPrice,
     userProfileUpdate,
@@ -96,6 +92,8 @@ const AuthProvider = ({children}) => {
     categoryFilter,
     setOrderPayment,
     orderPayment,
+    searchValue,
+    setSearchValue,
   }
 
   return (

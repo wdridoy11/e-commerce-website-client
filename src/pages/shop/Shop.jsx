@@ -14,7 +14,7 @@ const Shop = () => {
     // min price and max price state 
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    const {searchValue,setSearchValue, sortByPrice,setSortByPrice,categoryFilter,setCategoryFilter} = useContext(AuthContext);
+    const {searchValue,setSearchValue, sortByPrice,categoryFilter} = useContext(AuthContext);
 
     // filter by category using api
     useEffect(()=>{

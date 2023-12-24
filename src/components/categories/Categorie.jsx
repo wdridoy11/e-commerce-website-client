@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -6,10 +6,12 @@ const Categorie = ({categorie}) => {
   const {setCategoryFilter} = useContext(AuthContext);
   const navigate = useNavigate();
   const {icon, title} = categorie;
+  // handle category data get
   const handleClick=(category)=>{
     setCategoryFilter(category);
     navigate('/shop')
   }
+
   return (
     <div>
         <div onClick={()=>handleClick(title)} className='bg-white text-center pt-2 pb-4 rounded-md hover:bg-[#EEEBFE] cursor-pointer duration-500'>

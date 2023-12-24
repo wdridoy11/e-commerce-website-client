@@ -1,18 +1,20 @@
 import React, { useContext } from 'react'
-import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
 import { FaHeart, FaHome, FaUsers,FaUser } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
-import { BsFillBoxFill } from "react-icons/bs";
 import { MdLibraryAdd } from "react-icons/md";
+import { BsFillBoxFill } from "react-icons/bs";
 import { NavLink, Outlet } from 'react-router-dom'
-import { AuthContext } from '../context/AuthProvider';
+import useUser from '../hooks/useUser';
 import useAdmin from '../hooks/useAdmin';
 import useSeller from '../hooks/useSeller';
+import { AuthContext } from '../context/AuthProvider';
+import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
     // const [isAdmin] = useAdmin();
     // const [isSeller] = useSeller();
+    // const [users] = useUser();
     const isAdmin = true;
     const isUser = false;
     const isSeller = false;

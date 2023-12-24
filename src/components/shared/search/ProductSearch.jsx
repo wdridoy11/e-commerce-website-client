@@ -1,12 +1,9 @@
-import React, { createContext, useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import { FaSearch} from 'react-icons/fa';
-import Shop from '../../../pages/shop/Shop';
 import { AuthContext } from '../../../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-import useProducts from '../../../api/useProducts';
 
 const ProductSearch = () => {
-    // const [searchValues, setSearchValues] = useState('');
     const {setSearchValue} = useContext(AuthContext);
     const searchInputRef = useRef(null);
     const navigate = useNavigate();

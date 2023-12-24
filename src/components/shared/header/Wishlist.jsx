@@ -8,7 +8,6 @@ const Wishlist = () => {
   return (
     <div>
         <div className="indicator">
-            {/* <span className="indicator-item badge badge-sm badge-secondary -mt-1">0</span>  */}
             <span className="indicator-item badge badge-sm badge-secondary -mt-1">{wishlist?.length || 0}</span> 
             <Link to={'/dashboard/wishlist'}><FaHeart className='text-xl text-black' /></Link>
         </div>

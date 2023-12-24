@@ -4,6 +4,8 @@ import { createBrowserRouter } from "react-router-dom";
 // page import
 import Main from '../../layout/Main';
 import Shop from '../../pages/shop/Shop';
+import Test from '../../pages/blogs/Test';
+import Order from '../../pages/order/Order';
 import Login from '../../pages/login/Login';
 import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
@@ -16,14 +18,13 @@ import WishlistItem from '../../pages/wishlist/WishlistItem';
 import MyCard from '../../pages/dashboard/user/myCard/MyCard';
 import Registration from '../../pages/registration/Registration';
 import AllUsers from '../../pages/dashboard/admin/allUsers/AllUsers';
+import AdminHome from '../../pages/dashboard/admin/adminHome/AdminHome';
 import MyProduct from '../../pages/dashboard/seller/myProduct/MyProduct';
 import AddProduct from '../../pages/dashboard/seller/addProduct/AddProduct';
 import ProductCardDetails from '../../components/productCard/ProductCardDetails';
 import ManageProduct from '../../pages/dashboard/admin/manageProduct/ManageProduct';
 import ProductUpdate from '../../pages/dashboard/seller/productUpdate/ProductUpdate';
-import AdminHome from '../../pages/dashboard/admin/adminHome/AdminHome';
-import Test from '../../pages/blogs/Test';
-import Order from '../../pages/order/Order';
+
 
 const routes = createBrowserRouter([
   {

@@ -5,9 +5,7 @@ import { Rating } from '@smastrom/react-rating'
 import useProducts from '../../api/useProducts'
 
 const RelatedProduct = ({category,Id}) => {
-    // const [sortData,setSortData] = useState([]);
     const [products] = useProducts();
-
     const categoryFilter = products?.filter((product)=>product.category === category);
     const sortByRating = categoryFilter?.sort((productOne,productTwo)=>productTwo.user_rating - productOne.user_rating);
     const sortData = [];
@@ -15,8 +13,7 @@ const RelatedProduct = ({category,Id}) => {
         if(data._id === Id){continue}
         sortData.push(data)
     }
-    // react reating
-    const [rating, setRating] = useState(4);
+
   return (
     <>
         {sortData?.slice(0,5).map((product)=><div key={product._id} className='mt-3'>
@@ -30,7 +27,7 @@ const RelatedProduct = ({category,Id}) => {
                         <p className='text-lg font-medium text-[#f85606]'>${product?.price}</p>
                         <div className='flex gap-2 items-center'>
                             <div>
-                                <Rating style={{ maxWidth: 60 }} value={product.user_rating} />
+                                <Rating style={{ maxWidth: 60 }} value={product.user_rating} readOnly />
                             </div>
                             <div className='text-base font-semibold'>
                                 ({product.user_review})

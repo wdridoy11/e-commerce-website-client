@@ -51,9 +51,6 @@ const Header = () => {
                   <li title='Favorite'>
                     <Wishlist></Wishlist>
                   </li>
-                  <li title='Compare'>
-                    {/* <Link to={`/shop`}><FaExchangeAlt className='text-xl text-black' /></Link> */}
-                  </li>
                   <div>
                     <Account></Account>
                   </div>

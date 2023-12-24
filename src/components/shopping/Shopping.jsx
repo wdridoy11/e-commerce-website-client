@@ -1,19 +1,19 @@
 import React, {useContext, useEffect, useState } from 'react'
+import Swal from 'sweetalert2';
 import { GrAdd } from 'react-icons/gr'
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import Address from '../Modal/Address'
 import useCard from '../../hooks/useCard';
-import { FaEdit, FaTrash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
-import AddressUpdate from '../Modal/AddressUpdate';
-import Payment from '../../pages/dashboard/payment/Payment';
 import { getData } from '../../api/utils';
+import AddressUpdate from '../Modal/AddressUpdate';
 import { AuthContext } from '../../context/AuthProvider';
+import Payment from '../../pages/dashboard/payment/Payment';
 
 const Shopping = () => {
     const [address, setAddress] = useState([]);
     // address modal
     const [isOpen, setIsOpen] = useState(false);
-    // address update 
+    // address data update 
     const [isOpenAddress,setIsOpenAddress] = useState(false);
     // discount use state
     const [discountPrice, setDiscountPrice] = useState(0);
@@ -23,15 +23,14 @@ const Shopping = () => {
     const [nextButton,setNextButton] = useState(false);
     //payment method show
     const [paymentVisible,setPaymentVisible] = useState(false);
-    // 
+    // when user confirm data
     const [confirmOrder, setConfirmOrder] = useState(false);
-    //
+    //selected Address
     const [selectedAddress, setSelectedAddress] = useState();
-
     const {searchValue,orderPayment} = useContext(AuthContext);
-
     // loading add to card data from useCard hook
     const [card] = useCard();
+
     // address modal
     const closeModal=()=>setIsOpen(false);
     const openModal=()=>setIsOpen(true);
@@ -45,7 +44,7 @@ const Shopping = () => {
         .catch((err)=>console.log(err.message))
     },[address])
 
-    // product total calculate
+    // product total price calculate
     const productPrice = card.reduce((sum,product)=>product.price * product.quantity + sum,0);
     const subtotalPrice = productPrice.toFixed(2);
     const shippingChange = 20;
@@ -106,7 +105,7 @@ const Shopping = () => {
         })
     }
 
-    // address Selected
+    // handle address Selected
     const handleAddressSelected=(addressInfo)=>{
         if(addressInfo){
             setNextButton(true)
@@ -121,15 +120,17 @@ const Shopping = () => {
         setPaymentVisible(true)
     }
 
+    // payment info
     useEffect(()=>{
         if(orderPayment){
             setConfirmOrder(true)
         }
     },[orderPayment])
 
+    // handle confirm order
     const handleConfirmOrder=()=>{
         if(card?.length>0 && orderPayment){
-            let orderDetails ={...orderPayment,selectedAddress};
+            const orderDetails ={...orderPayment,selectedAddress};
             fetch(`${process.env.REACT_APP_API_URL}/order`,{
                 method:"POST",
                 headers:{
@@ -139,7 +140,6 @@ const Shopping = () => {
             })
             .then((res)=>res.json())
             .then((data)=>{
-                console.log("data",data);
                 if(data.insertedId){
                     Swal.fire({
                         position: 'top-end',
@@ -155,7 +155,7 @@ const Shopping = () => {
                 icon: "error",
                 title: "Oops...",
                 text: "Please check payment and product card",
-              });
+            });
         }
     }
 
@@ -165,8 +165,9 @@ const Shopping = () => {
             <div className='grid grid-cols-3 gap-10 w-full'>
                 <div className='col-span-2 h-[70px] bg-white'>
                     <div>
-                        <button onClick={openModal} className='py-5 px-5 text-2xl flex items-center
-                         gap-3'><GrAdd></GrAdd> Add Your Address</button>
+                        <button onClick={openModal} className='py-5 px-5 text-2xl flex items-center gap-3'>
+                            <GrAdd></GrAdd> Add Your Address
+                        </button>
                     </div>
                     <div className='bg-white p-5 mt-5 rounded-md'>
                         <h3 className='text-xl font-medium mb-5'>Shopping Address (Please select only one! shipping address)</h3>
@@ -219,7 +220,6 @@ const Shopping = () => {
                         </button>:
                         <button className="px-10 mt-5 py-2 text-center text-white rounded-md bg-blue-500 opacity-50 cursor-not-allowed">Next </button>
                         }
-                        
                     </div>
 
                     {/* payment methord */}
@@ -228,12 +228,13 @@ const Shopping = () => {
                             <Payment price={price} card={card}></Payment>
                         </div>
                     }
+
                     {confirmOrder && 
                         <div className='bg-white p-5 rounded-md border-t text-end mb-20'>
                             <button onClick={()=>handleConfirmOrder()} className='px-10 py-2 text-center text-white rounded-md bg-blue-500 hover:bg-black duration-500'>Confirm Order</button>
                         </div>
                     }
-                    {/* <button  onClick={()=>handleConfirmOrder()}>order</button> */}
+
                 </div>
                 <div className='col-span-1 bg-white p-10'>
                     <h3 className='text-xl font-medium mb-3'>Checkout Summary</h3>
@@ -253,7 +254,6 @@ const Shopping = () => {
                         <div className='flex justify-between border-t mb-3 pt-3'>
                             <p><strong>Payable Total</strong></p>
                             <p><strong id='totalPrice'>${price} USD</strong></p>
-                            {/* <p><strong id='totalPrice'>${discountPrice === 0? productTotalPrice : discountPrice.toFixed(2)} USD</strong></p> */}
                         </div>
                     </div>
                     <div className='divider'></div>
@@ -286,10 +286,12 @@ const Shopping = () => {
             </div>
         </div>
         <div>
+            {/* address modal */}
             <Address
                 isOpen={isOpen}
                 closeModal={closeModal}
             ></Address>
+            {/* address update modal */}
             <AddressUpdate
                 isOpen={isOpenAddress}
                 closeModal={closeAddressModal}

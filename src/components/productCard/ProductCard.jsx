@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom'
 import { Rating } from '@smastrom/react-rating'
 
 const ProductCard = ({product}) => {
-  // react reating
-  const [rating, setRating] = useState(4);
   // product data destructuring
-  const { brand, product_name, price, _id, product_image } = product;
+  const { brand, product_name, price, _id, product_image,user_rating } = product;
   return (
     <Link to={`/productDetails/${_id}`} className='hover:shadow-md duration-150'>
         <div className='bg-white rounded-md pb-3'>
@@ -19,7 +17,7 @@ const ProductCard = ({product}) => {
                 <p className='text-sm font-normal text-[#A5A5A5] mb-1'>{brand}</p>
                 <div className='flex gap-2 items-center'>
                     <div>
-                        <Rating style={{ maxWidth: 90}} value={rating} onChange={setRating} />
+                        <Rating style={{ maxWidth: 90}} value={user_rating} readOnly />
                     </div>
                 </div>
                 <h4 className='text-xl font-semibold text-blue-500 mt-3 mb-3'>${price}</h4>
