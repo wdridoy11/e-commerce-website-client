@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import OrderCard from './OrderCard'
 import Loader from '../../components/shared/loader/Loader';
 import useProducts from '../../api/useProducts';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Order = () => {
     const [orderInformation, setOrderInformation] = useState([]);
     const [loading, setLoading] = useState(true);
     const [orderProductId, setOrderProductId] = useState([]);
+    const {user} = useContext(AuthContext)
     const [products] = useProducts();
-
+    // ${process.env.REACT_APP_API_URL}/wishlist?email=${user?.email}
     useEffect(()=>{
-        fetch(`${process.env.REACT_APP_API_URL}/order`)
+        fetch(`${process.env.REACT_APP_API_URL}/order?email=${user?.email}`)
         .then((res)=>res.json())
         .then((data)=>{
                 setOrderInformation(data)
