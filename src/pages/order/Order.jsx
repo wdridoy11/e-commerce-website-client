@@ -39,7 +39,6 @@ const Order = () => {
                 </div>
             </div>
         </div>}
-        
     </div>
   )
 }
