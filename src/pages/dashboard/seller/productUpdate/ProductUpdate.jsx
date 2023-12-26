@@ -1,13 +1,14 @@
 import React from 'react'
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const ProductUpdate = () => {
     const productData = useLoaderData();
     console.log(productData)
     const {brand, product_name,small_description, product_description, price, product_imageGallery, _id} = productData;
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
+    // product update info
     const onSubmit=(data)=>{
         fetch(`${process.env.REACT_APP_API_URL}/products/${_id}`,{
           method:"PUT",
@@ -48,12 +49,6 @@ const ProductUpdate = () => {
                                     className='w-full border px-3 py-3 mb-2 mt-1 rounded-md focus:outline-0 focus:ring-1 focus:ring-cyan-400'
                                 />
                             </div>
-                            {/* <div>
-                                <label className='block text-base font-medium mb-1'>Product Category</label>
-                                <select className="select select-bordered w-full" {...register("category")}>
-                                    {categoryName && categoryName.map((category, index)=><option key={index} value={category}>{category}</option>)}
-                                </select>
-                            </div> */}
                             <div>
                                 <label className='text-base font-medium' htmlFor="product_name">Product name</label>
                                 <input 

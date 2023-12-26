@@ -10,6 +10,7 @@ const MyProduct = () => {
   const {user} = useContext(AuthContext)
   const [sellerProduct, setSellerProduct] = useState();
   const navigate = useNavigate();
+  // my product find
   useEffect(()=>{
       fetch(`${process.env.REACT_APP_API_URL}/my_products?email=${user?.email}`)
       .then((res)=>res.json())
@@ -17,6 +18,7 @@ const MyProduct = () => {
       .catch((err)=>console.log(err.message))
   },[])
 
+  // handle product update
   const handleProductUpdate=(product)=>{
     Swal.fire({
       title: 'Are you sure?',
@@ -34,6 +36,7 @@ const MyProduct = () => {
     })
   }
 
+  // delete product
   const handleProductDelete=(product)=>{
     const id = product._id;
     Swal.fire({

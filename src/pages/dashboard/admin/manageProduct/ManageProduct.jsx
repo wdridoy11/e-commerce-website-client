@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import { FaCheck , FaTrash} from 'react-icons/fa';
 import { TbListDetails } from "react-icons/tb";
+import { Link} from 'react-router-dom';
 import { getData } from '../../../../api/utils';
-import Swal from 'sweetalert2';
 import Loader from '../../../../components/shared/loader/Loader';
-import { Link, useNavigate } from 'react-router-dom';
 
 const ManageProduct = () => {
+
     const [loading, setLoading] = useState(true);
     const [sellerProduct, setSellerProduct] = useState([]);
+    // seller product data get
     useEffect(()=>{
         getData("seller_product")
         .then((data)=>{

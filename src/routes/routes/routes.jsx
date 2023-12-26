@@ -4,14 +4,12 @@ import { createBrowserRouter } from "react-router-dom";
 // page import
 import Main from '../../layout/Main';
 import Shop from '../../pages/shop/Shop';
-import Test from '../../pages/blogs/Test';
 import Order from '../../pages/order/Order';
 import Login from '../../pages/login/Login';
 import Home from '../../pages/home/home/Home';
 import Dashboard from '../../layout/Dashboard';
 import PrivetRoute from '../privetRoute/PrivetRoute';
 import BlogDetails from '../../pages/blogs/BlogDetails';
-import Seller from '../../pages/dashboard/seller/Seller';
 import Shopping from '../../components/shopping/Shopping';
 import Payment from '../../pages/dashboard/payment/Payment';
 import WishlistItem from '../../pages/wishlist/WishlistItem';
@@ -38,10 +36,6 @@ const routes = createBrowserRouter([
       {
         path:"shop",
         element:<Shop></Shop>
-      },
-      {
-        path:"test",
-        element:<Test></Test>
       },
       {
         path:"login",
@@ -78,10 +72,6 @@ const routes = createBrowserRouter([
       {
         path:"my_cart",
         element:<MyCard></MyCard>
-      },
-      {
-        path:"seller",
-        element:<Seller></Seller>
       },
       {
         path:"payment",

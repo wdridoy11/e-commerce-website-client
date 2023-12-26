@@ -5,6 +5,7 @@ import offer2 from '../../../assets/offer-02.png';
 import offer3 from '../../../assets/offer-03.png';
 import "./offer.css"
 
+// offer data
 const offerItem =[
     {
         id:1,

@@ -16,8 +16,10 @@ const AddProduct = () => {
     
     const {user} = useContext(AuthContext)
     const { register, handleSubmit, reset} = useForm();
+    // seller product image upload api
     const img_hosting_url=`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
+    // seller product post
     const onSubmit = data => {
         const formData = new FormData();
         formData.append('image', data.image[0])

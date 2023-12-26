@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "./slider.css"
 import 'swiper/css/pagination';
-// image
+
+// hero slider image
 import hero1 from '../../../assets/hero-1.png'
 import hero2 from '../../../assets/hero-2.png'
 import hero3 from '../../../assets/hero-3.png'
@@ -14,7 +15,7 @@ import hero4 from '../../../assets/hero-4.jpg'
 import hero5 from '../../../assets/hero-5.jpg'
 import hero6 from '../../../assets/hero-6.png'
 
-
+// hero slide data
 const heroSlider=[
     {
         img:hero1,

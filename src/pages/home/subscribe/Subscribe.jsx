@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Subscribe = () => {
+    
     const handleSubscribe=(e)=>{
         e.preventDefault();
     }
+
   return (
     <div>
         <div className='container mx-auto px-5 bg-red-400 py-20 rounded-md relative -bottom-20'>

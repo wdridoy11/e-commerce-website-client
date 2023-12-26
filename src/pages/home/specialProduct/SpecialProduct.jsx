@@ -14,7 +14,7 @@ import useProducts from '../../../api/useProducts';
 
 
 const SpecialProduct = () => {
-    
+    // all product
     const [products] = useProducts();
     const [specialProduct, setSpecialProduct]  = useState([]);
 

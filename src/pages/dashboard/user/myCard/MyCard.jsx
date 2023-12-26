@@ -10,7 +10,7 @@ import Loader from '../../../../components/shared/loader/Loader';
 const MyCard = () => {
 
 const [card, refetch, isLoading] = useCard();
-// const [loading, setLoading] = useState(false);
+
 // handle delete card item
 const handleDelete=(item)=>{
   Swal.fire({

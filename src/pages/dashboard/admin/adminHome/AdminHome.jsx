@@ -3,11 +3,6 @@ import { FaUser } from 'react-icons/fa';
 import { FaClockRotateLeft, FaUsers } from 'react-icons/fa6';
 import { IoIosCart } from 'react-icons/io';
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   PieChart, Pie, Cell
@@ -43,6 +38,7 @@ const AdminHome = () => {
     return data
   }
 
+  // chart data
   const data = [
     {
       name: "Mobile",
@@ -72,6 +68,7 @@ const AdminHome = () => {
 
   const COLORS = ["#00C49F","#BB34F5", "#FFBB28", "#FF8042", "#0088FE"];
 
+  // product chart
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -85,6 +82,7 @@ const AdminHome = () => {
     );
   };
 
+// category length
 const findCategoryLength = (name)=>{
   const result = approvedProduct.filter((product)=>product.category === name);
   return result.length;
@@ -145,16 +143,7 @@ console.log(categoryObjects);
                       </div>
                   </div>
               </div>
-              <div className='grid grid-cols-2 gap-10 items-center mt-10 bg-white'>
-                  <div className='pt-10'>
-                      {/* <BarChart width={500} height={300} data={data}>
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="uv" fill="#6AAEFF" />
-                      </BarChart> */}
-                  </div>
+              <div className='grid grid-cols-1 gap-10 items-center mt-10 bg-white'>
                   <div className='mx-auto'>
                       <PieChart width={500} height={500}>
                           <Pie
