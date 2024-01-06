@@ -15,9 +15,9 @@ const Dashboard = () => {
     // const [isAdmin] = useAdmin();
     // const [isSeller] = useSeller();
     // const [users] = useUser();
-    const isAdmin = true;
+    const isAdmin = false;
     const isUser = false;
-    const isSeller = false;
+    const isSeller = true;
   return (
     <>
         <div className="drawer drawer-mobile ">
