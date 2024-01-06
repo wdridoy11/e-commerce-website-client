@@ -26,7 +26,8 @@ const ProductCardDetails = () => {
     const {user}= useContext(AuthContext)
     // data loading form routes
     const productsData = useLoaderData();
-    const { brand, product_name, price, _id, product_image, category, product_description,user_rating, small_description, product_imageGallery } = productsData;
+    const { brand, product_name, price, _id, product_image, category, product_description,user_rating, small_description, product_imageGallery, user_review } = productsData;
+    console.log(productsData);
     // wishlist
     const [wishlist] = useWishlist();
 
@@ -161,7 +162,7 @@ const ProductCardDetails = () => {
                                 <div>
                                     <Rating style={{ maxWidth: 90 }} value={user_rating} readOnly />
                                 </div>
-                                <div className='text-base font-medium text-[#777]'>(10 customer reviews)</div>
+                                <div className='text-base font-medium text-[#777]'>({user_review} customer reviews)</div>
                             </div>
                             <p className='text-base text-[#777] font-normal mt-3'>{small_description}</p>
 
