@@ -12,12 +12,10 @@ import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
-    // const [isAdmin] = useAdmin();
-    // const [isSeller] = useSeller();
-    // const [users] = useUser();
-    const isAdmin = false;
-    const isUser = false;
-    const isSeller = true;
+    const [isAdmin] = useAdmin();
+    const [isSeller] = useSeller();
+    const [users] = useUser();
+    console.log(users)
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -31,7 +29,7 @@ const Dashboard = () => {
             <ul className="menu p-4 w-80 bg-slate-200 text-base-content">
                 <div>
                     <div className='text-center mb-5'>
-                        <img className='w-28 rounded-full mx-auto ring-2' src={user?.photoURL} alt="Profile image" />
+                        <img className='w-28 rounded-full mx-auto ring-2' src={user?.photoURL} alt="Profile_image" />
                         <p className='mt-3 text-lg font-semibold'>{user?.displayName}</p>
                         <p className=''>{user?.email}</p>
                     </div>
@@ -51,7 +49,7 @@ const Dashboard = () => {
                             <li className='mb-2'><NavLink to={`/dashboard/my_product`}><BsFillBoxFill></BsFillBoxFill>My Product</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>
                         </>}
-                        {isUser && <>
+                        {users && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>

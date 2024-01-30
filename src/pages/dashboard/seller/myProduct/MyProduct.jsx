@@ -30,7 +30,6 @@ const MyProduct = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(product)
         navigate(`/dashboard/product_update/${product._id}`)
       }
     })

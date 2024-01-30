@@ -90,7 +90,6 @@ const findCategoryLength = (name)=>{
 
 const [categoryName] = useCategory();
 const categoryObjects = categoryName.map((name) => ({ name: name, value: findCategoryLength(name)}));
-console.log(categoryObjects);
 
   return (
     <>

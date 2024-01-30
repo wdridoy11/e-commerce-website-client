@@ -27,7 +27,6 @@ const ProductCardDetails = () => {
     // data loading form routes
     const productsData = useLoaderData();
     const { brand, product_name, price, _id, product_image, category, product_description,user_rating, small_description, product_imageGallery, user_review } = productsData;
-    console.log(productsData);
     // wishlist
     const [wishlist] = useWishlist();
 
@@ -130,7 +129,6 @@ const ProductCardDetails = () => {
 
     // handleBuyNow button
     const handleBuyNow=(e)=>{
-        console.log(e)
     }
 
     // image gallery get array and conver object
@@ -198,8 +196,8 @@ const ProductCardDetails = () => {
                             </div>
                             {/* quentity area end */}
                             <div className='w-1/2 grid md:grid-cols-2 gap-2'>
-                                <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
-                                   hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button>
+                                {/* <button className='w-full py-2 bg-blue-500 text-white font-medium rounded-sm 
+                                   hover:bg-black duration-500' onClick={handleBuyNow}>Buy Now</button> */}
                                 <button className='w-full py-2 bg-[#FF5039] text-white font-medium rounded-sm
                                  hover:bg-black duration-500' onClick={()=>handleAddToCard()}>Add To Card</button>
                             </div>

@@ -26,10 +26,8 @@ const SocialLogin = () => {
       .then((data)=>{
         if(data.insertedId){
           navigate("/")
-          console.log(data)
         }else if(data.message){
           navigate("/")
-          console.log(data)
         }
       })
     })
@@ -40,7 +38,6 @@ const SocialLogin = () => {
     createUserUsingGithub()
     .then((res)=>{
       const user = res.user;
-      console.log(user)
     })
   .then((err)=>{
     console.log(err.message)

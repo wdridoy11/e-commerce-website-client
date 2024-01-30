@@ -30,7 +30,6 @@ const ManageProduct = () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
       }).then((result) => {
-        console.log("Result",result);
         if (result.isConfirmed) {
           fetch(`${process.env.REACT_APP_API_URL}/seller_product/${product._id}`,{
             method:"PATCH",

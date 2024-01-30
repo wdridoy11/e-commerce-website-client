@@ -14,7 +14,6 @@ const CheckoutForm = ({price,cardData}) => {
     const [transactionId, setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
     const {setOrderPayment} = useContext(AuthContext)
-  // console.log(orderPayment);
     useEffect(()=>{
       if(price>20){
         fetch(`${process.env.REACT_APP_API_URL}/create-payment-intent`,{
@@ -54,7 +53,6 @@ const CheckoutForm = ({price,cardData}) => {
           setCardError(error.message)
         }else{
           setCardError("")
-          // console.log("paymentMethod",paymentMethod)
         }
 
         const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
@@ -98,7 +96,6 @@ const CheckoutForm = ({price,cardData}) => {
           })
           .then((res)=>res.json())
           .then((data)=>{
-            console.log("data.insertedId",data.result.insertedId);
             if(data.result.insertedId){
               setOrderPayment(payment)
               Swal.fire(

@@ -21,7 +21,6 @@ const AllUsers = () => {
 
     // Handle role change function when function call receive 3 parameter user, role and API path
     const userRoleChange= (user, role, apiPath) =>{
-      console.log(user)
       Swal.fire({
         title: 'Are you sure?',
         text: `${user?.name} ${role}`,

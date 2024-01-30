@@ -9,7 +9,7 @@ const useUser = () => {
     const { refetch, data: users = [], isLoading:isUserLoading } = useQuery({
         queryKey:["users", user?.email],
         queryFn: async()=>{
-            const res = await axiosSecure.get('/users')
+            const res = await axiosSecure.get(`users/user/${user?.email}`)
             return res.data;
         }
     })

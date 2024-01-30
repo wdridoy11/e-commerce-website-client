@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const ProductUpdate = () => {
     const productData = useLoaderData();
-    console.log(productData)
     const {brand, product_name,small_description, product_description, price, product_imageGallery, _id} = productData;
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -26,7 +25,6 @@ const ProductUpdate = () => {
                     'success'
                 )
             }
-            console.log(data)
         })
     }
   return (

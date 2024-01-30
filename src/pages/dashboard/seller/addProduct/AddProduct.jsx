@@ -33,7 +33,6 @@ const AddProduct = () => {
                 const imgUrl = imgResponse.data.display_url;
                 const product_imageGallery = [data.product_gallery1,data.product_gallery2]
                 const {brand, category, price, product_description, product_name, small_description}= data;
-                console.log(data)
                 const newItem = {seller_email: user?.email,price: parseFloat(price), user_rating:null, user_review:0, 
                 product_image: imgUrl, brand, category, product_description, product_name, small_description, product_imageGallery}
                 fetch(`${process.env.REACT_APP_API_URL}/seller_product`,{

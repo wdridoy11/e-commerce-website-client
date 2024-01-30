@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import loginImg from '../../assets/login.png'
 import SocialLogin from '../../components/shared/socialLogin/SocialLogin';
+import { AuthContext } from '../../context/AuthProvider';
 const bgImage =`https://img.freepik.com/free-vector/isometric-e-commerce-concept_52683-39811.jpg?w=900&t=st=1685985549~exp=1685986149~hmac=315e1b3ce65a9c911441cabc56adaec6cbe1ad77c5370eed769690b7beeaa91b`
 
 const Login = () => {
-    
+    const {userLogin} = useContext(AuthContext);
     const { register, handleSubmit} = useForm();
+    const [error, setError] = useState();
     const onSubmit = data => {
-        console.log(data)
+        userLogin(data.email,data.password)
+        .then((res)=>{
+            console.log(res);
+            setError("")
+        })
+        .catch((err)=>{
+            setError(err.message);
+        })
+        // console.log(data)
     };
-  
+  console.log(error);
   return (
     <div>
         <div className="py-20" style={{ backgroundImage: `url(${bgImage})`}}>
@@ -19,6 +29,7 @@ const Login = () => {
             <div className='container mx-auto px-5'>
                 <div className='grid md:grid-cols-2 glass gap-10 p-10 rounded-xl items-center'>
                     <div className=''>
+                        {error && <p className='text-start text-red-500 mb-2'>{error}</p>}
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input 
                                 type="email" 

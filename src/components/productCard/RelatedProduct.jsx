@@ -13,11 +13,10 @@ const RelatedProduct = ({category,Id}) => {
         if(data._id === Id){continue}
         sortData.push(data)
     }
-
   return (
     <>
         {sortData?.slice(0,5).map((product)=><div key={product._id} className='mt-3'>
-            <Link to={`http://localhost:3000/productDetails/${product._id}`} className='hover:shadow-md duration-150'>
+            <Link to={`https://e-commerce-website-99d1a.web.app/productDetails/${product._id}`} className='hover:shadow-md duration-150'>
                 <div className='bg-white rounded-sm border rounded-b-md'>
                     <div className='w-full h-48 overflow-hidden'>
                         <img className='w-2/5 lg:w-3/5 mx-auto rounded-t-md' src={product?.product_image} alt={product?.product_name} />

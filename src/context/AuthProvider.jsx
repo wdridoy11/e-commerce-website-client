@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  } from 'firebase/auth'
+} from 'firebase/auth'
 import app from '../utils/firebase/firebase.config';
 export const AuthContext = createContext();
 
