@@ -8,14 +8,13 @@ import useUser from '../hooks/useUser';
 import useAdmin from '../hooks/useAdmin';
 import useSeller from '../hooks/useSeller';
 import { AuthContext } from '../context/AuthProvider';
-import AllUsers from '../pages/dashboard/admin/allUsers/AllUsers'
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
     const [isAdmin] = useAdmin();
     const [isSeller] = useSeller();
-    const [users] = useUser();
-    console.log(users)
+    const [isUser] = useUser();
+    console.log(isUser)
   return (
     <>
         <div className="drawer drawer-mobile ">
@@ -49,7 +48,7 @@ const Dashboard = () => {
                             <li className='mb-2'><NavLink to={`/dashboard/my_product`}><BsFillBoxFill></BsFillBoxFill>My Product</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>
                         </>}
-                        {users && <>
+                        {isUser && <>
                             <li className='mb-2'><NavLink to={`/dashboard/my_cart`}><IoMdCart></IoMdCart> My Cart</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/wishlist`}><FaHeart></FaHeart> Wishlist</NavLink></li>
                             <li className='mb-2'><NavLink to={`/dashboard/order`}><BsFillBoxFill></BsFillBoxFill>My Order</NavLink></li>

@@ -16,4 +16,4 @@ const ProductDataLoad = () => {
   )
 }
 
-export default ProductDataLoad
+export default ProductDataLoad;
